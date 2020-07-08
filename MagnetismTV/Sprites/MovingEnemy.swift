@@ -8,6 +8,79 @@
 
 import SpriteKit
 
-class MovingEnemy: SKSpriteNode {
+class MovingEnemy: SKSpriteNode, Movable {
 
+    enum Direction {
+        case vertical
+        case horizontal
+    }
+
+    static var bitmask: UInt32 = 0x0100
+
+    private(set) var velocity = CGVector.zero
+    private var direction: Direction
+
+
+    init(withImage image: String? = nil,
+         direction: Direction,
+         speed: CGFloat = 200,
+         color: UIColor = .clear,
+         size: CGSize? = nil,
+         andScale scale: CGFloat = 1) {
+
+        self.direction = direction
+        let texture = image != nil ? SKTexture(imageNamed: image!) : nil
+        let size = (size == nil && texture != nil)
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
+            : CGSize(width: 50, height: 50)
+        
+        super.init(texture: texture, color: color, size: size)
+        self.speed = speed
+        configure()
+    }
+
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+
+    private func configure() {
+
+        switch direction {
+        case .horizontal:
+            velocity.dx = speed
+        case .vertical:
+            velocity.dy = speed
+        }
+
+        physicsBody = SKPhysicsBody(rectangleOf: size.applying(CGAffineTransform(scaleX: 0.8, y: 0.8)))
+        physicsBody?.restitution = 0
+        physicsBody?.allowsRotation = false
+        physicsBody?.affectedByGravity = false
+        physicsBody?.usesPreciseCollisionDetection = true
+        physicsBody?.categoryBitMask = MovingEnemy.bitmask
+        physicsBody?.contactTestBitMask = Level0.bitmask
+        physicsBody?.collisionBitMask = Level0.bitmask
+    }
+
+
+    func invert() {
+        switch direction {
+        case .horizontal:
+            velocity.dx *= -1
+        case .vertical:
+            velocity.dy *= -1
+        }
+    }
+
+
+    func move(basedOn dt: CGFloat) {
+        switch direction {
+        case .horizontal:
+            position.x += velocity.dx * dt
+        case .vertical:
+            position.y += velocity.dy * dt
+        }
+    }
 }

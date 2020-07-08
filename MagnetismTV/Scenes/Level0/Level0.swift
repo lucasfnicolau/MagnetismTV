@@ -13,6 +13,8 @@ class Level0: SKScene {
 
     private var lastUpdateTime: TimeInterval = 0
     private var player: Player
+    private var movingEnemies = [Int: MovingEnemy]()
+    private var enemiesNumber = 1
     private var mazeWalls: SKTileMapNode!
     static var bitmask: UInt32 = 0x0010
 
@@ -41,6 +43,7 @@ class Level0: SKScene {
         super.didMove(to: view)
         configure()
         addGestureRecognizers()
+        createEnemies()
     }
 
 
@@ -93,7 +96,21 @@ class Level0: SKScene {
 
 
     @objc private func didSwipe(swipe: UISwipeGestureRecognizer) {
-        player.move(to: swipe.direction)
+        player.setVelocity(basedOn: swipe.direction)
+    }
+
+
+    private func createEnemies() {
+        for index in 0 ..< enemiesNumber {
+            guard let entryPoint = self.childNode(withName: "Enemy\(index)") else { continue }
+
+            let movingEnemy = MovingEnemy(withImage: "skull", direction: .horizontal, andScale: 0.05)
+            movingEnemy.position = entryPoint.position
+            addChild(movingEnemy)
+
+            let key = movingEnemy.physicsBody?.hash ?? 0
+            movingEnemies[key] = movingEnemy
+        }
     }
 
 
@@ -116,8 +133,8 @@ class Level0: SKScene {
         }
         let dt: CGFloat = CGFloat(currentTime - self.lastUpdateTime)
 
-        player.position.x += player.velocity.dx * dt
-        player.position.y += player.velocity.dy * dt
+        player.move(basedOn: dt)
+        movingEnemies.values.forEach { $0.move(basedOn: dt) }
 
         self.lastUpdateTime = currentTime
     }
@@ -126,7 +143,11 @@ class Level0: SKScene {
 extension Level0: SKPhysicsContactDelegate {
 
     func didBegin(_ contact: SKPhysicsContact) {
-        print(contact)
+        let keyA = contact.bodyA.hash
+        let keyB = contact.bodyB.hash
+
+        if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
+        if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
     }
 
 }
