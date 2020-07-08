@@ -6,7 +6,7 @@
 //  Copyright © 2020 Lucas Fernandez Nicolau. All rights reserved.
 //
 
-import UIKit
+import SpriteKit
 
 class MovingEnemy: SKSpriteNode {
 
