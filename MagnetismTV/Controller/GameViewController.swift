@@ -15,7 +15,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let levelScene = Level(size: view.bounds.size)
+        guard let levelScene = SKScene(fileNamed: "Level0") else {
+            print("Error creating .sks scene")
+            return
+        }
+
         levelScene.scaleMode = .aspectFill
 
         if let view = self.view as? SKView {

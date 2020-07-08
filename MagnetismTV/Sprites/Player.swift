@@ -11,10 +11,10 @@ import UIKit
 
 class Player: SKSpriteNode {
 
-    static var mask: UInt32 = 0x0001
-    
+    static var bitmask: UInt32 = 0x0001
 
-    private var impulse: CGFloat = 4000
+    
+    private(set) var velocity = CGVector.zero
     private var isMoving = false
 
 
@@ -24,10 +24,8 @@ class Player: SKSpriteNode {
          andScale scale: CGFloat = 1) {
 
         let texture = image != nil ? SKTexture(imageNamed: image!) : nil
-        let size = (size == nil && texture != nil) ? texture!.size() : CGSize(width: 50, height: 50)
+        let size = (size == nil && texture != nil) ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale)) : CGSize(width: 50, height: 50)
         super.init(texture: texture, color: color, size: size)
-        xScale = scale
-        yScale = scale
         configure()
     }
 
@@ -38,37 +36,30 @@ class Player: SKSpriteNode {
 
 
     private func configure() {
-        if let texture = texture {
-            physicsBody = SKPhysicsBody(texture: texture, size: size)
-        } else {
-            physicsBody = SKPhysicsBody(rectangleOf: size)
-        }
+        speed = 4100 // ≤ 4100 to prevent ignore collisions
+
+        physicsBody = SKPhysicsBody(rectangleOf: size.applying(CGAffineTransform(scaleX: 0.8, y: 0.8)))
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
-        physicsBody?.categoryBitMask = Player.mask
+        physicsBody?.usesPreciseCollisionDetection = true
+        physicsBody?.categoryBitMask = Player.bitmask
+        physicsBody?.collisionBitMask = Level0.bitmask
     }
 
 
     func move(to direction: UISwipeGestureRecognizer.Direction) {
-        let action: SKAction
-
         switch direction {
         case .up:
-            action = SKAction.applyImpulse(CGVector(dx: 0, dy: impulse), duration: 0.02)
+            velocity = CGVector(dx: 0, dy: speed)
         case .right:
-            action = SKAction.applyImpulse(CGVector(dx: impulse, dy: 0), duration: 0.02)
+            velocity = CGVector(dx: speed, dy: 0)
         case .left:
-            action = SKAction.applyImpulse(CGVector(dx: -impulse, dy: 0), duration: 0.02)
+            velocity = CGVector(dx: -speed, dy: 0)
         case .down:
-            action = SKAction.applyImpulse(CGVector(dx: 0, dy: -impulse), duration: 0.02)
+            velocity = CGVector(dx: 0, dy: -speed)
         default:
-            action = SKAction.init()
+            velocity = .zero
         }
-
-        guard !isMoving else { return }
-
-        isMoving = true
-        self.run(action) { self.isMoving = false }
     }
 }
