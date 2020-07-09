@@ -9,13 +9,11 @@
 import SpriteKit
 import UIKit
 
-class Player: SKSpriteNode {
+class Player: SKSpriteNode, Movable {
 
     static var bitmask: UInt32 = 0x0001
-
     
     private(set) var velocity = CGVector.zero
-    private var isMoving = false
 
 
     init(withImage image: String? = nil,
@@ -24,7 +22,10 @@ class Player: SKSpriteNode {
          andScale scale: CGFloat = 1) {
 
         let texture = image != nil ? SKTexture(imageNamed: image!) : nil
-        let size = (size == nil && texture != nil) ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale)) : CGSize(width: 50, height: 50)
+        let size = (size == nil && texture != nil)
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
+            : CGSize(width: 50, height: 50)
+
         super.init(texture: texture, color: color, size: size)
         configure()
     }
@@ -45,10 +46,11 @@ class Player: SKSpriteNode {
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = Player.bitmask
         physicsBody?.collisionBitMask = Level0.bitmask
+        physicsBody?.contactTestBitMask = MovingEnemy.bitmask
     }
 
 
-    func move(to direction: UISwipeGestureRecognizer.Direction) {
+    func setVelocity(basedOn direction: UISwipeGestureRecognizer.Direction) {
         switch direction {
         case .up:
             velocity = CGVector(dx: 0, dy: speed)
@@ -61,5 +63,11 @@ class Player: SKSpriteNode {
         default:
             velocity = .zero
         }
+    }
+
+
+    func move(basedOn dt: CGFloat) {
+        position.x += velocity.dx * dt
+        position.y += velocity.dy * dt
     }
 }
