@@ -60,8 +60,8 @@ class MovingEnemy: SKSpriteNode, Movable {
         physicsBody?.affectedByGravity = false
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = MovingEnemy.bitmask
-        physicsBody?.contactTestBitMask = Level0.bitmask
-        physicsBody?.collisionBitMask = Level0.bitmask
+        physicsBody?.contactTestBitMask = Level.bitmask
+        physicsBody?.collisionBitMask = Level.bitmask
     }
 
 

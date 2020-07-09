@@ -45,7 +45,7 @@ class Player: SKSpriteNode, Movable {
         physicsBody?.affectedByGravity = false
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = Player.bitmask
-        physicsBody?.collisionBitMask = Level0.bitmask
+        physicsBody?.collisionBitMask = Level.bitmask
         physicsBody?.contactTestBitMask = MovingEnemy.bitmask
     }
 

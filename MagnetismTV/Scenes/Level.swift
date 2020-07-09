@@ -9,7 +9,7 @@
 import SpriteKit
 import UIKit
 
-class Level0: SKScene {
+class Level: SKScene {
 
     private var lastUpdateTime: TimeInterval = 0
     private var player: Player
@@ -72,7 +72,7 @@ class Level0: SKScene {
 
                 tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width,
                                                                          height: height))
-                tileNode.physicsBody?.categoryBitMask = Level0.bitmask
+                tileNode.physicsBody?.categoryBitMask = Level.bitmask
                 tileNode.physicsBody?.restitution = 0
                 tileNode.physicsBody?.isDynamic = false
                 tileNode.physicsBody?.pinned = true
@@ -147,6 +147,7 @@ class Level0: SKScene {
         player.position = entryPoint.position
         addChild(player)
     }
+    
 
     override func update(_ currentTime: TimeInterval) {
         if (self.lastUpdateTime == 0) {
@@ -161,7 +162,7 @@ class Level0: SKScene {
     }
 }
 
-extension Level0: SKPhysicsContactDelegate {
+extension Level: SKPhysicsContactDelegate {
 
     func didBegin(_ contact: SKPhysicsContact) {
         let keyA = contact.bodyA.hash
