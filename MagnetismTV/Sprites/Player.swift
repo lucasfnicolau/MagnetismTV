@@ -43,6 +43,7 @@ class Player: SKSpriteNode, Movable {
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
+        physicsBody?.mass = 100
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = Player.bitmask
         physicsBody?.collisionBitMask = Level.bitmask

@@ -137,9 +137,10 @@ class Level: SKScene {
 
     private func configure() {
         physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.gravity = .zero
         physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         physicsBody?.restitution = 0
+        physicsBody?.categoryBitMask = Level.bitmask
 
         guard let entryPoint = self.childNode(withName: NodeName.entryPoint) else {
             return

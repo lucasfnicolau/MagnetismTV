@@ -10,6 +10,8 @@
 		B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */; };
 		B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8224B6630800AF8640 /* Movable.swift */; };
 		B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8924B7980600AF8640 /* NodeName.swift */; };
+		B6CFCC9024B7A12C00AF8640 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8F24B7A12C00AF8640 /* TimerView.swift */; };
+		B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC9124B7B54800AF8640 /* NotificationName.swift */; };
 		B6D43FBE24B3BB6E008B0F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */; };
 		B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */; };
 		B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FC724B3BB6E008B0F15 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingEnemy.swift; sourceTree = "<group>"; };
 		B6CFCC8224B6630800AF8640 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
+		B6CFCC8F24B7A12C00AF8640 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		B6CFCC9124B7B54800AF8640 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		B6D43FBA24B3BB6E008B0F15 /* MagnetismTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnetismTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D43FC724B3BB6E008B0F15 /* Main.storyboard */,
+				B6CFCC8F24B7A12C00AF8640 /* TimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				B6CFCC8924B7980600AF8640 /* NodeName.swift */,
+				B6CFCC9124B7B54800AF8640 /* NotificationName.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				B6D43FDE24B3BB9E008B0F15 /* Player.swift in Sources */,
 				B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */,
 				B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */,
+				B6CFCC9024B7A12C00AF8640 /* TimerView.swift in Sources */,
+				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
 				B6D43FBE24B3BB6E008B0F15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
