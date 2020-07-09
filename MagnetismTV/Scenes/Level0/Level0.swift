@@ -14,7 +14,7 @@ class Level0: SKScene {
     private var lastUpdateTime: TimeInterval = 0
     private var player: Player
     private var movingEnemies = [Int: MovingEnemy]()
-    private var enemiesNumber = 1
+    private var enemiesNumber = 0
     private var mazeWalls: SKTileMapNode!
     static var bitmask: UInt32 = 0x0010
 
@@ -29,7 +29,7 @@ class Level0: SKScene {
         super.sceneDidLoad()
         self.lastUpdateTime = 0
 
-        guard let mazeWalls = childNode(withName: "MazeWalls")
+        guard let mazeWalls = childNode(withName: NodeName.mazeWalls)
             as? SKTileMapNode else {
                 fatalError("Background node not loaded")
         }
@@ -43,20 +43,29 @@ class Level0: SKScene {
         super.didMove(to: view)
         configure()
         addGestureRecognizers()
+        calculateEnemiesNumber()
         createEnemies()
     }
 
 
-    private func setupWallsCollision() {
+    private func calculateEnemiesNumber() {
+        enemiesNumber = children.reduce(Int.zero, { x, y in
+            (y.name?.contains(NodeName.enemy) ?? false) ? x + 1 : x
+        })
+    }
 
+
+    private func setupWallsCollision() {
         for column in 0 ..< mazeWalls.numberOfColumns {
             for row in 0 ..< mazeWalls.numberOfRows {
-                guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column, row: row) else { continue }
+                guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column,
+                                                                    row: row) else { continue }
 
                 let width = tileDefinition.size.width * mazeWalls.xScale
                 let height = tileDefinition.size.height * mazeWalls.yScale
 
-                let center = mazeWalls.centerOfTile(atColumn: column, row: row).applying(CGAffineTransform(scaleX: mazeWalls.xScale, y: mazeWalls.yScale))
+                let center = mazeWalls.centerOfTile(atColumn: column, row:
+                    row).applying(CGAffineTransform(scaleX: mazeWalls.xScale, y: mazeWalls.yScale))
 
                 let tileNode = SKNode()
                 tileNode.position = center
@@ -102,10 +111,22 @@ class Level0: SKScene {
 
     private func createEnemies() {
         for index in 0 ..< enemiesNumber {
-            guard let entryPoint = self.childNode(withName: "Enemy\(index)") else { continue }
+            var entryPoint: SKNode?
+            let enemyH = self.childNode(withName: "\(NodeName.enemy)\(index)H")
+            let enemyV = self.childNode(withName: "\(NodeName.enemy)\(index)V")
+            var direction: MovingEnemy.Direction = .horizontal
 
-            let movingEnemy = MovingEnemy(withImage: "skull", direction: .horizontal, andScale: 0.05)
-            movingEnemy.position = entryPoint.position
+            if enemyH != nil {
+                entryPoint = enemyH
+            } else if enemyV != nil {
+                entryPoint = enemyV
+                direction = .vertical
+            }
+
+            if entryPoint == nil { continue }
+
+            let movingEnemy = MovingEnemy(withImage: "skull", direction: direction, andScale: 0.05)
+            movingEnemy.position = entryPoint!.position
             addChild(movingEnemy)
 
             let key = movingEnemy.physicsBody?.hash ?? 0
@@ -120,7 +141,7 @@ class Level0: SKScene {
         physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         physicsBody?.restitution = 0
 
-        guard let entryPoint = self.childNode(withName: "EntryPoint") else {
+        guard let entryPoint = self.childNode(withName: NodeName.entryPoint) else {
             return
         }
         player.position = entryPoint.position
@@ -147,7 +168,7 @@ extension Level0: SKPhysicsContactDelegate {
         let keyB = contact.bodyB.hash
 
         if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
-        if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
+        else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
     }
 
 }
