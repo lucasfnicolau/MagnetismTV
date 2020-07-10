@@ -12,8 +12,10 @@ import UIKit
 class Player: SKSpriteNode, Movable {
 
     static var bitmask: UInt32 = 0x0001
-    
-    private(set) var velocity = CGVector.zero
+
+    var isEnabled: Bool = false
+    private var nodeSpeed: CGFloat = 4100
+    private var velocity = CGVector.zero
 
 
     init(withImage image: String? = nil,
@@ -37,7 +39,8 @@ class Player: SKSpriteNode, Movable {
 
 
     private func configure() {
-        speed = 4100 // ≤ 4100 to prevent ignore collisions
+        alpha = 0
+        nodeSpeed = 4100 // ≤ 4100 to prevent ignore collisions
 
         physicsBody = SKPhysicsBody(rectangleOf: size.applying(CGAffineTransform(scaleX: 0.8, y: 0.8)))
         physicsBody?.restitution = 0
@@ -53,13 +56,13 @@ class Player: SKSpriteNode, Movable {
     func setVelocity(basedOn direction: UISwipeGestureRecognizer.Direction) {
         switch direction {
         case .up:
-            velocity = CGVector(dx: 0, dy: speed)
+            velocity = CGVector(dx: 0, dy: nodeSpeed)
         case .right:
-            velocity = CGVector(dx: speed, dy: 0)
+            velocity = CGVector(dx: nodeSpeed, dy: 0)
         case .left:
-            velocity = CGVector(dx: -speed, dy: 0)
+            velocity = CGVector(dx: -nodeSpeed, dy: 0)
         case .down:
-            velocity = CGVector(dx: 0, dy: -speed)
+            velocity = CGVector(dx: 0, dy: -nodeSpeed)
         default:
             velocity = .zero
         }
@@ -67,6 +70,7 @@ class Player: SKSpriteNode, Movable {
 
 
     func move(basedOn dt: CGFloat) {
+        guard isEnabled else { return }
         position.x += velocity.dx * dt
         position.y += velocity.dy * dt
     }

@@ -12,24 +12,62 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    private var timerView: TimerView!
+    private var levels = ["Level0"]
+    private var currentLevel = 0
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let levelScene = SKScene(fileNamed: "Level0") else {
+        addObservers()
+        start(sceneNamed: levels[currentLevel])
+    }
+
+
+    private func start(sceneNamed name: String) {
+        setupView(for: createScene(named: name))
+    }
+
+
+    private func createScene(named name: String) -> SKScene {
+        guard let levelScene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
-            return
+            return SKScene()
         }
-
         levelScene.scaleMode = .aspectFill
+        return levelScene
+    }
 
+
+    private func setupView(for levelScene: SKScene) {
         if let view = self.view as? SKView {
-            view.presentScene(levelScene)
+            timerView = TimerView(timeLimit: 60)
+            view.addSubview(timerView)
 
+            view.presentScene(levelScene)
             view.ignoresSiblingOrder = true
 
+            #if DEBUG
             view.showsFPS = true
             view.showsNodeCount = true
             view.showsPhysics = true
+            #endif
+        }
+    }
+
+
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.timeIsUp, object: nil)
+    }
+
+
+    @objc private func notificationReceived(_ notif: Notification) {
+        switch notif.name {
+        case NotificationName.timeIsUp:
+            start(sceneNamed: levels[currentLevel])
+        default:
+            return
         }
     }
 }
