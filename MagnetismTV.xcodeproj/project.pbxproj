@@ -21,7 +21,7 @@
 		B6D43FDE24B3BB9E008B0F15 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FDD24B3BB9E008B0F15 /* Player.swift */; };
 		B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE324B4F14C008B0F15 /* TileSet.sks */; };
 		B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE424B4F14D008B0F15 /* Assets.xcassets */; };
-		B6D43FE824B501E8008B0F15 /* Level0.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE724B501E8008B0F15 /* Level0.sks */; };
+		B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE724B501E8008B0F15 /* Level000.sks */; };
 		B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FE924B504F0008B0F15 /* Level.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		B6D43FDD24B3BB9E008B0F15 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B6D43FE324B4F14C008B0F15 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		B6D43FE424B4F14D008B0F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B6D43FE724B501E8008B0F15 /* Level0.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level0.sks; sourceTree = "<group>"; };
+		B6D43FE724B501E8008B0F15 /* Level000.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level000.sks; sourceTree = "<group>"; };
 		B6D43FE924B504F0008B0F15 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,7 +172,7 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				B6D43FE724B501E8008B0F15 /* Level0.sks */,
+				B6D43FE724B501E8008B0F15 /* Level000.sks */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 				B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */,
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
-				B6D43FE824B501E8008B0F15 /* Level0.sks in Resources */,
+				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
 			);
