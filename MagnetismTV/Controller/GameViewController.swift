@@ -13,7 +13,6 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     private var timerView: TimerView!
-    private var levels = ["Level0"]
     private var currentLevel = 0
 
 
@@ -21,16 +20,27 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         addObservers()
-        start(sceneNamed: levels[currentLevel])
+        start(sceneWithIndex: currentLevel)
     }
 
 
-    private func start(sceneNamed name: String) {
-        setupView(for: createScene(named: name))
+    private func start(sceneWithIndex index: Int) {
+        let name: String
+        if index >= 100 {
+            name = "Level\(index)"
+        } else if index >= 10 {
+            name = "Level0\(index)"
+        } else {
+            name = "Level00\(index)"
+        }
+
+        let scene = createScene(named: name)
+        setupView(for: scene)
     }
 
 
     private func createScene(named name: String) -> SKScene {
+
         guard let levelScene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
             return SKScene()
@@ -42,7 +52,7 @@ class GameViewController: UIViewController {
 
     private func setupView(for levelScene: SKScene) {
         view.subviews.forEach { $0.removeFromSuperview() }
-        
+
         if let view = self.view as? SKView {
             timerView = TimerView(timeLimit: 60)
             view.addSubview(timerView)
@@ -69,7 +79,7 @@ class GameViewController: UIViewController {
         switch notif.name {
         case NotificationName.timeIsUp,
              NotificationName.playerKilled:
-            start(sceneNamed: levels[currentLevel])
+            start(sceneWithIndex: currentLevel)
         default:
             return
         }
