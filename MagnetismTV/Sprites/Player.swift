@@ -9,12 +9,13 @@
 import SpriteKit
 import UIKit
 
-class Player: SKSpriteNode, Movable {
+class Player: SKSpriteNode, Enablable {
 
     static var bitmask: UInt32 = 0x0001
 
     var isEnabled: Bool = false
-    private var nodeSpeed: CGFloat = 4100
+    private var isMoving = false
+    private var impulse: CGFloat = 2700
     private var velocity = CGVector.zero
 
 
@@ -40,9 +41,8 @@ class Player: SKSpriteNode, Movable {
 
     private func configure() {
         alpha = 0
-        nodeSpeed = 4100 // ≤ 4100 to prevent ignore collisions
 
-        physicsBody = SKPhysicsBody(rectangleOf: size.applying(CGAffineTransform(scaleX: 0.8, y: 0.8)))
+        physicsBody =  SKPhysicsBody(circleOfRadius: size.width * 0.8 / 2)
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
@@ -54,24 +54,27 @@ class Player: SKSpriteNode, Movable {
 
 
     func setVelocity(basedOn direction: UISwipeGestureRecognizer.Direction) {
+        guard isEnabled else { return }
+
+        let action: SKAction
+
         switch direction {
         case .up:
-            velocity = CGVector(dx: 0, dy: nodeSpeed)
+            action = SKAction.applyImpulse(CGVector(dx: 0, dy: impulse), duration: 0.1)
         case .right:
-            velocity = CGVector(dx: nodeSpeed, dy: 0)
+            action = SKAction.applyImpulse(CGVector(dx: impulse, dy: 0), duration: 0.1)
         case .left:
-            velocity = CGVector(dx: -nodeSpeed, dy: 0)
+            action = SKAction.applyImpulse(CGVector(dx: -impulse, dy: 0), duration: 0.1)
         case .down:
-            velocity = CGVector(dx: 0, dy: -nodeSpeed)
+            action = SKAction.applyImpulse(CGVector(dx: 0, dy: -impulse), duration: 0.1)
         default:
-            velocity = .zero
+            action = .init()
         }
-    }
 
-
-    func move(basedOn dt: CGFloat) {
-        guard isEnabled else { return }
-        position.x += velocity.dx * dt
-        position.y += velocity.dy * dt
+        guard !isMoving else { return }
+        isMoving = true
+        run(action) {
+            self.isMoving = false
+        }
     }
 }

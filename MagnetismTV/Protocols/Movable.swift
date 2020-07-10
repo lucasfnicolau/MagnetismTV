@@ -9,6 +9,5 @@
 import UIKit
 
 protocol Movable {
-    var isEnabled: Bool { get set }
     func move(basedOn dt: CGFloat)
 }
