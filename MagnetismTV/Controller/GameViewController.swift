@@ -41,6 +41,8 @@ class GameViewController: UIViewController {
 
 
     private func setupView(for levelScene: SKScene) {
+        view.subviews.forEach { $0.removeFromSuperview() }
+        
         if let view = self.view as? SKView {
             timerView = TimerView(timeLimit: 60)
             view.addSubview(timerView)
@@ -59,12 +61,14 @@ class GameViewController: UIViewController {
 
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.timeIsUp, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.playerKilled, object: nil)
     }
 
 
     @objc private func notificationReceived(_ notif: Notification) {
         switch notif.name {
-        case NotificationName.timeIsUp:
+        case NotificationName.timeIsUp,
+             NotificationName.playerKilled:
             start(sceneNamed: levels[currentLevel])
         default:
             return

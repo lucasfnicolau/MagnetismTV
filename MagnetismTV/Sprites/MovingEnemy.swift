@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class MovingEnemy: SKSpriteNode, Movable {
+class MovingEnemy: SKSpriteNode, Movable, Enablable {
 
     enum Direction {
         case vertical

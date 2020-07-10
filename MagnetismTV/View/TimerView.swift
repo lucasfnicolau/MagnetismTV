@@ -95,6 +95,7 @@ class TimerView: UIView {
         layer.cornerRadius = min(frame.width, frame.height) / 4
 
         if currentTime >= timeLimit {
+            subviews.forEach { $0.removeFromSuperview() }
             timer?.invalidate()
             NotificationCenter.default.post(name: NotificationName.timeIsUp, object: nil)
         }

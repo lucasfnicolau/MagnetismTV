@@ -10,4 +10,5 @@ import Foundation
 
 enum NotificationName {
     static var timeIsUp = NSNotification.Name("timeIsUp")
+    static var playerKilled = NSNotification.Name("playerKilled")
 }

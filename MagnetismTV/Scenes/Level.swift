@@ -27,7 +27,7 @@ class Level: SKScene {
 
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        self.lastUpdateTime = 0
+        lastUpdateTime = 0
 
         guard let mazeWalls = childNode(withName: NodeName.mazeWalls)
             as? SKTileMapNode else {
@@ -49,7 +49,7 @@ class Level: SKScene {
 
 
     private func calculateEnemiesNumber() {
-        enemiesNumber = children.reduce(Int.zero, { x, y in
+        enemiesNumber = children.reduce(0, { x, y in
             (y.name?.contains(NodeName.enemy) ?? false) ? x + 1 : x
         })
     }
@@ -78,7 +78,7 @@ class Level: SKScene {
                 tileNode.physicsBody?.pinned = true
                 tileNode.physicsBody?.allowsRotation = false
 
-                self.addChild(tileNode)
+                addChild(tileNode)
             }
         }
     }
@@ -112,8 +112,8 @@ class Level: SKScene {
     private func createEnemies() {
         for index in 0 ..< enemiesNumber {
             var entryPoint: SKNode?
-            let enemyH = self.childNode(withName: "\(NodeName.enemy)\(index)H")
-            let enemyV = self.childNode(withName: "\(NodeName.enemy)\(index)V")
+            let enemyH = childNode(withName: "\(NodeName.enemy)\(index)H")
+            let enemyV = childNode(withName: "\(NodeName.enemy)\(index)V")
             var direction: MovingEnemy.Direction = .horizontal
 
             if enemyH != nil {
@@ -128,7 +128,7 @@ class Level: SKScene {
             let movingEnemy = MovingEnemy(withImage: "skull", direction: direction, andScale: 0.05)
             addNode(movingEnemy, at: entryPoint!.position)
 
-            let key = movingEnemy.physicsBody?.hash ?? 0
+            guard let key = movingEnemy.physicsBody?.hash else { return }
             movingEnemies[key] = movingEnemy
         }
     }
@@ -141,7 +141,7 @@ class Level: SKScene {
         physicsBody?.restitution = 0
         physicsBody?.categoryBitMask = Level.bitmask
 
-        guard let entryPoint = self.childNode(withName: NodeName.entryPoint) else {
+        guard let entryPoint = childNode(withName: NodeName.entryPoint) else {
             return
         }
         addNode(player, at: entryPoint.position)
@@ -152,14 +152,13 @@ class Level: SKScene {
         if (lastUpdateTime == 0) { lastUpdateTime = currentTime }
         let dt: CGFloat = CGFloat(currentTime - lastUpdateTime)
 
-        player.move(basedOn: dt)
         movingEnemies.values.forEach { $0.move(basedOn: dt) }
 
         lastUpdateTime = currentTime
     }
 
 
-    private func addNode(_ node: SKNode & Movable, at position: CGPoint) {
+    private func addNode(_ node: SKNode & Enablable, at position: CGPoint) {
         var node = node
         node.position = position
         addChild(node)
@@ -175,6 +174,11 @@ extension Level: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let keyA = contact.bodyA.hash
         let keyB = contact.bodyB.hash
+
+        if player.physicsBody?.hash == keyA && movingEnemies[keyB] != nil
+            || player.physicsBody?.hash == keyB && movingEnemies[keyA] != nil {
+            NotificationCenter.default.post(name: NotificationName.playerKilled, object: nil)
+        }
 
         if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
         else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
