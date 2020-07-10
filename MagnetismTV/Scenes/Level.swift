@@ -126,8 +126,7 @@ class Level: SKScene {
             if entryPoint == nil { continue }
 
             let movingEnemy = MovingEnemy(withImage: "skull", direction: direction, andScale: 0.05)
-            movingEnemy.position = entryPoint!.position
-            addChild(movingEnemy)
+            addNode(movingEnemy, at: entryPoint!.position)
 
             let key = movingEnemy.physicsBody?.hash ?? 0
             movingEnemies[key] = movingEnemy
@@ -145,21 +144,29 @@ class Level: SKScene {
         guard let entryPoint = self.childNode(withName: NodeName.entryPoint) else {
             return
         }
-        player.position = entryPoint.position
-        addChild(player)
+        addNode(player, at: entryPoint.position)
     }
     
 
     override func update(_ currentTime: TimeInterval) {
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
-        }
-        let dt: CGFloat = CGFloat(currentTime - self.lastUpdateTime)
+        if (lastUpdateTime == 0) { lastUpdateTime = currentTime }
+        let dt: CGFloat = CGFloat(currentTime - lastUpdateTime)
 
         player.move(basedOn: dt)
         movingEnemies.values.forEach { $0.move(basedOn: dt) }
 
-        self.lastUpdateTime = currentTime
+        lastUpdateTime = currentTime
+    }
+
+
+    private func addNode(_ node: SKNode & Movable, at position: CGPoint) {
+        var node = node
+        node.position = position
+        addChild(node)
+
+        node.run(SKAction.fadeIn(withDuration: 0.5)) {
+            node.isEnabled = true
+        }
     }
 }
 

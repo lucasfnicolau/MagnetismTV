@@ -13,23 +13,25 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     private var timerView: TimerView!
+    private var levels = ["Level0"]
+    private var currentLevel = 0
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addObservers()
-        start()
+        start(sceneNamed: levels[currentLevel])
     }
 
 
-    private func start() {
-        setupView(for: createScene())
+    private func start(sceneNamed name: String) {
+        setupView(for: createScene(named: name))
     }
 
 
-    private func createScene() -> SKScene {
-        guard let levelScene = SKScene(fileNamed: "Level0") else {
+    private func createScene(named name: String) -> SKScene {
+        guard let levelScene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
             return SKScene()
         }
@@ -63,7 +65,7 @@ class GameViewController: UIViewController {
     @objc private func notificationReceived(_ notif: Notification) {
         switch notif.name {
         case NotificationName.timeIsUp:
-            start()
+            start(sceneNamed: levels[currentLevel])
         default:
             return
         }
