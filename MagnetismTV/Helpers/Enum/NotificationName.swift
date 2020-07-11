@@ -9,6 +9,6 @@
 import Foundation
 
 enum NotificationName {
-    static var timeIsUp = NSNotification.Name("timeIsUp")
-    static var playerKilled = NSNotification.Name("playerKilled")
+    static let timeIsUp = NSNotification.Name("timeIsUp")
+    static let playerKilled = NSNotification.Name("playerKilled")
 }

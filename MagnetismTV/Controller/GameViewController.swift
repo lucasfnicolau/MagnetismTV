@@ -40,7 +40,6 @@ class GameViewController: UIViewController {
 
 
     private func createScene(named name: String) -> SKScene {
-
         guard let levelScene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
             return SKScene()

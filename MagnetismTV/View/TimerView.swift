@@ -13,8 +13,9 @@ class TimerView: UIView {
     private var timer: Timer?
     private var currentTime = 0
     private var timeLimit: Int
-    private var colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)]
-    private var size = CGSize(width: UIScreen.main.bounds.width - 60, height: 25)
+    private var currentColorIndex = 0
+    private let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)]
+    private let size = CGSize(width: UIScreen.main.bounds.width - 60, height: 25)
     private let playerImageView: UIImageView
     private let tombstoneImageView: UIImageView
 
@@ -37,7 +38,7 @@ class TimerView: UIView {
 
     private func setBar() {
         frame = CGRect(x: 40, y: 20, width: size.width, height: size.height)
-        backgroundColor = colors[0]
+        backgroundColor = colors[currentColorIndex]
         layer.cornerRadius = frame.height / 4
     }
 
@@ -84,8 +85,11 @@ class TimerView: UIView {
             colorIndex = 0
         }
 
-        UIView.animate(withDuration: 1) {
-            self.backgroundColor = self.colors[colorIndex]
+        if currentColorIndex != colorIndex {
+            currentColorIndex = colorIndex
+            UIView.animate(withDuration: 1) {
+                self.backgroundColor = self.colors[colorIndex]
+            }
         }
 
         frame = CGRect(x: frame.minX,
