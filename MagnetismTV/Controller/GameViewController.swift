@@ -13,7 +13,7 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     private var timerView: TimerView!
-    private var currentLevel = 0
+    private var currentLevel = 1
 
 
     override func viewDidLoad() {
