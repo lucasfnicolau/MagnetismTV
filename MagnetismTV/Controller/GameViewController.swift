@@ -34,15 +34,15 @@ class GameViewController: UIViewController {
             name = "Level00\(index)"
         }
 
-        let scene = createScene(named: name)
+        guard let scene = createScene(named: name) else { return }
         setupView(for: scene)
     }
 
 
-    private func createScene(named name: String) -> SKScene {
+    private func createScene(named name: String) -> SKScene? {
         guard let levelScene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
-            return SKScene()
+            return nil
         }
         levelScene.scaleMode = .aspectFill
         return levelScene
@@ -57,7 +57,7 @@ class GameViewController: UIViewController {
             view.addSubview(timerView)
 
             if let scene = levelScene as? Level {
-                scene.timerView = timerView
+                scene.viewController = self
             }
 
             view.presentScene(levelScene)
@@ -85,6 +85,17 @@ class GameViewController: UIViewController {
             start(sceneWithIndex: currentLevel)
         default:
             return
+        }
+    }
+}
+
+extension GameViewController: InteractableDelegate {
+
+    func itemHasBeenInteracted(_ item: Interactable) {
+        if let addTimeItem = item as? AddTimeItem {
+            timerView.addTime(addTimeItem.extraTime)
+        } else if item.spriteType == Sprite.portal {
+            start(sceneWithIndex: currentLevel + 1)
         }
     }
 }

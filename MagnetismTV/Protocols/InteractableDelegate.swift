@@ -1,5 +1,5 @@
 //
-//  CollectableDelegate.swift
+//  InteractableDelegate.swift
 //  MagnetismTV
 //
 //  Created by Lucas Fernandez Nicolau on 13/07/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CollectableDelegate: class {
-    func itemHasBeenCollected(_ item: Collectable)
+protocol InteractableDelegate: class {
+    func itemHasBeenInteracted(_ item: Interactable)
 }

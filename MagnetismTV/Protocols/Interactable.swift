@@ -1,5 +1,5 @@
 //
-//  Collectable.swift
+//  Interactable.swift
 //  MagnetismTV
 //
 //  Created by Lucas Fernandez Nicolau on 13/07/20.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol Collectable {
-    var delegate: CollectableDelegate? { get }
+protocol Interactable {
+    var delegate: InteractableDelegate? { get }
+    var spriteType: String? { get }
 }
