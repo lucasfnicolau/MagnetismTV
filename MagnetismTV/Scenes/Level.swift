@@ -14,13 +14,15 @@ class Level: SKScene {
     private var lastUpdateTime: TimeInterval = 0
     private var player: Player
     private var movingEnemies = [Int: MovingEnemy]()
-    private var enemiesNumber = 0
+    private var collectableItems = [Int: CollectableItem]()
     private var mazeWalls: SKTileMapNode!
+    var timerView: TimerView!
+
     static var bitmask: UInt32 = 0x0010
 
 
     required init?(coder aDecoder: NSCoder) {
-        self.player = Player(withImage: "cowboy_head", andScale: 0.075)
+        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
         super.init(coder: aDecoder)
     }
 
@@ -43,15 +45,38 @@ class Level: SKScene {
         super.didMove(to: view)
         configure()
         addGestureRecognizers()
-        calculateEnemiesNumber()
+        createCollectableItems()
         createEnemies()
     }
 
 
-    private func calculateEnemiesNumber() {
-        enemiesNumber = children.reduce(0, { x, y in
-            (y.name?.contains(NodeName.enemy) ?? false) ? x + 1 : x
+    private func calculateCollectableItemsNumber() -> Int {
+        return children.reduce(0, { x, y in
+            (y.name?.contains(NodeName.addTimeItem) ?? false) ? x + 1 : x
         })
+    }
+
+
+    private func createCollectableItems() {
+        let collectableItemsNumber = calculateCollectableItemsNumber()
+
+        for index in 0 ..< collectableItemsNumber {
+            var entryPoint: SKNode?
+            let addTimeItem = childNode(withName: "\(NodeName.addTimeItem)\(index)")
+
+            var collectableItem: CollectableItem?
+            if addTimeItem != nil {
+                entryPoint = addTimeItem
+                collectableItem = AddTimeItem(withImage: "\(Sprite.addTimeItem)0", collectableDelegate: timerView, andScale: 1.5)
+            }
+
+            if entryPoint == nil || collectableItem == nil { continue }
+
+            addNode(collectableItem!, at: entryPoint!.position)
+
+            guard let key = collectableItem!.physicsBody?.hash else { return }
+            collectableItems[key] = collectableItem
+        }
     }
 
 
@@ -109,7 +134,16 @@ class Level: SKScene {
     }
 
 
+    private func calculateEnemiesNumber() -> Int {
+        return children.reduce(0, { x, y in
+            (y.name?.contains(NodeName.enemy) ?? false) ? x + 1 : x
+        })
+    }
+
+
     private func createEnemies() {
+        let enemiesNumber = calculateEnemiesNumber()
+
         for index in 0 ..< enemiesNumber {
             var entryPoint: SKNode?
             let enemyH = childNode(withName: "\(NodeName.enemy)\(index)H")
@@ -125,7 +159,7 @@ class Level: SKScene {
 
             if entryPoint == nil { continue }
 
-            let movingEnemy = MovingEnemy(withImage: "skull", direction: direction, andScale: 0.05)
+            let movingEnemy = MovingEnemy(withImage: "\(Sprite.foxie)0", direction: direction, andScale: 0.65)
             addNode(movingEnemy, at: entryPoint!.position)
 
             guard let key = movingEnemy.physicsBody?.hash else { return }
@@ -180,9 +214,23 @@ extension Level: SKPhysicsContactDelegate {
             NotificationCenter.default.post(name: NotificationName.playerKilled, object: nil)
         }
 
+        if player.physicsBody?.hash == keyA && collectableItems[keyB] != nil
+            || player.physicsBody?.hash == keyB && collectableItems[keyA] != nil {
+
+            var collectableItem: CollectableItem?
+            if collectableItems[keyA] != nil {
+                collectableItem = collectableItems[keyA]
+            } else if collectableItems[keyB] != nil {
+                collectableItem = collectableItems[keyB]
+            }
+
+            guard let item = collectableItem else { return }
+            item.delegate?.itemHasBeenCollected(item)
+            item.removeFromParent()
+        }
+
         if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
         else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
     }
 
 }
-

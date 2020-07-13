@@ -42,14 +42,14 @@ class Player: SKSpriteNode, Enablable {
     private func configure() {
         alpha = 0
 
-        physicsBody =  SKPhysicsBody(circleOfRadius: size.width * 0.8 / 2)
+        physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = Player.bitmask
         physicsBody?.collisionBitMask = Level.bitmask
-        physicsBody?.contactTestBitMask = MovingEnemy.bitmask
+        physicsBody?.contactTestBitMask = MovingEnemy.bitmask | CollectableItem.bitmask
     }
 
 

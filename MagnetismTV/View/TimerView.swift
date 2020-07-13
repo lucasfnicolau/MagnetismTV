@@ -13,16 +13,19 @@ class TimerView: UIView {
     private var timer: Timer?
     private var currentTime = 0
     private var timeLimit: Int
-    private var colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)]
-    private var size = CGSize(width: UIScreen.main.bounds.width - 60, height: 25)
+    private var currentColorIndex = 0
+    private var shouldUpdateTime = true
+    private let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)]
+    private let size = CGSize(width: UIScreen.main.bounds.width - 60, height: 25)
     private let playerImageView: UIImageView
     private let tombstoneImageView: UIImageView
 
 
     init(timeLimit: Int) {
-        self.playerImageView = UIImageView(image: UIImage(named: "cowboy_head"))
-        self.tombstoneImageView = UIImageView(image: UIImage(named: "skull"))
+        self.playerImageView = UIImageView(image: UIImage(named: "\(Sprite.birdie)0"))
+        self.tombstoneImageView = UIImageView(image: UIImage(named: "\(Sprite.foxie)0"))
         self.timeLimit = timeLimit
+
         super.init(frame: .zero)
         setBar()
         setImageViews()
@@ -37,8 +40,9 @@ class TimerView: UIView {
 
     private func setBar() {
         frame = CGRect(x: 40, y: 20, width: size.width, height: size.height)
-        backgroundColor = colors[0]
+        backgroundColor = colors[currentColorIndex]
         layer.cornerRadius = frame.height / 4
+        print("W: \(frame.width)")
     }
 
 
@@ -71,22 +75,10 @@ class TimerView: UIView {
 
 
     @objc private func update() {
+        guard shouldUpdateTime else { return }
         currentTime += 1
 
-        let colorIndex: Int
-        if currentTime >= Int(0.75 * Double(timeLimit)) - 1 {
-            colorIndex = 3
-        } else if currentTime >= Int(0.5 * Double(timeLimit)) - 1 {
-            colorIndex = 2
-        } else if currentTime >= Int(0.25 * Double(timeLimit)) - 1 {
-            colorIndex = 1
-        } else {
-            colorIndex = 0
-        }
-
-        UIView.animate(withDuration: 1) {
-            self.backgroundColor = self.colors[colorIndex]
-        }
+        setColor()
 
         frame = CGRect(x: frame.minX,
                        y: frame.minY,
@@ -102,10 +94,67 @@ class TimerView: UIView {
     }
 
 
+    private func setColor() {
+        let colorIndex: Int
+        if currentTime >= Int(0.75 * Double(timeLimit)) - 1 {
+            colorIndex = 3
+        } else if currentTime >= Int(0.5 * Double(timeLimit)) - 1 {
+            colorIndex = 2
+        } else if currentTime >= Int(0.25 * Double(timeLimit)) - 1 {
+            colorIndex = 1
+        } else {
+            colorIndex = 0
+        }
+
+        if currentColorIndex != colorIndex {
+            currentColorIndex = colorIndex
+            UIView.animate(withDuration: 1) {
+                self.backgroundColor = self.colors[colorIndex]
+            }
+        }
+    }
+
+
     func reset(withTimeLimit timeLimit: Int) {
         timer?.invalidate()
         self.timeLimit = timeLimit
         setBar()
         setTimer()
+    }
+}
+
+extension TimerView: CollectableDelegate {
+
+    func itemHasBeenCollected(_ item: Collectable) {
+        if let addTimeItem = item as? AddTimeItem {
+            shouldUpdateTime = false
+            addTime(addTimeItem.extraTime)
+        }
+    }
+
+    private func addTime(_ extraTime: Int) {
+        if currentTime - extraTime >= 0 {
+            currentTime -= extraTime
+        } else {
+            currentTime = 0
+        }
+
+        let extraTime = CGFloat(extraTime)
+        let width: CGFloat
+        if frame.width + size.width / CGFloat(timeLimit) * extraTime > size.width {
+            width = size.width - tombstoneImageView.frame.width / 2 - 10
+        } else {
+            width = frame.width + size.width / CGFloat(timeLimit) * extraTime
+        }
+
+        setColor()
+
+        frame = CGRect(x: frame.minX,
+                       y: frame.minY,
+                       width: width,
+                       height: frame.height)
+        layer.cornerRadius = min(frame.width, frame.height) / 4
+
+        shouldUpdateTime = true
     }
 }

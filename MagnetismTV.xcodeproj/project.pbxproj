@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217324B9035B00D0FFC2 /* Enablable.swift */; };
+		B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */; };
+		B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770024BCD75E0092C9E5 /* Sprite.swift */; };
+		B65D770324BCE4870092C9E5 /* CollectableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770224BCE4870092C9E5 /* CollectableDelegate.swift */; };
+		B65D770524BCE4DC0092C9E5 /* Collectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770424BCE4DC0092C9E5 /* Collectable.swift */; };
+		B68A55DA24BCE8F1009DE384 /* CollectableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A55D924BCE8F1009DE384 /* CollectableItem.swift */; };
 		B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */; };
 		B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8224B6630800AF8640 /* Movable.swift */; };
 		B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8924B7980600AF8640 /* NodeName.swift */; };
@@ -27,6 +32,11 @@
 
 /* Begin PBXFileReference section */
 		B61C217324B9035B00D0FFC2 /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
+		B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeItem.swift; sourceTree = "<group>"; };
+		B65D770024BCD75E0092C9E5 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		B65D770224BCE4870092C9E5 /* CollectableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableDelegate.swift; sourceTree = "<group>"; };
+		B65D770424BCE4DC0092C9E5 /* Collectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collectable.swift; sourceTree = "<group>"; };
+		B68A55D924BCE8F1009DE384 /* CollectableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableItem.swift; sourceTree = "<group>"; };
 		B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingEnemy.swift; sourceTree = "<group>"; };
 		B6CFCC8224B6630800AF8640 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
@@ -62,6 +72,7 @@
 			children = (
 				B6CFCC8924B7980600AF8640 /* NodeName.swift */,
 				B6CFCC9124B7B54800AF8640 /* NotificationName.swift */,
+				B65D770024BCD75E0092C9E5 /* Sprite.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -71,6 +82,8 @@
 			children = (
 				B6CFCC8224B6630800AF8640 /* Movable.swift */,
 				B61C217324B9035B00D0FFC2 /* Enablable.swift */,
+				B65D770224BCE4870092C9E5 /* CollectableDelegate.swift */,
+				B65D770424BCE4DC0092C9E5 /* Collectable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -156,6 +169,8 @@
 			children = (
 				B6D43FDD24B3BB9E008B0F15 /* Player.swift */,
 				B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */,
+				B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */,
+				B68A55D924BCE8F1009DE384 /* CollectableItem.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -254,12 +269,17 @@
 				B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */,
 				B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */,
 				B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */,
+				B68A55DA24BCE8F1009DE384 /* CollectableItem.swift in Sources */,
+				B65D770324BCE4870092C9E5 /* CollectableDelegate.swift in Sources */,
 				B6D43FDE24B3BB9E008B0F15 /* Player.swift in Sources */,
 				B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */,
 				B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */,
 				B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */,
 				B6CFCC9024B7A12C00AF8640 /* TimerView.swift in Sources */,
+				B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */,
 				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
+				B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */,
+				B65D770524BCE4DC0092C9E5 /* Collectable.swift in Sources */,
 				B6D43FBE24B3BB6E008B0F15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

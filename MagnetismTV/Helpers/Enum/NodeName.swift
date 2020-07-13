@@ -13,4 +13,5 @@ enum NodeName {
     static let collectable = "Collectable"
     static let entryPoint = "EntryPoint"
     static let mazeWalls = "MazeWalls"
+    static let addTimeItem = "AddTimeItem"
 }

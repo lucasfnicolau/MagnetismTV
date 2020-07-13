@@ -57,7 +57,7 @@ class MovingEnemy: SKSpriteNode, Movable, Enablable {
             velocity.dy = nodeSpeed
         }
 
-        physicsBody = SKPhysicsBody(rectangleOf: size.applying(CGAffineTransform(scaleX: 0.8, y: 0.8)))
+        physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false

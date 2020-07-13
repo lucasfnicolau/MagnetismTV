@@ -40,7 +40,6 @@ class GameViewController: UIViewController {
 
 
     private func createScene(named name: String) -> SKScene {
-
         guard let levelScene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
             return SKScene()
@@ -56,6 +55,10 @@ class GameViewController: UIViewController {
         if let view = self.view as? SKView {
             timerView = TimerView(timeLimit: 60)
             view.addSubview(timerView)
+
+            if let scene = levelScene as? Level {
+                scene.timerView = timerView
+            }
 
             view.presentScene(levelScene)
             view.ignoresSiblingOrder = true
