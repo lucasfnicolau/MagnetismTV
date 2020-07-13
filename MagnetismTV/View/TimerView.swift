@@ -42,7 +42,6 @@ class TimerView: UIView {
         frame = CGRect(x: 40, y: 20, width: size.width, height: size.height)
         backgroundColor = colors[currentColorIndex]
         layer.cornerRadius = frame.height / 4
-        print("W: \(frame.width)")
     }
 
 
