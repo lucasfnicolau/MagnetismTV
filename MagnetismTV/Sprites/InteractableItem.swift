@@ -1,5 +1,5 @@
 //
-//  CollectableItem.swift
+//  InteractableItem.swift
 //  MagnetismTV
 //
 //  Created by Lucas Fernandez Nicolau on 13/07/20.
@@ -8,16 +8,18 @@
 
 import SpriteKit
 
-class CollectableItem: SKSpriteNode, Collectable, Enablable {
+class InteractableItem: SKSpriteNode, Interactable, Enablable {
 
     var isEnabled: Bool = false
-    weak var delegate: CollectableDelegate?
+    weak var delegate: InteractableDelegate?
+    var spriteType: String?
 
     static let bitmask: UInt32 = 0x1000
 
 
     init(withImage image: String? = nil,
-         collectableDelegate: CollectableDelegate,
+         interactableDelegate: InteractableDelegate,
+         spriteType: String? = nil,
          color: UIColor = .clear,
          size: CGSize? = nil,
          andScale scale: CGFloat = 1) {
@@ -27,7 +29,8 @@ class CollectableItem: SKSpriteNode, Collectable, Enablable {
             ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
             : CGSize(width: 50, height: 50)
 
-        self.delegate = collectableDelegate
+        self.spriteType = spriteType
+        self.delegate = interactableDelegate
         super.init(texture: texture, color: color, size: size)
         self.xScale = scale
         self.yScale = scale
@@ -48,7 +51,7 @@ class CollectableItem: SKSpriteNode, Collectable, Enablable {
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
         physicsBody?.usesPreciseCollisionDetection = true
-        physicsBody?.categoryBitMask = CollectableItem.bitmask
+        physicsBody?.categoryBitMask = InteractableItem.bitmask
         physicsBody?.collisionBitMask = Level.bitmask
     }
 

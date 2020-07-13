@@ -8,13 +8,13 @@
 
 import SpriteKit
 
-class AddTimeItem: CollectableItem {
+class AddTimeItem: InteractableItem {
 
     let extraTime: Int
 
 
     init(withImage image: String? = nil,
-         collectableDelegate: CollectableDelegate,
+         interactableDelegate: InteractableDelegate,
          extraTime: Int = 5,
          color: UIColor = .clear,
          size: CGSize? = nil,
@@ -26,7 +26,7 @@ class AddTimeItem: CollectableItem {
             : CGSize(width: 50, height: 50)
 
         self.extraTime = extraTime
-        super.init(withImage: image, collectableDelegate: collectableDelegate, color: color, size: size, andScale: scale)
+        super.init(withImage: image, interactableDelegate: interactableDelegate, color: color, size: size, andScale: scale)
     }
 
 

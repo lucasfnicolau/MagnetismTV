@@ -121,18 +121,11 @@ class TimerView: UIView {
         setBar()
         setTimer()
     }
-}
 
-extension TimerView: CollectableDelegate {
 
-    func itemHasBeenCollected(_ item: Collectable) {
-        if let addTimeItem = item as? AddTimeItem {
-            shouldUpdateTime = false
-            addTime(addTimeItem.extraTime)
-        }
-    }
+    func addTime(_ extraTime: Int) {
+        shouldUpdateTime = false
 
-    private func addTime(_ extraTime: Int) {
         if currentTime - extraTime >= 0 {
             currentTime -= extraTime
         } else {

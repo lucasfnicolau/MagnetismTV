@@ -14,9 +14,9 @@ class Level: SKScene {
     private var lastUpdateTime: TimeInterval = 0
     private var player: Player
     private var movingEnemies = [Int: MovingEnemy]()
-    private var collectableItems = [Int: CollectableItem]()
+    private var collectableItems = [Int: InteractableItem]()
     private var mazeWalls: SKTileMapNode!
-    var timerView: TimerView!
+    var viewController: GameViewController!
 
     static var bitmask: UInt32 = 0x0010
 
@@ -47,6 +47,19 @@ class Level: SKScene {
         addGestureRecognizers()
         createCollectableItems()
         createEnemies()
+        createPortal()
+    }
+
+
+    private func createPortal() {
+        let portal = InteractableItem(withImage: Sprite.portal,
+                                      interactableDelegate: viewController,
+                                      spriteType: Sprite.portal,
+                                      andScale: 0.28)
+        guard let entryPoint = childNode(withName: Sprite.portal),
+            let key = portal.physicsBody?.hash else { return }
+        collectableItems[key] = portal
+        addNode(portal, at: entryPoint.position)
     }
 
 
@@ -64,10 +77,13 @@ class Level: SKScene {
             var entryPoint: SKNode?
             let addTimeItem = childNode(withName: "\(NodeName.addTimeItem)\(index)")
 
-            var collectableItem: CollectableItem?
+            var collectableItem: InteractableItem?
             if addTimeItem != nil {
                 entryPoint = addTimeItem
-                collectableItem = AddTimeItem(withImage: "\(Sprite.addTimeItem)0", collectableDelegate: timerView, andScale: 1.5)
+                collectableItem = AddTimeItem(withImage:
+                    "\(Sprite.addTimeItem)0",
+                    interactableDelegate: viewController,
+                    andScale: 1.5)
             }
 
             if entryPoint == nil || collectableItem == nil { continue }
@@ -217,7 +233,7 @@ extension Level: SKPhysicsContactDelegate {
         if player.physicsBody?.hash == keyA && collectableItems[keyB] != nil
             || player.physicsBody?.hash == keyB && collectableItems[keyA] != nil {
 
-            var collectableItem: CollectableItem?
+            var collectableItem: InteractableItem?
             if collectableItems[keyA] != nil {
                 collectableItem = collectableItems[keyA]
             } else if collectableItems[keyB] != nil {
@@ -225,7 +241,7 @@ extension Level: SKPhysicsContactDelegate {
             }
 
             guard let item = collectableItem else { return }
-            item.delegate?.itemHasBeenCollected(item)
+            item.delegate?.itemHasBeenInteracted(item)
             item.removeFromParent()
         }
 
