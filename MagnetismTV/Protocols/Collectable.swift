@@ -1,5 +1,5 @@
 //
-//  Sprite.swift
+//  Collectable.swift
 //  MagnetismTV
 //
 //  Created by Lucas Fernandez Nicolau on 13/07/20.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-enum Sprite {
-    static let birdie = "Birdie"
-    static let foxie = "Foxie"
-    static let addTimeItem = "Collectable"
+protocol Collectable {
+    var delegate: CollectableDelegate? { get }
 }

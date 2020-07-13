@@ -56,6 +56,10 @@ class GameViewController: UIViewController {
             timerView = TimerView(timeLimit: 60)
             view.addSubview(timerView)
 
+            if let scene = levelScene as? Level {
+                scene.timerView = timerView
+            }
+
             view.presentScene(levelScene)
             view.ignoresSiblingOrder = true
 

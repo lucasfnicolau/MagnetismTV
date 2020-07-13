@@ -49,7 +49,7 @@ class Player: SKSpriteNode, Enablable {
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = Player.bitmask
         physicsBody?.collisionBitMask = Level.bitmask
-        physicsBody?.contactTestBitMask = MovingEnemy.bitmask
+        physicsBody?.contactTestBitMask = MovingEnemy.bitmask | CollectableItem.bitmask
     }
 
 

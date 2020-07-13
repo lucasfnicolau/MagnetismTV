@@ -14,6 +14,7 @@ class TimerView: UIView {
     private var currentTime = 0
     private var timeLimit: Int
     private var currentColorIndex = 0
+    private var shouldUpdateTime = true
     private let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)]
     private let size = CGSize(width: UIScreen.main.bounds.width - 60, height: 25)
     private let playerImageView: UIImageView
@@ -24,6 +25,7 @@ class TimerView: UIView {
         self.playerImageView = UIImageView(image: UIImage(named: "\(Sprite.birdie)0"))
         self.tombstoneImageView = UIImageView(image: UIImage(named: "\(Sprite.foxie)0"))
         self.timeLimit = timeLimit
+
         super.init(frame: .zero)
         setBar()
         setImageViews()
@@ -40,6 +42,7 @@ class TimerView: UIView {
         frame = CGRect(x: 40, y: 20, width: size.width, height: size.height)
         backgroundColor = colors[currentColorIndex]
         layer.cornerRadius = frame.height / 4
+        print("W: \(frame.width)")
     }
 
 
@@ -72,8 +75,26 @@ class TimerView: UIView {
 
 
     @objc private func update() {
+        guard shouldUpdateTime else { return }
         currentTime += 1
 
+        setColor()
+
+        frame = CGRect(x: frame.minX,
+                       y: frame.minY,
+                       width: frame.width - size.width / CGFloat(timeLimit),
+                       height: frame.height)
+        layer.cornerRadius = min(frame.width, frame.height) / 4
+
+        if currentTime >= timeLimit {
+            subviews.forEach { $0.removeFromSuperview() }
+            timer?.invalidate()
+            NotificationCenter.default.post(name: NotificationName.timeIsUp, object: nil)
+        }
+    }
+
+
+    private func setColor() {
         let colorIndex: Int
         if currentTime >= Int(0.75 * Double(timeLimit)) - 1 {
             colorIndex = 3
@@ -91,18 +112,6 @@ class TimerView: UIView {
                 self.backgroundColor = self.colors[colorIndex]
             }
         }
-
-        frame = CGRect(x: frame.minX,
-                       y: frame.minY,
-                       width: frame.width - size.width / CGFloat(timeLimit),
-                       height: frame.height)
-        layer.cornerRadius = min(frame.width, frame.height) / 4
-
-        if currentTime >= timeLimit {
-            subviews.forEach { $0.removeFromSuperview() }
-            timer?.invalidate()
-            NotificationCenter.default.post(name: NotificationName.timeIsUp, object: nil)
-        }
     }
 
 
@@ -111,5 +120,41 @@ class TimerView: UIView {
         self.timeLimit = timeLimit
         setBar()
         setTimer()
+    }
+}
+
+extension TimerView: CollectableDelegate {
+
+    func itemHasBeenCollected(_ item: Collectable) {
+        if let addTimeItem = item as? AddTimeItem {
+            shouldUpdateTime = false
+            addTime(addTimeItem.extraTime)
+        }
+    }
+
+    private func addTime(_ extraTime: Int) {
+        if currentTime - extraTime >= 0 {
+            currentTime -= extraTime
+        } else {
+            currentTime = 0
+        }
+
+        let extraTime = CGFloat(extraTime)
+        let width: CGFloat
+        if frame.width + size.width / CGFloat(timeLimit) * extraTime > size.width {
+            width = size.width - tombstoneImageView.frame.width / 2 - 10
+        } else {
+            width = frame.width + size.width / CGFloat(timeLimit) * extraTime
+        }
+
+        setColor()
+
+        frame = CGRect(x: frame.minX,
+                       y: frame.minY,
+                       width: width,
+                       height: frame.height)
+        layer.cornerRadius = min(frame.width, frame.height) / 4
+
+        shouldUpdateTime = true
     }
 }
