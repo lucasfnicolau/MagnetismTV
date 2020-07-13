@@ -20,7 +20,7 @@ class Level: SKScene {
 
 
     required init?(coder aDecoder: NSCoder) {
-        self.player = Player(withImage: "Birdie0", andScale: 0.7)
+        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
         super.init(coder: aDecoder)
     }
 
@@ -125,7 +125,7 @@ class Level: SKScene {
 
             if entryPoint == nil { continue }
 
-            let movingEnemy = MovingEnemy(withImage: "Foxie0", direction: direction, andScale: 0.65)
+            let movingEnemy = MovingEnemy(withImage: "\(Sprite.foxie)0", direction: direction, andScale: 0.65)
             addNode(movingEnemy, at: entryPoint!.position)
 
             guard let key = movingEnemy.physicsBody?.hash else { return }

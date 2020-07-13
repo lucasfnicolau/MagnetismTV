@@ -21,8 +21,8 @@ class TimerView: UIView {
 
 
     init(timeLimit: Int) {
-        self.playerImageView = UIImageView(image: UIImage(named: "cowboy_head"))
-        self.tombstoneImageView = UIImageView(image: UIImage(named: "skull"))
+        self.playerImageView = UIImageView(image: UIImage(named: "\(Sprite.birdie)0"))
+        self.tombstoneImageView = UIImageView(image: UIImage(named: "\(Sprite.foxie)0"))
         self.timeLimit = timeLimit
         super.init(frame: .zero)
         setBar()
