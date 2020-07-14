@@ -12,9 +12,11 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    private var timerView: TimerView!
+    private var timerScoreView: TimerScoreView!
     private var currentLevel = 0
     private var currentScene: Level?
+    private var levelsTimeLimits = [60, 60]
+    private var levelsMaxScores = [500, 500]
 
     private(set) static var isPaused = false
 
@@ -61,8 +63,9 @@ class GameViewController: UIViewController {
         view.subviews.forEach { $0.removeFromSuperview() }
 
         if let view = self.view as? SKView {
-            timerView = TimerView(timeLimit: 60)
-            view.addSubview(timerView)
+            timerScoreView = TimerScoreView(timeLimit: levelsTimeLimits[currentLevel],
+                                            maxScore: levelsMaxScores[currentLevel])
+            view.addSubview(timerScoreView)
 
             if let scene = levelScene as? Level {
                 scene.viewController = self
@@ -105,14 +108,14 @@ class GameViewController: UIViewController {
 
     @objc func pause() {
         GameViewController.isPaused = true
-        timerView.pause()
+        timerScoreView.pause()
         currentScene?.pause()
     }
     
 
     @objc func resume() {
         GameViewController.isPaused = false
-        timerView.resume()
+        timerScoreView.resume()
         currentScene?.resume()
     }
 }
@@ -121,9 +124,10 @@ extension GameViewController: InteractableDelegate {
 
     func itemHasBeenInteracted(_ item: Interactable) {
         if let addTimeItem = item as? AddTimeItem {
-            timerView.addTime(addTimeItem.extraTime)
+            timerScoreView.addTime(addTimeItem.extraTime)
         } else if item.spriteType == Sprite.portal {
-            currentLevel += 1
+            print(timerScoreView.score)
+            if currentLevel + 1 < levelsMaxScores.count { currentLevel += 1 }
             start(sceneWithIndex: currentLevel)
         }
     }

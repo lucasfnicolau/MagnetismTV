@@ -1,5 +1,5 @@
 //
-//  CGFloat+Proportional.swift
+//  Double+CGFloatProportional.swift
 //  MagnetismTV
 //
 //  Created by Lucas Fernandez Nicolau on 14/07/20.
@@ -10,8 +10,13 @@ import UIKit
 
 fileprivate let originalMapScale: CGFloat = 0.7
 
-extension CGFloat {
+extension Double {
     func proportional(to value: CGFloat) -> CGFloat {
-        return self * value / originalMapScale
+        return CGFloat(self) * value / originalMapScale
+    }
+
+
+    func proportional(to value: Double) -> Double {
+        return self * value / Double(originalMapScale)
     }
 }

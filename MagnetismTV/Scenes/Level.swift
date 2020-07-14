@@ -64,7 +64,7 @@ class Level: SKScene {
 
 
     private func createCollectableItems() {
-        let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.collectable) ?? false }
+        let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.interactable) ?? false }
 
         for entryPoint in itemsEntryPoints {
             var collectableItem: InteractableItem?
@@ -90,6 +90,8 @@ class Level: SKScene {
             for row in 0 ..< mazeWalls.numberOfRows {
                 guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column,
                                                                     row: row) else { continue }
+
+                if tileDefinition.name?.contains("Floor") ?? false { continue }
 
                 let width = tileDefinition.size.width * mazeWalls.xScale
                 let height = tileDefinition.size.height * mazeWalls.yScale

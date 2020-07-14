@@ -1,5 +1,5 @@
 //
-//  TimerView.swift
+//  TimerScoreView.swift
 //  MagnetismTV
 //
 //  Created by Lucas Fernandez Nicolau on 09/07/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimerView: UIView {
+class TimerScoreView: UIView {
 
     private var timer: Timer?
     private var currentTime = 0
@@ -16,14 +16,19 @@ class TimerView: UIView {
     private var currentColorIndex = 0
     private var shouldUpdateTime = true
     private let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)]
-    private let size = CGSize(width: UIScreen.main.bounds.width - 60, height: 25)
+    private let size = CGSize(width: UIScreen.main.bounds.width - 160, height: 25)
     private let playerImageView: UIImageView
     private let tombstoneImageView: UIImageView
+    private let maxScore: Int
+    var score: Int {
+        return self.maxScore * (timeLimit - currentTime) / timeLimit
+    }
 
 
-    init(timeLimit: Int) {
+    init(timeLimit: Int, maxScore: Int) {
         self.playerImageView = UIImageView(image: UIImage(named: "\(Sprite.birdie)0"))
         self.tombstoneImageView = UIImageView(image: UIImage(named: "\(Sprite.foxie)0"))
+        self.maxScore = maxScore
         self.timeLimit = timeLimit
 
         super.init(frame: .zero)
@@ -39,7 +44,7 @@ class TimerView: UIView {
 
 
     private func setBar() {
-        frame = CGRect(x: 40, y: 20, width: size.width, height: size.height)
+        frame = CGRect(x: 80, y: 20, width: size.width, height: size.height)
         backgroundColor = colors[currentColorIndex]
         layer.cornerRadius = frame.height / 4
     }
@@ -134,7 +139,7 @@ class TimerView: UIView {
         let extraTime = CGFloat(extraTime)
         let width: CGFloat
         if frame.width + size.width / CGFloat(timeLimit) * extraTime > size.width {
-            width = size.width - tombstoneImageView.frame.width / 2 - 10
+            width = size.width
         } else {
             width = frame.width + size.width / CGFloat(timeLimit) * extraTime
         }
