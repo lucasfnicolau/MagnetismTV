@@ -14,6 +14,7 @@
 		B65D770524BCE4DC0092C9E5 /* Interactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770424BCE4DC0092C9E5 /* Interactable.swift */; };
 		B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A55D924BCE8F1009DE384 /* InteractableItem.swift */; };
 		B68A55DC24BCF853009DE384 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DB24BCF853009DE384 /* Level001.sks */; };
+		B68A55DF24BE1D28009DE384 /* GameTheme_1.0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DE24BE1D28009DE384 /* GameTheme_1.0.mp3 */; };
 		B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */; };
 		B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8224B6630800AF8640 /* Movable.swift */; };
 		B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8924B7980600AF8640 /* NodeName.swift */; };
@@ -29,6 +30,8 @@
 		B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE424B4F14D008B0F15 /* Assets.xcassets */; };
 		B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE724B501E8008B0F15 /* Level000.sks */; };
 		B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FE924B504F0008B0F15 /* Level.swift */; };
+		B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */; };
+		B6DF835524BE27B90080670E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835424BE27B90080670E /* AudioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,7 @@
 		B65D770424BCE4DC0092C9E5 /* Interactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactable.swift; sourceTree = "<group>"; };
 		B68A55D924BCE8F1009DE384 /* InteractableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableItem.swift; sourceTree = "<group>"; };
 		B68A55DB24BCF853009DE384 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		B68A55DE24BE1D28009DE384 /* GameTheme_1.0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameTheme_1.0.mp3; sourceTree = "<group>"; };
 		B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingEnemy.swift; sourceTree = "<group>"; };
 		B6CFCC8224B6630800AF8640 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		B6D43FE424B4F14D008B0F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D43FE724B501E8008B0F15 /* Level000.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level000.sks; sourceTree = "<group>"; };
 		B6D43FE924B504F0008B0F15 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGFloat+Proportional.swift"; path = "MagnetismTV/CGFloat+Proportional.swift"; sourceTree = SOURCE_ROOT; };
+		B6DF835424BE27B90080670E /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B68A55DD24BE1CD6009DE384 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				B68A55DE24BE1D28009DE384 /* GameTheme_1.0.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		B6B8D80B24B8F86A0077CCDB /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +107,7 @@
 		B6CFCC8624B6686700AF8640 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -118,6 +133,7 @@
 		B6D43FBC24B3BB6E008B0F15 /* MagnetismTV */ = {
 			isa = PBXGroup;
 			children = (
+				B68A55DD24BE1CD6009DE384 /* Music */,
 				B6CFCC8624B6686700AF8640 /* Extensions */,
 				B6CFCC8124B662FC00AF8640 /* Protocols */,
 				B6D43FDA24B3BB91008B0F15 /* Scenes */,
@@ -162,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B8D80B24B8F86A0077CCDB /* Enum */,
+				B6DF835424BE27B90080670E /* AudioManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -255,6 +272,7 @@
 			files = (
 				B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */,
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
+				B68A55DF24BE1D28009DE384 /* GameTheme_1.0.mp3 in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
 				B68A55DC24BCF853009DE384 /* Level001.sks in Resources */,
 				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
@@ -273,6 +291,7 @@
 				B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */,
 				B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */,
 				B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */,
+				B6DF835524BE27B90080670E /* AudioManager.swift in Sources */,
 				B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */,
 				B65D770324BCE4870092C9E5 /* InteractableDelegate.swift in Sources */,
 				B6D43FDE24B3BB9E008B0F15 /* Player.swift in Sources */,
@@ -282,6 +301,7 @@
 				B6CFCC9024B7A12C00AF8640 /* TimerView.swift in Sources */,
 				B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */,
 				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
+				B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */,
 				B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */,
 				B65D770524BCE4DC0092C9E5 /* Interactable.swift in Sources */,
 				B6D43FBE24B3BB6E008B0F15 /* AppDelegate.swift in Sources */,
