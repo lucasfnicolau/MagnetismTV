@@ -63,32 +63,21 @@ class Level: SKScene {
     }
 
 
-    private func calculateCollectableItemsNumber() -> Int {
-        return children.reduce(0, { x, y in
-            (y.name?.contains(NodeName.addTimeItem) ?? false) ? x + 1 : x
-        })
-    }
-
-
     private func createCollectableItems() {
-        let collectableItemsNumber = calculateCollectableItemsNumber()
+        let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.collectable) ?? false }
 
-        for index in 0 ..< collectableItemsNumber {
-            var entryPoint: SKNode?
-            let addTimeItem = childNode(withName: "\(NodeName.addTimeItem)\(index)")
-
+        for entryPoint in itemsEntryPoints {
             var collectableItem: InteractableItem?
-            if addTimeItem != nil {
-                entryPoint = addTimeItem
+            if entryPoint.name?.contains(NodeName.addTimeItem) ?? false {
                 collectableItem = AddTimeItem(withImage:
                     "\(Sprite.addTimeItem)0",
                     interactableDelegate: viewController,
                     andScale: 1.5)
             }
 
-            if entryPoint == nil || collectableItem == nil { continue }
+            if collectableItem == nil { continue }
 
-            addNode(collectableItem!, at: entryPoint!.position)
+            addNode(collectableItem!, at: entryPoint.position)
 
             guard let key = collectableItem!.physicsBody?.hash else { return }
             collectableItems[key] = collectableItem
@@ -150,33 +139,20 @@ class Level: SKScene {
     }
 
 
-    private func calculateEnemiesNumber() -> Int {
-        return children.reduce(0, { x, y in
-            (y.name?.contains(NodeName.enemy) ?? false) ? x + 1 : x
-        })
-    }
-
-
     private func createEnemies() {
-        let enemiesNumber = calculateEnemiesNumber()
+        let enemiesEntryPoints = children.filter { $0.name?.contains(NodeName.enemy) ?? false }
 
-        for index in 0 ..< enemiesNumber {
-            var entryPoint: SKNode?
-            let enemyH = childNode(withName: "\(NodeName.enemy)\(index)H")
-            let enemyV = childNode(withName: "\(NodeName.enemy)\(index)V")
-            var direction: MovingEnemy.Direction = .horizontal
+        for entryPoint in enemiesEntryPoints {
 
-            if enemyH != nil {
-                entryPoint = enemyH
-            } else if enemyV != nil {
-                entryPoint = enemyV
+            let direction: MovingEnemy.Direction
+            if entryPoint.name?.contains("H") ?? false {
+                direction = .horizontal
+            } else { // if entryPoint.name?.contains("V") ?? false {
                 direction = .vertical
             }
 
-            if entryPoint == nil { continue }
-
             let movingEnemy = MovingEnemy(withImage: "\(Sprite.foxie)0", direction: direction, andScale: 0.65)
-            addNode(movingEnemy, at: entryPoint!.position)
+            addNode(movingEnemy, at: entryPoint.position)
 
             guard let key = movingEnemy.physicsBody?.hash else { return }
             movingEnemies[key] = movingEnemy
