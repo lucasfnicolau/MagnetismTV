@@ -64,7 +64,7 @@ class Level: SKScene {
 
 
     private func createCollectableItems() {
-        let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.collectable) ?? false }
+        let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.interactable) ?? false }
 
         for entryPoint in itemsEntryPoints {
             var collectableItem: InteractableItem?
