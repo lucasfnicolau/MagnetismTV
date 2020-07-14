@@ -91,6 +91,8 @@ class Level: SKScene {
                 guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column,
                                                                     row: row) else { continue }
 
+                if tileDefinition.name?.contains("Floor") ?? false { continue }
+
                 let width = tileDefinition.size.width * mazeWalls.xScale
                 let height = tileDefinition.size.height * mazeWalls.yScale
 
