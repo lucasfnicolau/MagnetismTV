@@ -8,23 +8,19 @@
 
 import SpriteKit
 import UIKit
+import AVKit
 
 class Level: SKScene {
 
+    static var scale: CGFloat = 1
+    private(set) static var bitmask: UInt32 = 0x0010
+
     private var lastUpdateTime: TimeInterval = 0
-    private var player: Player
+    private var player: Player!
     private var movingEnemies = [Int: MovingEnemy]()
     private var collectableItems = [Int: InteractableItem]()
     private var mazeWalls: SKTileMapNode!
     var viewController: GameViewController!
-
-    static var bitmask: UInt32 = 0x0010
-
-
-    required init?(coder aDecoder: NSCoder) {
-        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
-        super.init(coder: aDecoder)
-    }
 
 
     override func sceneDidLoad() {
@@ -36,6 +32,10 @@ class Level: SKScene {
                 fatalError("Background node not loaded")
         }
         self.mazeWalls = mazeWalls
+
+        Level.scale = min(mazeWalls.xScale, mazeWalls.yScale)
+
+        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
 
         setupWallsCollision()
     }
@@ -107,6 +107,7 @@ class Level: SKScene {
                 tileNode.physicsBody?.isDynamic = false
                 tileNode.physicsBody?.pinned = true
                 tileNode.physicsBody?.allowsRotation = false
+                tileNode.physicsBody?.usesPreciseCollisionDetection = true
 
                 addChild(tileNode)
             }
@@ -171,6 +172,9 @@ class Level: SKScene {
             return
         }
         addNode(player, at: entryPoint.position)
+
+        AudioManager.shared.setAudio(named: "GameTheme_1.0")
+        AudioManager.shared.audioPlayer?.play()
     }
     
 
@@ -225,4 +229,20 @@ extension Level: SKPhysicsContactDelegate {
         else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
     }
 
+
+    func pause() {
+        movingEnemies.values.forEach { $0.isEnabled = false }
+    }
+
+
+    func resume() {
+        var pausedTime = 0
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            if pausedTime == 1 {
+                self.movingEnemies.values.forEach { $0.isEnabled = true }
+                timer.invalidate()
+            }
+            pausedTime += 1
+        }.fire()
+    }
 }

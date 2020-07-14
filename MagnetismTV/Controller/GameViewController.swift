@@ -14,6 +14,9 @@ class GameViewController: UIViewController {
 
     private var timerView: TimerView!
     private var currentLevel = 0
+    private var currentScene: Level?
+
+    private(set) static var isPaused = false
 
 
     override func viewDidLoad() {
@@ -34,18 +37,23 @@ class GameViewController: UIViewController {
             name = "Level00\(index)"
         }
 
-        guard let scene = createScene(named: name) else { return }
-        setupView(for: scene)
+        self.currentScene = createScene(named: name)
+        guard let currentScene = currentScene else { return }
+        setupView(for: currentScene)
     }
 
 
-    private func createScene(named name: String) -> SKScene? {
-        guard let levelScene = SKScene(fileNamed: name) else {
+    private func createScene(named name: String) -> Level? {
+        guard let scene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
             return nil
         }
-        levelScene.scaleMode = .aspectFill
-        return levelScene
+        scene.scaleMode = .aspectFill
+
+        if let levelScene = scene as? Level {
+            return levelScene
+        }
+        return nil
     }
 
 
@@ -75,6 +83,8 @@ class GameViewController: UIViewController {
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.timeIsUp, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.playerKilled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.didEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.didEnterForeground, object: nil)
     }
 
 
@@ -83,9 +93,27 @@ class GameViewController: UIViewController {
         case NotificationName.timeIsUp,
              NotificationName.playerKilled:
             start(sceneWithIndex: currentLevel)
+        case NotificationName.didEnterBackground:
+            pause()
+        case NotificationName.didEnterForeground:
+            resume()
         default:
             return
         }
+    }
+
+
+    @objc func pause() {
+        GameViewController.isPaused = true
+        timerView.pause()
+        currentScene?.pause()
+    }
+    
+
+    @objc func resume() {
+        GameViewController.isPaused = false
+        timerView.resume()
+        currentScene?.resume()
     }
 }
 
@@ -95,7 +123,8 @@ extension GameViewController: InteractableDelegate {
         if let addTimeItem = item as? AddTimeItem {
             timerView.addTime(addTimeItem.extraTime)
         } else if item.spriteType == Sprite.portal {
-            start(sceneWithIndex: currentLevel + 1)
+            currentLevel += 1
+            start(sceneWithIndex: currentLevel)
         }
     }
 }

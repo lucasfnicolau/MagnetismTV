@@ -66,8 +66,8 @@ class TimerView: UIView {
     }
 
 
-    private func setTimer() {
-        currentTime = 0
+    private func setTimer(forCurrentTime currentTime: Int = 0) {
+        self.currentTime = currentTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         timer?.fire()
     }
@@ -148,5 +148,17 @@ class TimerView: UIView {
         layer.cornerRadius = min(frame.width, frame.height) / 4
 
         shouldUpdateTime = true
+    }
+
+
+    func pause() {
+        shouldUpdateTime = false
+        timer?.invalidate()
+    }
+
+
+    func resume() {
+        shouldUpdateTime = true
+        setTimer(forCurrentTime: currentTime)
     }
 }

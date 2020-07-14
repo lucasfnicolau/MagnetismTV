@@ -22,11 +22,12 @@ class AddTimeItem: InteractableItem {
 
         let texture = image != nil ? SKTexture(imageNamed: image!) : nil
         let size = (size == nil && texture != nil)
-            ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale.proportional(to: Level.scale),
+                                                         y: scale.proportional(to: Level.scale)))
             : CGSize(width: 50, height: 50)
 
         self.extraTime = extraTime
-        super.init(withImage: image, interactableDelegate: interactableDelegate, color: color, size: size, andScale: scale)
+        super.init(withImage: image, interactableDelegate: interactableDelegate, color: color, size: size, andScale: scale.proportional(to: Level.scale))
     }
 
 

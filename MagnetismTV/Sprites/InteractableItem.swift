@@ -10,11 +10,11 @@ import SpriteKit
 
 class InteractableItem: SKSpriteNode, Interactable, Enablable {
 
+    static let bitmask: UInt32 = 0x1000
+
     var isEnabled: Bool = false
     weak var delegate: InteractableDelegate?
     var spriteType: String?
-
-    static let bitmask: UInt32 = 0x1000
 
 
     init(withImage image: String? = nil,
@@ -26,7 +26,8 @@ class InteractableItem: SKSpriteNode, Interactable, Enablable {
 
         let texture = image != nil ? SKTexture(imageNamed: image!) : nil
         let size = (size == nil && texture != nil)
-            ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale.proportional(to: Level.scale),
+                                                         y: scale.proportional(to: Level.scale)))
             : CGSize(width: 50, height: 50)
 
         self.spriteType = spriteType

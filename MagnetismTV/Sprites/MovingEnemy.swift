@@ -15,7 +15,7 @@ class MovingEnemy: SKSpriteNode, Movable, Enablable {
         case horizontal
     }
 
-    static var bitmask: UInt32 = 0x0100
+    static let bitmask: UInt32 = 0x0100
 
     var isEnabled: Bool = false
     private var nodeSpeed: CGFloat
@@ -31,10 +31,11 @@ class MovingEnemy: SKSpriteNode, Movable, Enablable {
          andScale scale: CGFloat = 1) {
 
         self.direction = direction
-        self.nodeSpeed = nodeSpeed
+        self.nodeSpeed = nodeSpeed.proportional(to: Level.scale)
         let texture = image != nil ? SKTexture(imageNamed: image!) : nil
         let size = (size == nil && texture != nil)
-            ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale.proportional(to: Level.scale),
+                                                         y: scale.proportional(to: Level.scale)))
             : CGSize(width: 50, height: 50)
         
         super.init(texture: texture, color: color, size: size)
@@ -57,7 +58,7 @@ class MovingEnemy: SKSpriteNode, Movable, Enablable {
             velocity.dy = nodeSpeed
         }
 
-        physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
+        physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2 * 0.85)
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
