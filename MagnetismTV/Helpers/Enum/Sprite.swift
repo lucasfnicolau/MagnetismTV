@@ -11,6 +11,6 @@ import Foundation
 enum Sprite {
     static let birdie = "Birdie"
     static let foxie = "Foxie"
-    static let addTimeItem = "Collectable"
+    static let addTimeItem = "Interactable"
     static let portal = "Portal"
 }

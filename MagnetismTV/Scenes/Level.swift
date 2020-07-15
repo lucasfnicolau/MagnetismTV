@@ -18,7 +18,7 @@ class Level: SKScene {
     private var lastUpdateTime: TimeInterval = 0
     private var player: Player!
     private var movingEnemies = [Int: MovingEnemy]()
-    private var collectableItems = [Int: InteractableItem]()
+    private var interactableItems = [Int: InteractableItem]()
     private var mazeWalls: SKTileMapNode!
     var viewController: GameViewController!
 
@@ -45,7 +45,7 @@ class Level: SKScene {
         super.didMove(to: view)
         configure()
         addGestureRecognizers()
-        createCollectableItems()
+        createInteractableItems()
         createEnemies()
         createPortal()
     }
@@ -58,29 +58,29 @@ class Level: SKScene {
                                       andScale: 0.28)
         guard let entryPoint = childNode(withName: Sprite.portal),
             let key = portal.physicsBody?.hash else { return }
-        collectableItems[key] = portal
+        interactableItems[key] = portal
         addNode(portal, at: entryPoint.position)
     }
 
 
-    private func createCollectableItems() {
+    private func createInteractableItems() {
         let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.interactable) ?? false }
 
         for entryPoint in itemsEntryPoints {
-            var collectableItem: InteractableItem?
+            var interactableItem: InteractableItem?
             if entryPoint.name?.contains(NodeName.addTimeItem) ?? false {
-                collectableItem = AddTimeItem(withImage:
+                interactableItem = AddTimeItem(withImage:
                     "\(Sprite.addTimeItem)0",
                     interactableDelegate: viewController,
                     andScale: 1.5)
             }
 
-            if collectableItem == nil { continue }
+            if interactableItem == nil { continue }
 
-            addNode(collectableItem!, at: entryPoint.position)
+            addNode(interactableItem!, at: entryPoint.position)
 
-            guard let key = collectableItem!.physicsBody?.hash else { return }
-            collectableItems[key] = collectableItem
+            guard let key = interactableItem!.physicsBody?.hash else { return }
+            interactableItems[key] = interactableItem
         }
     }
 
@@ -91,10 +91,10 @@ class Level: SKScene {
                 guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column,
                                                                     row: row) else { continue }
 
-                if tileDefinition.name?.contains("Floor") ?? false { continue }
+                if tileDefinition.name?.contains("MazeBackground") ?? false { continue }
 
-                let width = tileDefinition.size.width * mazeWalls.xScale
-                let height = tileDefinition.size.height * mazeWalls.yScale
+                let width = 128 * mazeWalls.xScale
+                let height = 128 * mazeWalls.yScale
 
                 let center = mazeWalls.centerOfTile(atColumn: column, row:
                     row).applying(CGAffineTransform(scaleX: mazeWalls.xScale, y: mazeWalls.yScale))
@@ -212,14 +212,14 @@ extension Level: SKPhysicsContactDelegate {
             NotificationCenter.default.post(name: NotificationName.playerKilled, object: nil)
         }
 
-        if player.physicsBody?.hash == keyA && collectableItems[keyB] != nil
-            || player.physicsBody?.hash == keyB && collectableItems[keyA] != nil {
+        if player.physicsBody?.hash == keyA && interactableItems[keyB] != nil
+            || player.physicsBody?.hash == keyB && interactableItems[keyA] != nil {
 
             var collectableItem: InteractableItem?
-            if collectableItems[keyA] != nil {
-                collectableItem = collectableItems[keyA]
-            } else if collectableItems[keyB] != nil {
-                collectableItem = collectableItems[keyB]
+            if interactableItems[keyA] != nil {
+                collectableItem = interactableItems[keyA]
+            } else if interactableItems[keyB] != nil {
+                collectableItem = interactableItems[keyB]
             }
 
             guard let item = collectableItem else { return }
