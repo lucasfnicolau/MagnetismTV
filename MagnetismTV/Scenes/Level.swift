@@ -174,9 +174,6 @@ class Level: SKScene {
             return
         }
         addNode(player, at: entryPoint.position)
-
-        AudioManager.shared.setAudio(named: "GameTheme_1.0")
-        AudioManager.shared.audioPlayer?.play()
     }
     
 
@@ -198,6 +195,28 @@ class Level: SKScene {
         node.run(SKAction.fadeIn(withDuration: 0.5)) {
             node.isEnabled = true
         }
+    }
+
+
+    func getScore() -> Int {
+        guard let scoreNode = children.first(where: { $0.name?.contains("Score") ?? false }),
+            let components = scoreNode.name?.components(separatedBy: "-"),
+            components.count > 1 else {
+            return 500
+        }
+
+        return Int(components[1]) ?? 500
+    }
+
+
+    func getTimeLimit() -> Int {
+        guard let timeLimitNode = children.first(where: { $0.name?.contains("TimeLimit") ?? false }),
+            let components = timeLimitNode.name?.components(separatedBy: "-"),
+            components.count > 1 else {
+                return 60
+        }
+
+        return Int(components[1]) ?? 60
     }
 }
 

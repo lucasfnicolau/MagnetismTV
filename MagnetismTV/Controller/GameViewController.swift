@@ -12,11 +12,9 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    private var timerScoreView: TimerScoreView!
+    private var timerScoreView: TimerScoreView?
     private var currentLevel = 0
     private var currentScene: Level?
-    private var levelsTimeLimits = [60, 60]
-    private var levelsMaxScores = [500, 500]
 
     private(set) static var isPaused = false
 
@@ -26,10 +24,33 @@ class GameViewController: UIViewController {
 
         addObservers()
         start(sceneWithIndex: currentLevel)
+
+        AudioManager.shared.setAudio(named: "GameTheme_1.0")
+        AudioManager.shared.audioPlayer?.play()
+    }
+
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AudioManager.shared.audioPlayer?.stop()
     }
 
 
     private func start(sceneWithIndex index: Int) {
+        let name = formattedLevelName(forIndex: index)
+        self.currentScene = createScene(named: name)
+        guard let currentScene = currentScene else { return }
+        setupView(for: currentScene)
+    }
+
+
+    private func checkExistenceOf(sceneAtIndex index: Int) -> Bool {
+        let name = formattedLevelName(forIndex: index)
+        return SKScene(fileNamed: name) != nil
+    }
+
+
+    private func formattedLevelName(forIndex index: Int) -> String {
         let name: String
         if index >= 100 {
             name = "Level\(index)"
@@ -39,9 +60,7 @@ class GameViewController: UIViewController {
             name = "Level00\(index)"
         }
 
-        self.currentScene = createScene(named: name)
-        guard let currentScene = currentScene else { return }
-        setupView(for: currentScene)
+        return name
     }
 
 
@@ -59,17 +78,18 @@ class GameViewController: UIViewController {
     }
 
 
-    private func setupView(for levelScene: SKScene) {
+    private func setupView(for levelScene: Level) {
         view.subviews.forEach { $0.removeFromSuperview() }
 
         if let view = self.view as? SKView {
-            timerScoreView = TimerScoreView(timeLimit: levelsTimeLimits[currentLevel],
-                                            maxScore: levelsMaxScores[currentLevel])
-            view.addSubview(timerScoreView)
-
-            if let scene = levelScene as? Level {
-                scene.viewController = self
+            timerScoreView?.stop()
+            timerScoreView = TimerScoreView(timeLimit: levelScene.getTimeLimit(),
+                                            maxScore: levelScene.getScore())
+            if let timerScoreView = timerScoreView {
+                view.addSubview(timerScoreView)
             }
+
+            levelScene.viewController = self
 
             view.presentScene(levelScene)
             view.ignoresSiblingOrder = true
@@ -95,6 +115,7 @@ class GameViewController: UIViewController {
         switch notif.name {
         case NotificationName.timeIsUp,
              NotificationName.playerKilled:
+            print("Notification name: \(notif.name.rawValue)")
             start(sceneWithIndex: currentLevel)
         case NotificationName.didEnterBackground:
             pause()
@@ -108,14 +129,14 @@ class GameViewController: UIViewController {
 
     @objc func pause() {
         GameViewController.isPaused = true
-        timerScoreView.pause()
+        timerScoreView?.pause()
         currentScene?.pause()
     }
     
 
     @objc func resume() {
         GameViewController.isPaused = false
-        timerScoreView.resume()
+        timerScoreView?.resume()
         currentScene?.resume()
     }
 }
@@ -124,10 +145,12 @@ extension GameViewController: InteractableDelegate {
 
     func itemHasBeenInteracted(_ item: Interactable) {
         if let addTimeItem = item as? AddTimeItem {
-            timerScoreView.addTime(addTimeItem.extraTime)
+            timerScoreView?.addTime(addTimeItem.extraTime)
         } else if item.spriteType == Sprite.portal {
-            print(timerScoreView.score)
-            if currentLevel + 1 < levelsMaxScores.count { currentLevel += 1 }
+            print(timerScoreView?.score ?? 0)
+            if checkExistenceOf(sceneAtIndex: currentLevel + 1) {
+                currentLevel += 1
+            }
             start(sceneWithIndex: currentLevel)
         }
     }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h3G-9R-gcD">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="FrenteH1-Regular.otf">
+            <string>FrenteH1-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="dEh-eV-dlg">
+            <objects>
+                <viewController id="499-42-d0g" customClass="GameViewController" customModule="MagnetismTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TiC-Vw-u93"/>
+                        <viewControllerLayoutGuide type="bottom" id="3TX-uQ-fmp"/>
+                    </layoutGuides>
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="weF-Pa-zaM" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6df-27-8hi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fzc-8x-8wq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFW-Nd-Df7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69" y="69"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="45j-3h-yFa">
+            <objects>
+                <viewController id="h3G-9R-gcD" customClass="MenuViewController" customModule="MagnetismTV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f7h-c5-hls"/>
+                        <viewControllerLayoutGuide type="bottom" id="lJm-bC-hjh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="20D-mx-gO9">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="rgi-MU-5fU">
+                                <rect key="frame" x="624" y="264" width="672" height="352"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="672" height="136"/>
+                                        <color key="backgroundColor" red="0.86274509803921573" green="0.63529411764705879" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="CONTINUE">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="499-42-d0g" kind="show" id="db0-GQ-IMv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="216" width="672" height="136"/>
+                                        <color key="backgroundColor" red="0.86274509799999999" green="0.63529411759999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="SELECT  LEVEL">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-Wu-FGZ" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                <rect key="frame" x="873.5" y="696" width="173" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aeG-Wu-FGZ" secondAttribute="height" multiplier="1:1" id="OWX-AF-Gb4"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="-15" maxY="0.0"/>
+                                <state key="normal" image="MusicNote"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94509804249999996" green="0.9098039269" blue="0.93725490570000003" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="rgi-MU-5fU" firstAttribute="centerY" secondItem="20D-mx-gO9" secondAttribute="centerY" constant="-100" id="0KI-Pb-BbV"/>
+                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="9d3-sh-OZY"/>
+                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="width" secondItem="20D-mx-gO9" secondAttribute="width" multiplier="0.09" id="AAe-Mx-7k5"/>
+                            <constraint firstItem="rgi-MU-5fU" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="LYy-HP-cQ2"/>
+                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="top" secondItem="rgi-MU-5fU" secondAttribute="bottom" constant="80" id="Pfg-nE-YDK"/>
+                            <constraint firstItem="rgi-MU-5fU" firstAttribute="width" secondItem="20D-mx-gO9" secondAttribute="width" multiplier="0.35" id="f8G-AP-tPW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="P1d-ju-Lbz"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="nod-tB-6F1" id="jIG-o4-gmx"/>
+                        <outlet property="musicControlButton" destination="aeG-Wu-FGZ" id="CTz-bs-QCw"/>
+                        <outlet property="selectLevelButton" destination="xoC-Li-0Tt" id="7YH-lk-9RK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugf-iO-TE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2243" y="69"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MusicNote" width="168" height="168"/>
+    </resources>
+</document>

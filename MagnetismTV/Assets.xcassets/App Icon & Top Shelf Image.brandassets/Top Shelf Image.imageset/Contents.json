@@ -1,18 +1,22 @@
 {
   "images" : [
     {
+      "filename" : "Ativo 84-1.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "Ativo 84@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     },
     {
+      "filename" : "Ativo 84.png",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },
     {
+      "filename" : "Ativo 84@2x-1.png",
       "idiom" : "tv-marketing",
       "scale" : "2x"
     }
