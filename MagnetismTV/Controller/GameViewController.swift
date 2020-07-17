@@ -12,7 +12,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    private var timerScoreView: TimerScoreView!
+    private var timerScoreView: TimerScoreView?
     private var currentLevel = 0
     private var currentScene: Level?
 
@@ -82,9 +82,12 @@ class GameViewController: UIViewController {
         view.subviews.forEach { $0.removeFromSuperview() }
 
         if let view = self.view as? SKView {
+            timerScoreView?.stop()
             timerScoreView = TimerScoreView(timeLimit: levelScene.getTimeLimit(),
                                             maxScore: levelScene.getScore())
-            view.addSubview(timerScoreView)
+            if let timerScoreView = timerScoreView {
+                view.addSubview(timerScoreView)
+            }
 
             levelScene.viewController = self
 
@@ -112,6 +115,7 @@ class GameViewController: UIViewController {
         switch notif.name {
         case NotificationName.timeIsUp,
              NotificationName.playerKilled:
+            print("Notification name: \(notif.name.rawValue)")
             start(sceneWithIndex: currentLevel)
         case NotificationName.didEnterBackground:
             pause()
@@ -125,14 +129,14 @@ class GameViewController: UIViewController {
 
     @objc func pause() {
         GameViewController.isPaused = true
-        timerScoreView.pause()
+        timerScoreView?.pause()
         currentScene?.pause()
     }
     
 
     @objc func resume() {
         GameViewController.isPaused = false
-        timerScoreView.resume()
+        timerScoreView?.resume()
         currentScene?.resume()
     }
 }
@@ -141,9 +145,9 @@ extension GameViewController: InteractableDelegate {
 
     func itemHasBeenInteracted(_ item: Interactable) {
         if let addTimeItem = item as? AddTimeItem {
-            timerScoreView.addTime(addTimeItem.extraTime)
+            timerScoreView?.addTime(addTimeItem.extraTime)
         } else if item.spriteType == Sprite.portal {
-            print(timerScoreView.score)
+            print(timerScoreView?.score ?? 0)
             if checkExistenceOf(sceneAtIndex: currentLevel + 1) {
                 currentLevel += 1
             }

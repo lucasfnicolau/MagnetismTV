@@ -37,6 +37,7 @@
 		B6DF835524BE27B90080670E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835424BE27B90080670E /* AudioManager.swift */; };
 		B6DF835724BE3CC10080670E /* Double+CGFloatProportional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */; };
 		B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA124C21B0500D6AE7F /* Level002.sks */; };
+		B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA324C22E7600D6AE7F /* Level003.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		B6DF835424BE27B90080670E /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CGFloatProportional.swift"; sourceTree = "<group>"; };
 		B6FE7CA124C21B0500D6AE7F /* Level002.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level002.sks; sourceTree = "<group>"; };
+		B6FE7CA324C22E7600D6AE7F /* Level003.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level003.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				B6FE7CA324C22E7600D6AE7F /* Level003.sks */,
 				B6FE7CA124C21B0500D6AE7F /* Level002.sks */,
 				B68A55DB24BCF853009DE384 /* Level001.sks */,
 				B6D43FE724B501E8008B0F15 /* Level000.sks */,
@@ -300,6 +303,7 @@
 				B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */,
 				B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */,
 				B68A55DC24BCF853009DE384 /* Level001.sks in Resources */,
+				B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */,
 				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,

@@ -166,4 +166,10 @@ class TimerScoreView: UIView {
         shouldUpdateTime = true
         setTimer(forCurrentTime: currentTime)
     }
+
+
+    func stop() {
+        timer?.invalidate()
+        timer = nil
+    }
 }
