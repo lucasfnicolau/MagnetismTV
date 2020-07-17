@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: AnimatedBackgroundViewController {
 
     @IBOutlet weak var musicControlButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
@@ -17,7 +17,5 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 }
