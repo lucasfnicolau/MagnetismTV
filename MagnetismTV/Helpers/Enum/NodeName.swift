@@ -10,7 +10,8 @@ import Foundation
 
 enum NodeName {
     static let enemy = "Enemy"
-    static let collectable = "Collectable"
+    static let interactable = "Interactable"
     static let entryPoint = "EntryPoint"
     static let mazeWalls = "MazeWalls"
+    static let addTimeItem = "AddTimeItem"
 }

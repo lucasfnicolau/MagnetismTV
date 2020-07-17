@@ -11,11 +11,11 @@ import UIKit
 
 class Player: SKSpriteNode, Enablable {
 
-    static var bitmask: UInt32 = 0x0001
+    static let bitmask: UInt32 = 0x0001
 
     var isEnabled: Bool = false
     private var isMoving = false
-    private var impulse: CGFloat = 2700
+    private var impulse: CGFloat = 2700.proportional(to: Level.scale)
     private var velocity = CGVector.zero
 
 
@@ -26,7 +26,8 @@ class Player: SKSpriteNode, Enablable {
 
         let texture = image != nil ? SKTexture(imageNamed: image!) : nil
         let size = (size == nil && texture != nil)
-            ? texture!.size().applying(CGAffineTransform(scaleX: scale, y: scale))
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale.proportional(to: Level.scale),
+                                                         y: scale.proportional(to: Level.scale)))
             : CGSize(width: 50, height: 50)
 
         super.init(texture: texture, color: color, size: size)
@@ -42,14 +43,14 @@ class Player: SKSpriteNode, Enablable {
     private func configure() {
         alpha = 0
 
-        physicsBody =  SKPhysicsBody(circleOfRadius: size.width * 0.8 / 2)
+        physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2 * 0.9)
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
         physicsBody?.usesPreciseCollisionDetection = true
         physicsBody?.categoryBitMask = Player.bitmask
-        physicsBody?.collisionBitMask = Level.bitmask
-        physicsBody?.contactTestBitMask = MovingEnemy.bitmask
+        physicsBody?.collisionBitMask = Level.bitmask | InteractableItem.bitmask
+        physicsBody?.contactTestBitMask = MovingEnemy.bitmask | InteractableItem.bitmask
     }
 
 

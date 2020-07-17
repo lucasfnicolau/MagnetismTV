@@ -8,10 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217324B9035B00D0FFC2 /* Enablable.swift */; };
+		B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */; };
+		B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770024BCD75E0092C9E5 /* Sprite.swift */; };
+		B65D770324BCE4870092C9E5 /* InteractableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */; };
+		B65D770524BCE4DC0092C9E5 /* Interactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770424BCE4DC0092C9E5 /* Interactable.swift */; };
+		B663187C24C0CAD5003B0152 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B663187B24C0CAD5003B0152 /* CustomButton.swift */; };
+		B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B663187E24C0CCDA003B0152 /* FrenteH1-Regular.otf */; };
+		B663188124C0CD16003B0152 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B663188024C0CD16003B0152 /* MenuViewController.swift */; };
+		B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A55D924BCE8F1009DE384 /* InteractableItem.swift */; };
+		B68A55DC24BCF853009DE384 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DB24BCF853009DE384 /* Level001.sks */; };
+		B68A55DF24BE1D28009DE384 /* GameTheme_1.0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DE24BE1D28009DE384 /* GameTheme_1.0.mp3 */; };
 		B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */; };
 		B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8224B6630800AF8640 /* Movable.swift */; };
 		B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8924B7980600AF8640 /* NodeName.swift */; };
-		B6CFCC9024B7A12C00AF8640 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8F24B7A12C00AF8640 /* TimerView.swift */; };
+		B6CFCC9024B7A12C00AF8640 /* TimerScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */; };
 		B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC9124B7B54800AF8640 /* NotificationName.swift */; };
 		B6D43FBE24B3BB6E008B0F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */; };
 		B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */; };
@@ -23,14 +33,29 @@
 		B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE424B4F14D008B0F15 /* Assets.xcassets */; };
 		B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE724B501E8008B0F15 /* Level000.sks */; };
 		B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FE924B504F0008B0F15 /* Level.swift */; };
+		B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */; };
+		B6DF835524BE27B90080670E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835424BE27B90080670E /* AudioManager.swift */; };
+		B6DF835724BE3CC10080670E /* Double+CGFloatProportional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */; };
+		B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA124C21B0500D6AE7F /* Level002.sks */; };
+		B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA324C22E7600D6AE7F /* Level003.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B61C217324B9035B00D0FFC2 /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
+		B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeItem.swift; sourceTree = "<group>"; };
+		B65D770024BCD75E0092C9E5 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableDelegate.swift; sourceTree = "<group>"; };
+		B65D770424BCE4DC0092C9E5 /* Interactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactable.swift; sourceTree = "<group>"; };
+		B663187B24C0CAD5003B0152 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B663187E24C0CCDA003B0152 /* FrenteH1-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrenteH1-Regular.otf"; sourceTree = "<group>"; };
+		B663188024C0CD16003B0152 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B68A55D924BCE8F1009DE384 /* InteractableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableItem.swift; sourceTree = "<group>"; };
+		B68A55DB24BCF853009DE384 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		B68A55DE24BE1D28009DE384 /* GameTheme_1.0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameTheme_1.0.mp3; sourceTree = "<group>"; };
 		B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingEnemy.swift; sourceTree = "<group>"; };
 		B6CFCC8224B6630800AF8640 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
-		B6CFCC8F24B7A12C00AF8640 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScoreView.swift; sourceTree = "<group>"; };
 		B6CFCC9124B7B54800AF8640 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		B6D43FBA24B3BB6E008B0F15 /* MagnetismTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnetismTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +69,11 @@
 		B6D43FE424B4F14D008B0F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D43FE724B501E8008B0F15 /* Level000.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level000.sks; sourceTree = "<group>"; };
 		B6D43FE924B504F0008B0F15 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGFloat+Proportional.swift"; path = "MagnetismTV/CGFloat+Proportional.swift"; sourceTree = SOURCE_ROOT; };
+		B6DF835424BE27B90080670E /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CGFloatProportional.swift"; sourceTree = "<group>"; };
+		B6FE7CA124C21B0500D6AE7F /* Level002.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level002.sks; sourceTree = "<group>"; };
+		B6FE7CA324C22E7600D6AE7F /* Level003.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level003.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +87,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B663187D24C0CADA003B0152 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B6D43FCC24B3BB71008B0F15 /* LaunchScreen.storyboard */,
+				B6D43FC724B3BB6E008B0F15 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B68A55DD24BE1CD6009DE384 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				B68A55DE24BE1D28009DE384 /* GameTheme_1.0.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		B6B8D80B24B8F86A0077CCDB /* Enum */ = {
 			isa = PBXGroup;
 			children = (
 				B6CFCC8924B7980600AF8640 /* NodeName.swift */,
 				B6CFCC9124B7B54800AF8640 /* NotificationName.swift */,
+				B65D770024BCD75E0092C9E5 /* Sprite.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -71,6 +119,8 @@
 			children = (
 				B6CFCC8224B6630800AF8640 /* Movable.swift */,
 				B61C217324B9035B00D0FFC2 /* Enablable.swift */,
+				B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */,
+				B65D770424BCE4DC0092C9E5 /* Interactable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -78,6 +128,8 @@
 		B6CFCC8624B6686700AF8640 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */,
+				B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -103,6 +155,9 @@
 		B6D43FBC24B3BB6E008B0F15 /* MagnetismTV */ = {
 			isa = PBXGroup;
 			children = (
+				B663187E24C0CCDA003B0152 /* FrenteH1-Regular.otf */,
+				B663187D24C0CADA003B0152 /* Storyboard */,
+				B68A55DD24BE1CD6009DE384 /* Music */,
 				B6CFCC8624B6686700AF8640 /* Extensions */,
 				B6CFCC8124B662FC00AF8640 /* Protocols */,
 				B6D43FDA24B3BB91008B0F15 /* Scenes */,
@@ -121,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */,
+				B663188024C0CD16003B0152 /* MenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,8 +184,8 @@
 		B6D43FD624B3BB7F008B0F15 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B6D43FC724B3BB6E008B0F15 /* Main.storyboard */,
-				B6CFCC8F24B7A12C00AF8640 /* TimerView.swift */,
+				B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */,
+				B663187B24C0CAD5003B0152 /* CustomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */,
-				B6D43FCC24B3BB71008B0F15 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B8D80B24B8F86A0077CCDB /* Enum */,
+				B6DF835424BE27B90080670E /* AudioManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -156,6 +212,8 @@
 			children = (
 				B6D43FDD24B3BB9E008B0F15 /* Player.swift */,
 				B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */,
+				B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */,
+				B68A55D924BCE8F1009DE384 /* InteractableItem.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -172,6 +230,9 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				B6FE7CA324C22E7600D6AE7F /* Level003.sks */,
+				B6FE7CA124C21B0500D6AE7F /* Level002.sks */,
+				B68A55DB24BCF853009DE384 /* Level001.sks */,
 				B6D43FE724B501E8008B0F15 /* Level000.sks */,
 			);
 			path = Levels;
@@ -237,7 +298,12 @@
 			files = (
 				B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */,
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
+				B68A55DF24BE1D28009DE384 /* GameTheme_1.0.mp3 in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
+				B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */,
+				B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */,
+				B68A55DC24BCF853009DE384 /* Level001.sks in Resources */,
+				B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */,
 				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
@@ -252,14 +318,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */,
+				B663187C24C0CAD5003B0152 /* CustomButton.swift in Sources */,
 				B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */,
 				B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */,
+				B6DF835524BE27B90080670E /* AudioManager.swift in Sources */,
+				B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */,
+				B65D770324BCE4870092C9E5 /* InteractableDelegate.swift in Sources */,
 				B6D43FDE24B3BB9E008B0F15 /* Player.swift in Sources */,
 				B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */,
+				B6DF835724BE3CC10080670E /* Double+CGFloatProportional.swift in Sources */,
 				B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */,
+				B663188124C0CD16003B0152 /* MenuViewController.swift in Sources */,
 				B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */,
-				B6CFCC9024B7A12C00AF8640 /* TimerView.swift in Sources */,
+				B6CFCC9024B7A12C00AF8640 /* TimerScoreView.swift in Sources */,
+				B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */,
 				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
+				B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */,
+				B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */,
+				B65D770524BCE4DC0092C9E5 /* Interactable.swift in Sources */,
 				B6D43FBE24B3BB6E008B0F15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

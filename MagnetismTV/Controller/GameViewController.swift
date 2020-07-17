@@ -12,8 +12,11 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    private var timerView: TimerView!
+    private var timerScoreView: TimerScoreView?
     private var currentLevel = 0
+    private var currentScene: Level?
+
+    private(set) static var isPaused = false
 
 
     override func viewDidLoad() {
@@ -21,10 +24,33 @@ class GameViewController: UIViewController {
 
         addObservers()
         start(sceneWithIndex: currentLevel)
+
+        AudioManager.shared.setAudio(named: "GameTheme_1.0")
+        AudioManager.shared.audioPlayer?.play()
+    }
+
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AudioManager.shared.audioPlayer?.stop()
     }
 
 
     private func start(sceneWithIndex index: Int) {
+        let name = formattedLevelName(forIndex: index)
+        self.currentScene = createScene(named: name)
+        guard let currentScene = currentScene else { return }
+        setupView(for: currentScene)
+    }
+
+
+    private func checkExistenceOf(sceneAtIndex index: Int) -> Bool {
+        let name = formattedLevelName(forIndex: index)
+        return SKScene(fileNamed: name) != nil
+    }
+
+
+    private func formattedLevelName(forIndex index: Int) -> String {
         let name: String
         if index >= 100 {
             name = "Level\(index)"
@@ -34,28 +60,36 @@ class GameViewController: UIViewController {
             name = "Level00\(index)"
         }
 
-        let scene = createScene(named: name)
-        setupView(for: scene)
+        return name
     }
 
 
-    private func createScene(named name: String) -> SKScene {
-
-        guard let levelScene = SKScene(fileNamed: name) else {
+    private func createScene(named name: String) -> Level? {
+        guard let scene = SKScene(fileNamed: name) else {
             print("Error creating .sks scene")
-            return SKScene()
+            return nil
         }
-        levelScene.scaleMode = .aspectFill
-        return levelScene
+        scene.scaleMode = .aspectFill
+
+        if let levelScene = scene as? Level {
+            return levelScene
+        }
+        return nil
     }
 
 
-    private func setupView(for levelScene: SKScene) {
+    private func setupView(for levelScene: Level) {
         view.subviews.forEach { $0.removeFromSuperview() }
 
         if let view = self.view as? SKView {
-            timerView = TimerView(timeLimit: 60)
-            view.addSubview(timerView)
+            timerScoreView?.stop()
+            timerScoreView = TimerScoreView(timeLimit: levelScene.getTimeLimit(),
+                                            maxScore: levelScene.getScore())
+            if let timerScoreView = timerScoreView {
+                view.addSubview(timerScoreView)
+            }
+
+            levelScene.viewController = self
 
             view.presentScene(levelScene)
             view.ignoresSiblingOrder = true
@@ -72,6 +106,8 @@ class GameViewController: UIViewController {
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.timeIsUp, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.playerKilled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.didEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.didEnterForeground, object: nil)
     }
 
 
@@ -79,9 +115,43 @@ class GameViewController: UIViewController {
         switch notif.name {
         case NotificationName.timeIsUp,
              NotificationName.playerKilled:
+            print("Notification name: \(notif.name.rawValue)")
             start(sceneWithIndex: currentLevel)
+        case NotificationName.didEnterBackground:
+            pause()
+        case NotificationName.didEnterForeground:
+            resume()
         default:
             return
+        }
+    }
+
+
+    @objc func pause() {
+        GameViewController.isPaused = true
+        timerScoreView?.pause()
+        currentScene?.pause()
+    }
+    
+
+    @objc func resume() {
+        GameViewController.isPaused = false
+        timerScoreView?.resume()
+        currentScene?.resume()
+    }
+}
+
+extension GameViewController: InteractableDelegate {
+
+    func itemHasBeenInteracted(_ item: Interactable) {
+        if let addTimeItem = item as? AddTimeItem {
+            timerScoreView?.addTime(addTimeItem.extraTime)
+        } else if item.spriteType == Sprite.portal {
+            print(timerScoreView?.score ?? 0)
+            if checkExistenceOf(sceneAtIndex: currentLevel + 1) {
+                currentLevel += 1
+            }
+            start(sceneWithIndex: currentLevel)
         }
     }
 }

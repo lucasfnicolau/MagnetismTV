@@ -8,21 +8,19 @@
 
 import SpriteKit
 import UIKit
+import AVKit
 
 class Level: SKScene {
 
+    static var scale: CGFloat = 1
+    private(set) static var bitmask: UInt32 = 0x0010
+
     private var lastUpdateTime: TimeInterval = 0
-    private var player: Player
+    private var player: Player!
     private var movingEnemies = [Int: MovingEnemy]()
-    private var enemiesNumber = 0
+    private var interactableItems = [Int: InteractableItem]()
     private var mazeWalls: SKTileMapNode!
-    static var bitmask: UInt32 = 0x0010
-
-
-    required init?(coder aDecoder: NSCoder) {
-        self.player = Player(withImage: "cowboy_head", andScale: 0.075)
-        super.init(coder: aDecoder)
-    }
+    var viewController: GameViewController!
 
 
     override func sceneDidLoad() {
@@ -35,6 +33,10 @@ class Level: SKScene {
         }
         self.mazeWalls = mazeWalls
 
+        Level.scale = min(mazeWalls.xScale, mazeWalls.yScale)
+
+        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
+
         setupWallsCollision()
     }
 
@@ -43,15 +45,43 @@ class Level: SKScene {
         super.didMove(to: view)
         configure()
         addGestureRecognizers()
-        calculateEnemiesNumber()
+        createInteractableItems()
         createEnemies()
+        createPortal()
     }
 
 
-    private func calculateEnemiesNumber() {
-        enemiesNumber = children.reduce(0, { x, y in
-            (y.name?.contains(NodeName.enemy) ?? false) ? x + 1 : x
-        })
+    private func createPortal() {
+        let portal = InteractableItem(withImage: Sprite.portal,
+                                      interactableDelegate: viewController,
+                                      spriteType: Sprite.portal,
+                                      andScale: 0.28)
+        guard let entryPoint = childNode(withName: Sprite.portal),
+            let key = portal.physicsBody?.hash else { return }
+        interactableItems[key] = portal
+        addNode(portal, at: entryPoint.position)
+    }
+
+
+    private func createInteractableItems() {
+        let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.interactable) ?? false }
+
+        for entryPoint in itemsEntryPoints {
+            var interactableItem: InteractableItem?
+            if entryPoint.name?.contains(NodeName.addTimeItem) ?? false {
+                interactableItem = AddTimeItem(withImage:
+                    "\(Sprite.addTimeItem)0",
+                    interactableDelegate: viewController,
+                    andScale: 1.5)
+            }
+
+            if interactableItem == nil { continue }
+
+            addNode(interactableItem!, at: entryPoint.position)
+
+            guard let key = interactableItem!.physicsBody?.hash else { return }
+            interactableItems[key] = interactableItem
+        }
     }
 
 
@@ -61,8 +91,10 @@ class Level: SKScene {
                 guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column,
                                                                     row: row) else { continue }
 
-                let width = tileDefinition.size.width * mazeWalls.xScale
-                let height = tileDefinition.size.height * mazeWalls.yScale
+                if tileDefinition.name?.contains("MazeBackground") ?? false { continue }
+
+                let width = 128 * mazeWalls.xScale
+                let height = 128 * mazeWalls.yScale
 
                 let center = mazeWalls.centerOfTile(atColumn: column, row:
                     row).applying(CGAffineTransform(scaleX: mazeWalls.xScale, y: mazeWalls.yScale))
@@ -77,6 +109,7 @@ class Level: SKScene {
                 tileNode.physicsBody?.isDynamic = false
                 tileNode.physicsBody?.pinned = true
                 tileNode.physicsBody?.allowsRotation = false
+                tileNode.physicsBody?.usesPreciseCollisionDetection = true
 
                 addChild(tileNode)
             }
@@ -110,23 +143,19 @@ class Level: SKScene {
 
 
     private func createEnemies() {
-        for index in 0 ..< enemiesNumber {
-            var entryPoint: SKNode?
-            let enemyH = childNode(withName: "\(NodeName.enemy)\(index)H")
-            let enemyV = childNode(withName: "\(NodeName.enemy)\(index)V")
-            var direction: MovingEnemy.Direction = .horizontal
+        let enemiesEntryPoints = children.filter { $0.name?.contains(NodeName.enemy) ?? false }
 
-            if enemyH != nil {
-                entryPoint = enemyH
-            } else if enemyV != nil {
-                entryPoint = enemyV
+        for entryPoint in enemiesEntryPoints {
+
+            let direction: MovingEnemy.Direction
+            if entryPoint.name?.contains("H") ?? false {
+                direction = .horizontal
+            } else { // if entryPoint.name?.contains("V") ?? false {
                 direction = .vertical
             }
 
-            if entryPoint == nil { continue }
-
-            let movingEnemy = MovingEnemy(withImage: "skull", direction: direction, andScale: 0.05)
-            addNode(movingEnemy, at: entryPoint!.position)
+            let movingEnemy = MovingEnemy(withImage: "\(Sprite.foxie)0", direction: direction, andScale: 0.65)
+            addNode(movingEnemy, at: entryPoint.position)
 
             guard let key = movingEnemy.physicsBody?.hash else { return }
             movingEnemies[key] = movingEnemy
@@ -167,6 +196,28 @@ class Level: SKScene {
             node.isEnabled = true
         }
     }
+
+
+    func getScore() -> Int {
+        guard let scoreNode = children.first(where: { $0.name?.contains("Score") ?? false }),
+            let components = scoreNode.name?.components(separatedBy: "-"),
+            components.count > 1 else {
+            return 500
+        }
+
+        return Int(components[1]) ?? 500
+    }
+
+
+    func getTimeLimit() -> Int {
+        guard let timeLimitNode = children.first(where: { $0.name?.contains("TimeLimit") ?? false }),
+            let components = timeLimitNode.name?.components(separatedBy: "-"),
+            components.count > 1 else {
+                return 60
+        }
+
+        return Int(components[1]) ?? 60
+    }
 }
 
 extension Level: SKPhysicsContactDelegate {
@@ -180,9 +231,39 @@ extension Level: SKPhysicsContactDelegate {
             NotificationCenter.default.post(name: NotificationName.playerKilled, object: nil)
         }
 
+        if player.physicsBody?.hash == keyA && interactableItems[keyB] != nil
+            || player.physicsBody?.hash == keyB && interactableItems[keyA] != nil {
+
+            var collectableItem: InteractableItem?
+            if interactableItems[keyA] != nil {
+                collectableItem = interactableItems[keyA]
+            } else if interactableItems[keyB] != nil {
+                collectableItem = interactableItems[keyB]
+            }
+
+            guard let item = collectableItem else { return }
+            item.delegate?.itemHasBeenInteracted(item)
+            item.removeFromParent()
+        }
+
         if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
         else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
     }
 
-}
 
+    func pause() {
+        movingEnemies.values.forEach { $0.isEnabled = false }
+    }
+
+
+    func resume() {
+        var pausedTime = 0
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            if pausedTime == 1 {
+                self.movingEnemies.values.forEach { $0.isEnabled = true }
+                timer.invalidate()
+            }
+            pausedTime += 1
+        }.fire()
+    }
+}
