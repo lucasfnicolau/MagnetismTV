@@ -18,6 +18,9 @@
 		B66BCF1824C249A000B70D2B /* UIImageView+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */; };
 		B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A55D924BCE8F1009DE384 /* InteractableItem.swift */; };
 		B68A55DC24BCF853009DE384 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DB24BCF853009DE384 /* Level001.sks */; };
+		B6AD163F24C62C1100860341 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD163E24C62C1100860341 /* ResultsViewController.swift */; };
+		B6AD164124C62C1C00860341 /* ResultsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD164024C62C1C00860341 /* ResultsViewController.storyboard */; };
+		B6AD164324C62D0800860341 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164224C62D0800860341 /* InfoView.swift */; };
 		B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */; };
 		B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8224B6630800AF8640 /* Movable.swift */; };
 		B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8924B7980600AF8640 /* NodeName.swift */; };
@@ -56,6 +59,9 @@
 		B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Copy.swift"; sourceTree = "<group>"; };
 		B68A55D924BCE8F1009DE384 /* InteractableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableItem.swift; sourceTree = "<group>"; };
 		B68A55DB24BCF853009DE384 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		B6AD163E24C62C1100860341 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		B6AD164024C62C1C00860341 /* ResultsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResultsViewController.storyboard; sourceTree = "<group>"; };
+		B6AD164224C62D0800860341 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingEnemy.swift; sourceTree = "<group>"; };
 		B6CFCC8224B6630800AF8640 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
@@ -110,6 +116,15 @@
 				B6FE7CA524C2454600D6AE7F /* GameTheme_1.1.mp3 */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		B6AD163D24C62BF800860341 /* ResultsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD163E24C62C1100860341 /* ResultsViewController.swift */,
+				B6AD164024C62C1C00860341 /* ResultsViewController.storyboard */,
+			);
+			path = ResultsViewController;
 			sourceTree = "<group>";
 		};
 		B6B8D80B24B8F86A0077CCDB /* Enum */ = {
@@ -185,6 +200,7 @@
 		B6D43FD524B3BB7A008B0F15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B6AD163D24C62BF800860341 /* ResultsViewController */,
 				B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */,
 				B663188024C0CD16003B0152 /* MenuViewController.swift */,
 				B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */,
@@ -198,6 +214,7 @@
 				B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */,
 				B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */,
 				B663187B24C0CAD5003B0152 /* CustomButton.swift */,
+				B6AD164224C62D0800860341 /* InfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6AD164124C62C1C00860341 /* ResultsViewController.storyboard in Resources */,
 				B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */,
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
@@ -347,6 +365,8 @@
 				B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */,
 				B6CFCC9024B7A12C00AF8640 /* TimerScoreView.swift in Sources */,
 				B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */,
+				B6AD164324C62D0800860341 /* InfoView.swift in Sources */,
+				B6AD163F24C62C1100860341 /* ResultsViewController.swift in Sources */,
 				B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */,
 				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
 				B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */,
