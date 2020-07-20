@@ -46,7 +46,7 @@ class InfoView: UIView {
 
     private func setLayout() {
         layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 3
+        layer.borderWidth = 5
         backgroundColor = #colorLiteral(red: 0.8, green: 0.6705882353, blue: 0.7764705882, alpha: 1)
 
         setLabel()
