@@ -32,11 +32,13 @@ class GameViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        AudioManager.shared.audioPlayer?.stop()
+//        AudioManager.shared.audioPlayer?.stop()
     }
 
 
-    private func start(sceneWithIndex index: Int) {
+    func start(sceneWithIndex index: Int) {
+        currentLevel = index
+        stop()
         let name = formattedLevelName(forIndex: index)
         self.currentScene = createScene(named: name)
         guard let currentScene = currentScene else { return }
@@ -82,7 +84,6 @@ class GameViewController: UIViewController {
         view.subviews.forEach { $0.removeFromSuperview() }
 
         if let view = self.view as? SKView {
-            timerScoreView?.stop()
             timerScoreView = TimerScoreView(timeLimit: levelScene.getTimeLimit(),
                                             maxScore: levelScene.getScore())
             if let timerScoreView = timerScoreView {
@@ -93,6 +94,8 @@ class GameViewController: UIViewController {
 
             view.presentScene(levelScene)
             view.ignoresSiblingOrder = true
+
+            timerScoreView?.startTimer()
 
             #if DEBUG
             view.showsFPS = true
@@ -115,7 +118,6 @@ class GameViewController: UIViewController {
         switch notif.name {
         case NotificationName.timeIsUp,
              NotificationName.playerKilled:
-            print("Notification name: \(notif.name.rawValue)")
             start(sceneWithIndex: currentLevel)
         case NotificationName.didEnterBackground:
             pause()
@@ -139,6 +141,11 @@ class GameViewController: UIViewController {
         timerScoreView?.resume()
         currentScene?.resume()
     }
+
+
+    private func stop() {
+        timerScoreView?.stop()
+    }
 }
 
 extension GameViewController: InteractableDelegate {
@@ -147,11 +154,21 @@ extension GameViewController: InteractableDelegate {
         if let addTimeItem = item as? AddTimeItem {
             timerScoreView?.addTime(addTimeItem.extraTime)
         } else if item.spriteType == Sprite.portal {
-            print(timerScoreView?.score ?? 0)
-            if checkExistenceOf(sceneAtIndex: currentLevel + 1) {
-                currentLevel += 1
-            }
-            start(sceneWithIndex: currentLevel)
+            stop()
+            showResultsViewController()
         }
+    }
+
+
+    private func showResultsViewController() {
+        guard let resultsVC = UIStoryboard(name: Storyboard.results, bundle: nil).instantiateViewController(identifier: Identifier.results) as? ResultsViewController else {
+            return
+        }
+
+        resultsVC.level = currentLevel
+        resultsVC.score = timerScoreView?.score ?? 0
+        resultsVC.gameVC = self
+
+        navigationController?.pushViewController(resultsVC, animated: true)
     }
 }

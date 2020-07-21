@@ -74,7 +74,6 @@ class TimerScoreView: UIView {
     private func setTimer(forCurrentTime currentTime: Int = 0) {
         self.currentTime = currentTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        timer?.fire()
     }
 
 
@@ -93,6 +92,8 @@ class TimerScoreView: UIView {
         if currentTime >= timeLimit {
             subviews.forEach { $0.removeFromSuperview() }
             timer?.invalidate()
+            timer = nil
+            shouldUpdateTime = false
             NotificationCenter.default.post(name: NotificationName.timeIsUp, object: nil)
         }
     }
@@ -115,6 +116,13 @@ class TimerScoreView: UIView {
             UIView.animate(withDuration: 1) {
                 self.backgroundColor = self.colors[colorIndex]
             }
+        }
+    }
+
+
+    func startTimer() {
+        TimerManager.wait(0.5) {
+            self.timer?.fire()
         }
     }
 
@@ -169,6 +177,7 @@ class TimerScoreView: UIView {
 
 
     func stop() {
+        shouldUpdateTime = false
         timer?.invalidate()
         timer = nil
     }
