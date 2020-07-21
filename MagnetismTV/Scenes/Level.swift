@@ -257,13 +257,8 @@ extension Level: SKPhysicsContactDelegate {
 
 
     func resume() {
-        var pausedTime = 0
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
-            if pausedTime == 1 {
-                self.movingEnemies.values.forEach { $0.isEnabled = true }
-                timer.invalidate()
-            }
-            pausedTime += 1
-        }.fire()
+        TimerManager.wait(0.5) {
+            self.movingEnemies.values.forEach { $0.isEnabled = true }
+        }
     }
 }
