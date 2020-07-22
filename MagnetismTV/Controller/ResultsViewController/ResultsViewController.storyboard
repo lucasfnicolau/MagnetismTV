@@ -34,7 +34,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
                                         <rect key="frame" x="0.0" y="104" width="432" height="432"/>
                                         <color key="backgroundColor" red="0.13615825770000001" green="0.15940833090000001" blue="0.39218127730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -139,7 +139,7 @@
     <resources>
         <image name="Home" width="295" height="295"/>
         <image name="Play" width="295" height="295"/>
-        <image name="Portal" width="1025" height="1025"/>
+        <image name="Portal" width="384" height="439"/>
         <image name="Restart" width="295" height="295"/>
     </resources>
 </document>

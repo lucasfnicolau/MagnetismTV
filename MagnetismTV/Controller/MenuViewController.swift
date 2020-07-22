@@ -17,6 +17,11 @@ class MenuViewController: AnimatedBackgroundViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let defaults = UserDefaults()
+        if defaults.integer(forKey: UDKey.allPoints) == 0 {
+            defaults.set(0, forKey: UDKey.currentSkinIndex)
+        }
     }
 
 
@@ -29,6 +34,13 @@ class MenuViewController: AnimatedBackgroundViewController {
 
     @IBAction func selectLevelButtonTouched(_ sendeR: CustomButton) {
 
+    }
+
+
+    @IBAction func selectSkinButtonTouched(_ sendeR: CustomButton) {
+        let selectSkinVC = UIStoryboard(name: Storyboard.skins, bundle: nil).instantiateViewController(identifier: Identifier.skins)
+
+        navigationController?.pushViewController(selectSkinVC, animated: true)
     }
 
 

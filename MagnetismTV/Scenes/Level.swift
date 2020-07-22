@@ -35,7 +35,7 @@ class Level: SKScene {
 
         Level.scale = min(mazeWalls.xScale, mazeWalls.yScale)
 
-        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
+        self.player = Player(withImage: SkinManager.shared.currentSkin.image, andScale: 0.215)
 
         setupWallsCollision()
     }
@@ -55,7 +55,7 @@ class Level: SKScene {
         let portal = InteractableItem(withImage: Sprite.portal,
                                       interactableDelegate: viewController,
                                       spriteType: Sprite.portal,
-                                      andScale: 0.28)
+                                      andScale: 0.42)
         guard let entryPoint = childNode(withName: Sprite.portal),
             let key = portal.physicsBody?.hash else { return }
         interactableItems[key] = portal

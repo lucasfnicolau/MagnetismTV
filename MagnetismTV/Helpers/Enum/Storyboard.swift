@@ -11,4 +11,5 @@ import Foundation
 enum Storyboard {
     static let main = "Main"
     static let results = "ResultsViewController"
+    static let skins = "SkinsViewController"
 }

@@ -11,4 +11,5 @@ import Foundation
 enum Identifier {
     static let results = "ResultsViewController"
     static let game = "GameViewController"
+    static let skins = "SkinsViewController"
 }
