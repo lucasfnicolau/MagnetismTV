@@ -12,7 +12,7 @@ import AVKit
 class AudioManager {
 
     static let shared = AudioManager()
-    static var numberOfLoops = 0
+    static var numberOfLoops = -1
 
     var audioPlayer: AVAudioPlayer?
 
