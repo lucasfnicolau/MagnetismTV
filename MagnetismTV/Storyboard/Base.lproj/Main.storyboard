@@ -46,9 +46,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="rgi-MU-5fU">
                                 <rect key="frame" x="624" y="136" width="672" height="568"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="672" height="136"/>
-                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nod-tB-6F1" secondAttribute="height" multiplier="84:17" id="Eb8-gt-LaT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="CONTINUE">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,9 +60,12 @@
                                             <action selector="continueButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="u5l-Su-T2X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="216" width="672" height="136"/>
-                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xoC-Li-0Tt" secondAttribute="height" multiplier="84:17" id="qM7-O6-ATL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="SELECT  LEVEL">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,11 +74,14 @@
                                             <action selector="selectLevelButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="O9R-ac-z5o"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-FY-YCK" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-FY-YCK" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="432" width="672" height="136"/>
-                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9Ec-FY-YCK" secondAttribute="height" multiplier="84:17" id="Eqg-5z-fZf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="SELECT  Skin">
+                                        <state key="normal" title="Skins">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>

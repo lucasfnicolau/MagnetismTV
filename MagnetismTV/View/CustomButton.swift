@@ -11,6 +11,19 @@ import UIKit
 @IBDesignable
 class CustomButton: UIButton {
 
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLayout()
+    }
+
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setLayout()
+    }
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setLayout()
@@ -30,6 +43,51 @@ class CustomButton: UIButton {
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 5
         tintColor = .black
+        adjustsImageWhenHighlighted = false
+    }
+
+
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select else { return }
+
+        super.pressesBegan(presses, with: event)
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        })
+    }
+
+
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select else { return }
+
+        super.pressesEnded(presses, with: event)
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+        })
+    }
+
+
+    override func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select else { return }
+
+        super.pressesCancelled(presses, with: event)
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+        })
+    }
+
+
+    override func pressesChanged(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select else { return }
+
+        super.pressesChanged(presses, with: event)
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+        })
     }
 
 

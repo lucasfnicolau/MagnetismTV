@@ -14,13 +14,23 @@ class MenuViewController: AnimatedBackgroundViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var selectLevelButton: UIButton!
 
+    let defaults = UserDefaults()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMusic()
+    }
 
-        let defaults = UserDefaults()
-        if defaults.integer(forKey: UDKey.allPoints) == 0 {
-            defaults.set(0, forKey: UDKey.currentSkinIndex)
+
+    private func setupMusic() {
+        AudioManager.shared.setAudio(named: Sound.gameTheme)
+
+        let musicDisabled = defaults.bool(forKey: UDKey.musicDisabled)
+        if !musicDisabled {
+            AudioManager.shared.audioPlayer?.play()
+        } else {
+            musicControlButton.setImage(UIImage(named: Image.noMusic), for: .normal)
         }
     }
 
@@ -45,6 +55,18 @@ class MenuViewController: AnimatedBackgroundViewController {
 
 
     @IBAction func toggleMusicButtonTouched(_ sendeR: CustomButton) {
+        let musicDisabled = !defaults.bool(forKey: UDKey.musicDisabled)
+        defaults.set(musicDisabled, forKey: UDKey.musicDisabled)
 
+        let image: UIImage?
+        if musicDisabled {
+            AudioManager.shared.audioPlayer?.stop()
+            image = UIImage(named: Image.noMusic)
+        } else {
+            AudioManager.shared.audioPlayer?.play()
+            image = UIImage(named: Image.music)
+        }
+
+        musicControlButton.setImage(image, for: .normal)
     }
 }
