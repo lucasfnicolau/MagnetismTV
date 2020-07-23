@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wxM-rd-n2L">
-                                <rect key="frame" x="744" y="192" width="432" height="536"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="wxM-rd-n2L">
+                                <rect key="frame" x="744" y="157" width="432" height="586"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3q0-0x-c7p" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="432" height="104"/>
@@ -34,9 +34,9 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
-                                        <rect key="frame" x="0.0" y="104" width="432" height="432"/>
-                                        <color key="backgroundColor" red="0.13615825770000001" green="0.15940833090000001" blue="0.39218127730000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
+                                        <rect key="frame" x="0.0" y="154" width="432" height="432"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yx4-nf-91a" secondAttribute="height" multiplier="1:1" id="HOf-m3-v4a"/>
                                         </constraints>
@@ -47,7 +47,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="zId-Ic-m9I">
-                                <rect key="frame" x="745" y="778" width="430" height="108"/>
+                                <rect key="frame" x="745" y="793" width="430" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63g-V3-i1d" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
@@ -110,7 +110,7 @@
                         <constraints>
                             <constraint firstItem="Yx4-nf-91a" firstAttribute="height" secondItem="M5E-cK-ahe" secondAttribute="height" multiplier="0.4" id="CDW-ot-baB"/>
                             <constraint firstItem="wxM-rd-n2L" firstAttribute="centerX" secondItem="M5E-cK-ahe" secondAttribute="centerX" id="K7Z-wS-Agt"/>
-                            <constraint firstItem="wxM-rd-n2L" firstAttribute="centerY" secondItem="M5E-cK-ahe" secondAttribute="centerY" constant="-80" id="L98-Mg-S4T"/>
+                            <constraint firstItem="wxM-rd-n2L" firstAttribute="centerY" secondItem="M5E-cK-ahe" secondAttribute="centerY" constant="-90" id="L98-Mg-S4T"/>
                             <constraint firstItem="U7b-mu-bFY" firstAttribute="leading" secondItem="wxM-rd-n2L" secondAttribute="trailing" constant="120" id="VmI-x3-l7c"/>
                             <constraint firstItem="QzZ-4w-hpq" firstAttribute="centerY" secondItem="M5E-cK-ahe" secondAttribute="centerY" id="X0r-De-idS"/>
                             <constraint firstItem="zId-Ic-m9I" firstAttribute="top" secondItem="wxM-rd-n2L" secondAttribute="bottom" constant="50" id="iT6-4T-HBH"/>
@@ -139,7 +139,7 @@
     <resources>
         <image name="Home" width="295" height="295"/>
         <image name="Play" width="295" height="295"/>
-        <image name="Portal" width="1025" height="1025"/>
+        <image name="Portal" width="384" height="439"/>
         <image name="Restart" width="295" height="295"/>
     </resources>
 </document>

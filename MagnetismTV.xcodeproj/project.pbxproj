@@ -16,15 +16,23 @@
 		B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B663187E24C0CCDA003B0152 /* FrenteH1-Regular.otf */; };
 		B663188124C0CD16003B0152 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B663188024C0CD16003B0152 /* MenuViewController.swift */; };
 		B66BCF1824C249A000B70D2B /* UIImageView+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */; };
+		B677F0D524CA031800F36AB1 /* UIViewController+FocusGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B677F0D424CA031800F36AB1 /* UIViewController+FocusGuide.swift */; };
 		B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A55D924BCE8F1009DE384 /* InteractableItem.swift */; };
 		B68A55DC24BCF853009DE384 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DB24BCF853009DE384 /* Level001.sks */; };
+		B68C34EA24C8B26600182D54 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C34E924C8B26600182D54 /* Skin.swift */; };
+		B68C34EC24C8B34100182D54 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C34EB24C8B34100182D54 /* SkinManager.swift */; };
 		B6AD163F24C62C1100860341 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD163E24C62C1100860341 /* ResultsViewController.swift */; };
 		B6AD164124C62C1C00860341 /* ResultsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD164024C62C1C00860341 /* ResultsViewController.storyboard */; };
 		B6AD164324C62D0800860341 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164224C62D0800860341 /* InfoView.swift */; };
 		B6AD164524C6383700860341 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164424C6383700860341 /* Storyboard.swift */; };
 		B6AD164724C6389900860341 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164624C6389900860341 /* Identifier.swift */; };
-		B6AD164924C638FC00860341 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164824C638FC00860341 /* File.swift */; };
+		B6AD164924C638FC00860341 /* UDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164824C638FC00860341 /* UDKey.swift */; };
 		B6AD164B24C77C4000860341 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164A24C77C4000860341 /* TimerManager.swift */; };
+		B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD164D24C783A300860341 /* SkinsViewController.storyboard */; };
+		B6AD165024C783AD00860341 /* SkinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD164F24C783AD00860341 /* SkinsViewController.swift */; };
+		B6AD165324C789D500860341 /* SkinsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD165224C789D500860341 /* SkinsCollectionViewCell.swift */; };
+		B6AD165524C78BD700860341 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD165424C78BD700860341 /* Cell.swift */; };
+		B6AD165724C78DC100860341 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD165624C78DC100860341 /* Image.swift */; };
 		B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */; };
 		B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8224B6630800AF8640 /* Movable.swift */; };
 		B6CFCC8A24B7980600AF8640 /* NodeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFCC8924B7980600AF8640 /* NodeName.swift */; };
@@ -61,15 +69,23 @@
 		B663187E24C0CCDA003B0152 /* FrenteH1-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrenteH1-Regular.otf"; sourceTree = "<group>"; };
 		B663188024C0CD16003B0152 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Copy.swift"; sourceTree = "<group>"; };
+		B677F0D424CA031800F36AB1 /* UIViewController+FocusGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+FocusGuide.swift"; sourceTree = "<group>"; };
 		B68A55D924BCE8F1009DE384 /* InteractableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableItem.swift; sourceTree = "<group>"; };
 		B68A55DB24BCF853009DE384 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		B68C34E924C8B26600182D54 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		B68C34EB24C8B34100182D54 /* SkinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
 		B6AD163E24C62C1100860341 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		B6AD164024C62C1C00860341 /* ResultsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResultsViewController.storyboard; sourceTree = "<group>"; };
 		B6AD164224C62D0800860341 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		B6AD164424C6383700860341 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		B6AD164624C6389900860341 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
-		B6AD164824C638FC00860341 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B6AD164824C638FC00860341 /* UDKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDKey.swift; sourceTree = "<group>"; };
 		B6AD164A24C77C4000860341 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		B6AD164D24C783A300860341 /* SkinsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SkinsViewController.storyboard; sourceTree = "<group>"; };
+		B6AD164F24C783AD00860341 /* SkinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsViewController.swift; sourceTree = "<group>"; };
+		B6AD165224C789D500860341 /* SkinsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6AD165424C78BD700860341 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		B6AD165624C78DC100860341 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		B6CFCC7F24B65D1E00AF8640 /* MovingEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingEnemy.swift; sourceTree = "<group>"; };
 		B6CFCC8224B6630800AF8640 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
@@ -126,11 +142,20 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
+		B68C34E824C8B24F00182D54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B68C34E924C8B26600182D54 /* Skin.swift */,
+				B68C34EB24C8B34100182D54 /* SkinManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B6AD163D24C62BF800860341 /* ResultsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B6AD163E24C62C1100860341 /* ResultsViewController.swift */,
 				B6AD164024C62C1C00860341 /* ResultsViewController.storyboard */,
+				B6AD163E24C62C1100860341 /* ResultsViewController.swift */,
 			);
 			path = ResultsViewController;
 			sourceTree = "<group>";
@@ -138,8 +163,18 @@
 		B6AD164C24C7833400860341 /* SkinsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B6AD164D24C783A300860341 /* SkinsViewController.storyboard */,
+				B6AD164F24C783AD00860341 /* SkinsViewController.swift */,
 			);
 			path = SkinsViewController;
+			sourceTree = "<group>";
+		};
+		B6AD165124C789BB00860341 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD165224C789D500860341 /* SkinsCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		B6B8D80B24B8F86A0077CCDB /* Enum */ = {
@@ -151,7 +186,9 @@
 				B6FE7CA724C2455C00D6AE7F /* Sound.swift */,
 				B6AD164424C6383700860341 /* Storyboard.swift */,
 				B6AD164624C6389900860341 /* Identifier.swift */,
-				B6AD164824C638FC00860341 /* File.swift */,
+				B6AD164824C638FC00860341 /* UDKey.swift */,
+				B6AD165424C78BD700860341 /* Cell.swift */,
+				B6AD165624C78DC100860341 /* Image.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -173,6 +210,7 @@
 				B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */,
 				B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */,
 				B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */,
+				B677F0D424CA031800F36AB1 /* UIViewController+FocusGuide.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,6 +245,7 @@
 				B6D43FD924B3BB8C008B0F15 /* Sprites */,
 				B6D43FD824B3BB89008B0F15 /* Helpers */,
 				B6D43FD724B3BB83008B0F15 /* Supporting Files */,
+				B68C34E824C8B24F00182D54 /* Model */,
 				B6D43FD624B3BB7F008B0F15 /* View */,
 				B6D43FD524B3BB7A008B0F15 /* Controller */,
 				B6D43FCA24B3BB71008B0F15 /* Assets.xcassets */,
@@ -230,6 +269,7 @@
 		B6D43FD624B3BB7F008B0F15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6AD165124C789BB00860341 /* CollectionViewCell */,
 				B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */,
 				B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */,
 				B663187B24C0CAD5003B0152 /* CustomButton.swift */,
@@ -356,6 +396,7 @@
 				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
+				B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */,
 				B6FE7CA624C2454600D6AE7F /* GameTheme_1.1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,10 +413,15 @@
 				B663187C24C0CAD5003B0152 /* CustomButton.swift in Sources */,
 				B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */,
 				B6FE7CAC24C2468500D6AE7F /* AnimatedBackgroundViewController.swift in Sources */,
-				B6AD164924C638FC00860341 /* File.swift in Sources */,
+				B6AD164924C638FC00860341 /* UDKey.swift in Sources */,
 				B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */,
+				B677F0D524CA031800F36AB1 /* UIViewController+FocusGuide.swift in Sources */,
+				B6AD165324C789D500860341 /* SkinsCollectionViewCell.swift in Sources */,
+				B6AD165524C78BD700860341 /* Cell.swift in Sources */,
 				B6DF835524BE27B90080670E /* AudioManager.swift in Sources */,
 				B6AD164524C6383700860341 /* Storyboard.swift in Sources */,
+				B6AD165724C78DC100860341 /* Image.swift in Sources */,
+				B68C34EC24C8B34100182D54 /* SkinManager.swift in Sources */,
 				B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */,
 				B65D770324BCE4870092C9E5 /* InteractableDelegate.swift in Sources */,
 				B6AD164724C6389900860341 /* Identifier.swift in Sources */,
@@ -390,8 +436,10 @@
 				B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */,
 				B6AD164B24C77C4000860341 /* TimerManager.swift in Sources */,
 				B6AD164324C62D0800860341 /* InfoView.swift in Sources */,
+				B6AD165024C783AD00860341 /* SkinsViewController.swift in Sources */,
 				B6AD163F24C62C1100860341 /* ResultsViewController.swift in Sources */,
 				B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */,
+				B68C34EA24C8B26600182D54 /* Skin.swift in Sources */,
 				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
 				B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */,
 				B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */,

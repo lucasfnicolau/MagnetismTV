@@ -44,11 +44,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="rgi-MU-5fU">
-                                <rect key="frame" x="624" y="264" width="672" height="352"/>
+                                <rect key="frame" x="624" y="136" width="672" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="672" height="136"/>
-                                        <color key="backgroundColor" red="0.86274509803921573" green="0.63529411764705879" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="CONTINUE">
@@ -60,7 +59,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="216" width="672" height="136"/>
-                                        <color key="backgroundColor" red="0.86274509799999999" green="0.63529411759999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="SELECT  LEVEL">
@@ -70,10 +68,21 @@
                                             <action selector="selectLevelButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="O9R-ac-z5o"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-FY-YCK" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="432" width="672" height="136"/>
+                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="SELECT  Skin">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectSkinButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="t2s-PG-zpL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-Wu-FGZ" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                <rect key="frame" x="873.5" y="696" width="173" height="173"/>
+                                <rect key="frame" x="873.5" y="784" width="173" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aeG-Wu-FGZ" secondAttribute="height" multiplier="1:1" id="OWX-AF-Gb4"/>
                                 </constraints>
@@ -87,7 +96,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94509804249999996" green="0.9098039269" blue="0.93725490570000003" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="rgi-MU-5fU" firstAttribute="centerY" secondItem="20D-mx-gO9" secondAttribute="centerY" constant="-100" id="0KI-Pb-BbV"/>
+                            <constraint firstItem="rgi-MU-5fU" firstAttribute="centerY" secondItem="20D-mx-gO9" secondAttribute="centerY" constant="-120" id="0KI-Pb-BbV"/>
                             <constraint firstItem="aeG-Wu-FGZ" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="9d3-sh-OZY"/>
                             <constraint firstItem="aeG-Wu-FGZ" firstAttribute="width" secondItem="20D-mx-gO9" secondAttribute="width" multiplier="0.09" id="AAe-Mx-7k5"/>
                             <constraint firstItem="rgi-MU-5fU" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="LYy-HP-cQ2"/>

@@ -35,7 +35,7 @@ class Level: SKScene {
 
         Level.scale = min(mazeWalls.xScale, mazeWalls.yScale)
 
-        self.player = Player(withImage: "\(Sprite.birdie)0", andScale: 0.7)
+        self.player = Player(withImage: SkinManager.shared.currentSkin.image, andScale: 0.215)
 
         setupWallsCollision()
     }
@@ -55,7 +55,7 @@ class Level: SKScene {
         let portal = InteractableItem(withImage: Sprite.portal,
                                       interactableDelegate: viewController,
                                       spriteType: Sprite.portal,
-                                      andScale: 0.28)
+                                      andScale: 0.42)
         guard let entryPoint = childNode(withName: Sprite.portal),
             let key = portal.physicsBody?.hash else { return }
         interactableItems[key] = portal
@@ -218,6 +218,18 @@ class Level: SKScene {
 
         return Int(components[1]) ?? 60
     }
+    
+
+    func pause() {
+        movingEnemies.values.forEach { $0.isEnabled = false }
+    }
+
+
+    func resume() {
+        TimerManager.wait(0.5) {
+            self.movingEnemies.values.forEach { $0.isEnabled = true }
+        }
+    }
 }
 
 extension Level: SKPhysicsContactDelegate {
@@ -248,17 +260,5 @@ extension Level: SKPhysicsContactDelegate {
 
         if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
         else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
-    }
-
-
-    func pause() {
-        movingEnemies.values.forEach { $0.isEnabled = false }
-    }
-
-
-    func resume() {
-        TimerManager.wait(0.5) {
-            self.movingEnemies.values.forEach { $0.isEnabled = true }
-        }
     }
 }
