@@ -24,9 +24,6 @@ class GameViewController: UIViewController {
 
         addObservers()
         start(sceneWithIndex: currentLevel)
-
-        AudioManager.shared.setAudio(named: Sound.gameTheme)
-        AudioManager.shared.audioPlayer?.play()
     }
 
 

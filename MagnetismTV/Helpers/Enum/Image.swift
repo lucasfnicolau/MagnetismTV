@@ -12,6 +12,9 @@ enum Image {
     static let birdieNotAvailable = "BirdieNotAvailable"
     static let tombstone = "Tombstone"
 
+    static let music = "MusicNote"
+    static let noMusic = "NoMusicNote"
+
     static let topLeftOpen = "TopLeft-Open"
     static let topLeftClosed = "TopLeft-Closed"
 
