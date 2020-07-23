@@ -12,6 +12,12 @@ import AVKit
 
 class Level: SKScene {
 
+    enum TileType: String {
+        case floor = "MazeBackground"
+        case portal = "Portal"
+        case wall
+    }
+
     static var scale: CGFloat = 1
     private(set) static var bitmask: UInt32 = 0x0010
 
@@ -19,6 +25,7 @@ class Level: SKScene {
     private var player: Player!
     private var movingEnemies = [Int: MovingEnemy]()
     private var interactableItems = [Int: InteractableItem]()
+    private var portalPhysicsBody: SKPhysicsBody?
     private var mazeWalls: SKTileMapNode!
     var viewController: GameViewController!
 
@@ -47,30 +54,18 @@ class Level: SKScene {
         addGestureRecognizers()
         createInteractableItems()
         createEnemies()
-        createPortal()
-    }
-
-
-    private func createPortal() {
-        let portal = InteractableItem(withImage: Sprite.portal,
-                                      interactableDelegate: viewController,
-                                      spriteType: Sprite.portal,
-                                      andScale: 0.42)
-        guard let entryPoint = childNode(withName: Sprite.portal),
-            let key = portal.physicsBody?.hash else { return }
-        interactableItems[key] = portal
-        addNode(portal, at: entryPoint.position)
     }
 
 
     private func createInteractableItems() {
         let itemsEntryPoints = children.filter { $0.name?.contains(NodeName.interactable) ?? false }
+        let index = UserDefaults().integer(forKey: UDKey.currentSkinIndex)
 
         for entryPoint in itemsEntryPoints {
             var interactableItem: InteractableItem?
             if entryPoint.name?.contains(NodeName.addTimeItem) ?? false {
                 interactableItem = AddTimeItem(withImage:
-                    "\(Sprite.addTimeItem)0",
+                    "\(Sprite.addTimeItem)\(index)",
                     interactableDelegate: viewController,
                     andScale: 1.5)
             }
@@ -91,7 +86,10 @@ class Level: SKScene {
                 guard let tileDefinition = mazeWalls.tileDefinition(atColumn: column,
                                                                     row: row) else { continue }
 
-                if tileDefinition.name?.contains("MazeBackground") ?? false { continue }
+                let tileName = tileDefinition.name ?? ""
+                let tileType: TileType = TileType(rawValue: tileName) ?? .wall
+
+                guard tileType != .floor else { continue }
 
                 let width = 128 * mazeWalls.xScale
                 let height = 128 * mazeWalls.yScale
@@ -104,12 +102,18 @@ class Level: SKScene {
 
                 tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width,
                                                                          height: height))
-                tileNode.physicsBody?.categoryBitMask = Level.bitmask
                 tileNode.physicsBody?.restitution = 0
                 tileNode.physicsBody?.isDynamic = false
                 tileNode.physicsBody?.pinned = true
                 tileNode.physicsBody?.allowsRotation = false
                 tileNode.physicsBody?.usesPreciseCollisionDetection = true
+
+                if tileType == .wall {
+                    tileNode.physicsBody?.categoryBitMask = Level.bitmask
+                } else {
+                    tileNode.physicsBody?.categoryBitMask = InteractableItem.bitmask
+                    portalPhysicsBody = tileNode.physicsBody
+                }
 
                 addChild(tileNode)
             }
@@ -241,6 +245,10 @@ extension Level: SKPhysicsContactDelegate {
         if player.physicsBody?.hash == keyA && movingEnemies[keyB] != nil
             || player.physicsBody?.hash == keyB && movingEnemies[keyA] != nil {
             NotificationCenter.default.post(name: NotificationName.playerKilled, object: nil)
+        }
+
+        if contact.bodyA == portalPhysicsBody || contact.bodyB == portalPhysicsBody {
+            NotificationCenter.default.post(name: NotificationName.onPortalReached, object: nil)
         }
 
         if player.physicsBody?.hash == keyA && interactableItems[keyB] != nil

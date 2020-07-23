@@ -91,7 +91,7 @@
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
 		B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScoreView.swift; sourceTree = "<group>"; };
 		B6CFCC9124B7B54800AF8640 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
-		B6D43FBA24B3BB6E008B0F15 /* MagnetismTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnetismTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6D43FBA24B3BB6E008B0F15 /* Dõpu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dõpu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B6D43FC824B3BB6E008B0F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 		B6D43FBB24B3BB6E008B0F15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6D43FBA24B3BB6E008B0F15 /* MagnetismTV.app */,
+				B6D43FBA24B3BB6E008B0F15 /* Dõpu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 			);
 			name = MagnetismTV;
 			productName = MagnetismTV;
-			productReference = B6D43FBA24B3BB6E008B0F15 /* MagnetismTV.app */;
+			productReference = B6D43FBA24B3BB6E008B0F15 /* Dõpu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -589,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 87G2Y58K9U;
 				INFOPLIST_FILE = MagnetismTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,7 +597,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasfnicolau.MagnetismTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dõpu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -608,6 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 87G2Y58K9U;
 				INFOPLIST_FILE = MagnetismTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,7 +617,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasfnicolau.MagnetismTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dõpu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 13.0;

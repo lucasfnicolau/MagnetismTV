@@ -34,7 +34,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
                                         <rect key="frame" x="0.0" y="154" width="432" height="432"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -128,6 +128,8 @@
                     <connections>
                         <outlet property="highscoreView" destination="U7b-mu-bFY" id="gSW-4H-7cS"/>
                         <outlet property="levelView" destination="3q0-0x-c7p" id="QXU-NX-xyb"/>
+                        <outlet property="nextLevelButton" destination="W2B-N6-T3w" id="fY8-sG-GfX"/>
+                        <outlet property="portalImageView" destination="Yx4-nf-91a" id="FMa-Gh-PF7"/>
                         <outlet property="scoreView" destination="QzZ-4w-hpq" id="2Je-MU-j81"/>
                     </connections>
                 </viewController>
@@ -139,7 +141,6 @@
     <resources>
         <image name="Home" width="295" height="295"/>
         <image name="Play" width="295" height="295"/>
-        <image name="Portal" width="384" height="439"/>
         <image name="Restart" width="295" height="295"/>
     </resources>
 </document>

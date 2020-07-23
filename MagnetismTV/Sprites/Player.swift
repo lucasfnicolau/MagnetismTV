@@ -57,24 +57,26 @@ class Player: SKSpriteNode, Enablable {
     func setVelocity(basedOn direction: UISwipeGestureRecognizer.Direction) {
         guard isEnabled else { return }
 
-        let action: SKAction
+        let moveAction: SKAction
+//        let rotateAction: SKAction
 
         switch direction {
         case .up:
-            action = SKAction.applyImpulse(CGVector(dx: 0, dy: impulse), duration: 0.1)
+            moveAction = SKAction.applyImpulse(CGVector(dx: 0, dy: impulse), duration: 0.1)
+//            rotateAction = SKAction.rotate(toAngle: .pi, duration: 0.1)
         case .right:
-            action = SKAction.applyImpulse(CGVector(dx: impulse, dy: 0), duration: 0.1)
+            moveAction = SKAction.applyImpulse(CGVector(dx: impulse, dy: 0), duration: 0.1)
         case .left:
-            action = SKAction.applyImpulse(CGVector(dx: -impulse, dy: 0), duration: 0.1)
+            moveAction = SKAction.applyImpulse(CGVector(dx: -impulse, dy: 0), duration: 0.1)
         case .down:
-            action = SKAction.applyImpulse(CGVector(dx: 0, dy: -impulse), duration: 0.1)
+            moveAction = SKAction.applyImpulse(CGVector(dx: 0, dy: -impulse), duration: 0.1)
         default:
-            action = .init()
+            moveAction = .init()
         }
 
         guard !isMoving else { return }
         isMoving = true
-        run(action) {
+        run(moveAction) {
             self.isMoving = false
         }
     }
