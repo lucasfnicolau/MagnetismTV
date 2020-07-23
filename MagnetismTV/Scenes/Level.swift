@@ -218,6 +218,18 @@ class Level: SKScene {
 
         return Int(components[1]) ?? 60
     }
+    
+
+    func pause() {
+        movingEnemies.values.forEach { $0.isEnabled = false }
+    }
+
+
+    func resume() {
+        TimerManager.wait(0.5) {
+            self.movingEnemies.values.forEach { $0.isEnabled = true }
+        }
+    }
 }
 
 extension Level: SKPhysicsContactDelegate {
@@ -248,17 +260,5 @@ extension Level: SKPhysicsContactDelegate {
 
         if movingEnemies[keyA] != nil { movingEnemies[keyA]?.invert() }
         else if movingEnemies[keyB] != nil { movingEnemies[keyB]?.invert() }
-    }
-
-
-    func pause() {
-        movingEnemies.values.forEach { $0.isEnabled = false }
-    }
-
-
-    func resume() {
-        TimerManager.wait(0.5) {
-            self.movingEnemies.values.forEach { $0.isEnabled = true }
-        }
     }
 }

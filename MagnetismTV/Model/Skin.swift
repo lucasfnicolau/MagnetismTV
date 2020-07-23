@@ -10,7 +10,7 @@ import Foundation
 
 struct Skin {
     let image: String
-    private let pointsRequired: Int
+    let pointsRequired: Int
     var isAvailable: Bool {
         return UserDefaults().integer(forKey: UDKey.allPoints) >= pointsRequired
     }

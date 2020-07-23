@@ -26,8 +26,8 @@ class TimerScoreView: UIView {
 
 
     init(timeLimit: Int, maxScore: Int) {
-        self.playerImageView = UIImageView(image: UIImage(named: "\(Sprite.birdie)0"))
-        self.tombstoneImageView = UIImageView(image: UIImage(named: "\(Sprite.foxie)0"))
+        self.playerImageView = UIImageView(image: UIImage(named: SkinManager.shared.currentSkin.image))
+        self.tombstoneImageView = UIImageView(image: UIImage(named: Image.tombstone))
         self.maxScore = maxScore
         self.timeLimit = timeLimit
 
@@ -60,12 +60,12 @@ class TimerScoreView: UIView {
         NSLayoutConstraint.activate([
             playerImageView.widthAnchor.constraint(equalToConstant: 40),
             playerImageView.heightAnchor.constraint(equalToConstant: 40),
-            playerImageView.leadingAnchor.constraint(equalTo: self.trailingAnchor),
+            playerImageView.leadingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             playerImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
             tombstoneImageView.widthAnchor.constraint(equalToConstant: 40),
             tombstoneImageView.heightAnchor.constraint(equalToConstant: 40),
-            tombstoneImageView.trailingAnchor.constraint(equalTo: self.leadingAnchor),
+            tombstoneImageView.trailingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             tombstoneImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }

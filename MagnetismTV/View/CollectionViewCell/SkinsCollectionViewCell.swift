@@ -12,6 +12,8 @@ class SkinsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var skinImageView: UIImageView!
+    @IBOutlet weak var pointsRequiredInfoView: InfoView!
+
     private let defaults = UserDefaults()
     private var isAvailable = true
     private var isAnimating = false
@@ -23,9 +25,10 @@ class SkinsCollectionViewCell: UICollectionViewCell {
 
 
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select && isAvailable else { return }
+
         super.pressesBegan(presses, with: event)
 
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
         UIView.animate(withDuration: 0.2, animations: {
             self.skinImageView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         })
@@ -33,9 +36,10 @@ class SkinsCollectionViewCell: UICollectionViewCell {
 
 
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select && isAvailable else { return }
+
         super.pressesEnded(presses, with: event)
 
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
         UIView.animate(withDuration: 0.2, animations: {
             self.skinImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         })
@@ -43,9 +47,10 @@ class SkinsCollectionViewCell: UICollectionViewCell {
 
 
     override func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select && isAvailable else { return }
+
         super.pressesCancelled(presses, with: event)
 
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
         UIView.animate(withDuration: 0.2, animations: {
             self.skinImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         })
@@ -53,27 +58,31 @@ class SkinsCollectionViewCell: UICollectionViewCell {
 
 
     override func pressesChanged(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard !presses.isEmpty && presses.first!.type == .select && isAvailable else { return }
+
         super.pressesChanged(presses, with: event)
 
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
         UIView.animate(withDuration: 0.2, animations: {
             self.skinImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         })
     }
 
 
-    func setImages(skin skinImageName: String, isAvailable: Bool, bg backgroundImageName: String, index: Int) {
+    func setImages(skin: Skin, bg backgroundImageName: String, index: Int) {
         backgroundImageView.image = UIImage(named: backgroundImageName)
 
-        guard let skinImage = UIImage(named: skinImageName) else {
+        guard let skinImage = UIImage(named: skin.image) else {
             skinImageView.image = nil
             isUserInteractionEnabled = false
             return
         }
 
-        self.isAvailable = isAvailable
-        skinImageView.image = isAvailable ? skinImage : UIImage(named: Image.birdieNotAvailable)
+        self.isAvailable = skin.isAvailable
+        skinImageView.image = skin.isAvailable ? skinImage : UIImage(named: Image.birdieNotAvailable)
         skinImageView.alpha = defaults.integer(forKey: UDKey.currentSkinIndex) == index ? 1.0 : 0.5
+
+        pointsRequiredInfoView.isHidden = isAvailable
+        pointsRequiredInfoView.text = "\(skin.pointsRequired)"
     }
 
 

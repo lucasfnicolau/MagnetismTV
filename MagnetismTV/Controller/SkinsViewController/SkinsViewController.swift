@@ -10,12 +10,34 @@ import UIKit
 
 class SkinsViewController: UIViewController {
 
+    @IBOutlet weak var allPointsInfoView: InfoView!
     @IBOutlet weak var skinsCollectionView: UICollectionView!
+    @IBOutlet weak var backButton: CustomButton!
+
+    let defaults = UserDefaults()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackButton()
+        setupFocusGuides()
+        setupAllPointsInfoView()
         setupCollectionView()
+    }
+
+
+    private func setupBackButton() {
+        backButton.addTarget(self, action: #selector(goBack), for: .primaryActionTriggered)
+    }
+
+
+    private func setupFocusGuides() {
+        addFocusGuide(from: skinsCollectionView, to: backButton, direction: .top)
+    }
+
+
+    private func setupAllPointsInfoView() {
+        allPointsInfoView.text = "\(defaults.integer(forKey: UDKey.allPoints))"
     }
 
 
@@ -24,6 +46,11 @@ class SkinsViewController: UIViewController {
         skinsCollectionView.dataSource = self
         skinsCollectionView.reloadData()
     }
+
+
+    @objc private func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 
@@ -31,7 +58,7 @@ extension SkinsViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if SkinManager.shared.skins[indexPath.item].isAvailable {
-            UserDefaults().set(indexPath.item, forKey: UDKey.currentSkinIndex)
+            defaults.set(indexPath.item, forKey: UDKey.currentSkinIndex)
             collectionView.reloadData()
         }
     }
@@ -50,8 +77,7 @@ extension SkinsViewController: UICollectionViewDataSource {
 
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.skinsCollectionViewCell, for: indexPath) as? SkinsCollectionViewCell {
 
-            cell.setImages(skin: SkinManager.shared.skins[indexPath.item].image,
-                           isAvailable: SkinManager.shared.skins[indexPath.item].isAvailable,
+            cell.setImages(skin: SkinManager.shared.skins[indexPath.item],
                            bg: backgroundImage(forItem: indexPath.item),
                            index: indexPath.item)
             return cell
@@ -70,7 +96,6 @@ extension SkinsViewController: UICollectionViewDataSource {
         if item == SkinManager.shared.skins.count - 3 { return Image.bottomLeftClosed }
         if item == SkinManager.shared.skins.count - 2 { return Image.bottomMiddleClosed }
         if item == SkinManager.shared.skins.count - 1 { return Image.bottomRightClosed }
-
 
         if (item + 2) % 3 == 0 { return Image.middle }
         if (item + 1) % 3 == 0 { return Image.right }

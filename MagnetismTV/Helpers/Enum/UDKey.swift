@@ -13,4 +13,5 @@ enum UDKey {
     static let allPoints = "all-points"
     static let highscore = "highscore"
     static let currentSkinIndex = "current-skin-index"
+    static let musicEnabled = "music-enabled"
 }

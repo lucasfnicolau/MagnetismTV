@@ -9,6 +9,9 @@
 import Foundation
 
 enum Image {
+    static let birdieNotAvailable = "BirdieNotAvailable"
+    static let tombstone = "Tombstone"
+
     static let topLeftOpen = "TopLeft-Open"
     static let topLeftClosed = "TopLeft-Closed"
 
@@ -30,6 +33,4 @@ enum Image {
     static let left = "Left"
     static let middle = "Middle"
     static let right = "Right"
-
-    static let birdieNotAvailable = "BirdieNotAvailable"
 }

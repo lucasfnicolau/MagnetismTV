@@ -48,7 +48,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="672" height="136"/>
-                                        <color key="backgroundColor" red="0.86274509803921573" green="0.63529411764705879" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="CONTINUE">
@@ -60,7 +59,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="216" width="672" height="136"/>
-                                        <color key="backgroundColor" red="0.86274509799999999" green="0.63529411759999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="SELECT  LEVEL">
@@ -72,7 +70,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-FY-YCK" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="432" width="672" height="136"/>
-                                        <color key="backgroundColor" red="0.86274509799999999" green="0.63529411759999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="80"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="SELECT  Skin">

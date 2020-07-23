@@ -21,7 +21,7 @@ class InfoView: UIView {
 
     @IBInspectable var text: String = "" {
         didSet {
-            setLayout()
+            label?.text = text
         }
     }
 

@@ -34,15 +34,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="select skin"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZo-Da-odq" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                <rect key="frame" x="1710" y="45.5" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="aT4-bD-7Oa"/>
-                                    <constraint firstAttribute="width" constant="100" id="iDZ-1g-CQE"/>
-                                </constraints>
-                                <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
-                                <state key="normal" image="X"/>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MDM-wR-DTP">
                                 <rect key="frame" x="135" y="220.5" width="1650" height="789.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,12 +60,27 @@
                                                         <constraint firstAttribute="width" secondItem="Xhj-Gi-FNm" secondAttribute="height" multiplier="1:1" id="ECg-3s-YMS"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJM-Gt-DlP" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
+                                                    <rect key="frame" x="261" y="319" width="140" height="60"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eJM-Gt-DlP" secondAttribute="height" multiplier="7:3" id="l54-wi-vLz"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                            <real key="value" value="40"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="eJM-Gt-DlP" firstAttribute="centerX" secondItem="Xhj-Gi-FNm" secondAttribute="centerX" id="A6V-b0-GG4"/>
                                                 <constraint firstItem="Xhj-Gi-FNm" firstAttribute="centerY" secondItem="7Nb-dJ-ajo" secondAttribute="centerY" id="GPi-cl-TbA"/>
                                                 <constraint firstItem="Xhj-Gi-FNm" firstAttribute="width" secondItem="7Nb-dJ-ajo" secondAttribute="width" multiplier="0.34" id="J5m-4t-fUZ"/>
+                                                <constraint firstItem="eJM-Gt-DlP" firstAttribute="width" secondItem="Xhj-Gi-FNm" secondAttribute="width" multiplier="0.622222" id="KHX-5r-YB5"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uez-SG-Pmh" secondAttribute="bottom" id="e0b-Yt-At4"/>
                                                 <constraint firstAttribute="trailing" secondItem="Uez-SG-Pmh" secondAttribute="trailing" id="jo2-3O-iUO"/>
+                                                <constraint firstItem="eJM-Gt-DlP" firstAttribute="bottom" secondItem="Xhj-Gi-FNm" secondAttribute="bottom" constant="40" id="n9u-10-p8I"/>
                                                 <constraint firstItem="Xhj-Gi-FNm" firstAttribute="centerX" secondItem="7Nb-dJ-ajo" secondAttribute="centerX" id="pUD-4V-tda"/>
                                                 <constraint firstItem="Uez-SG-Pmh" firstAttribute="top" secondItem="7Nb-dJ-ajo" secondAttribute="top" id="rl3-yW-Qep"/>
                                                 <constraint firstItem="Uez-SG-Pmh" firstAttribute="leading" secondItem="7Nb-dJ-ajo" secondAttribute="leading" id="se9-tM-RwA"/>
@@ -83,13 +89,14 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="backgroundImageView" destination="Uez-SG-Pmh" id="loS-Tt-d5v"/>
+                                            <outlet property="pointsRequiredInfoView" destination="eJM-Gt-DlP" id="X2y-CG-gOL"/>
                                             <outlet property="skinImageView" destination="Xhj-Gi-FNm" id="tMX-6p-dw6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RbW-Y8-xQD" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
-                                <rect key="frame" x="110" y="47" width="260" height="96.5"/>
+                                <rect key="frame" x="135" y="47" width="260" height="96.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
@@ -97,25 +104,36 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZo-Da-odq" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                <rect key="frame" x="1685" y="45.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="aT4-bD-7Oa"/>
+                                    <constraint firstAttribute="width" constant="100" id="iDZ-1g-CQE"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                <state key="normal" image="X"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94509804249999996" green="0.9098039269" blue="0.93725490570000003" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="MDM-wR-DTP" firstAttribute="top" secondItem="CXr-Sq-UMd" secondAttribute="bottom" priority="999" constant="70" id="4Y8-C9-fyQ"/>
                             <constraint firstItem="CXr-Sq-UMd" firstAttribute="top" secondItem="yWF-ac-B0a" secondAttribute="top" constant="40" id="5rF-7i-NGi"/>
                             <constraint firstItem="RbW-Y8-xQD" firstAttribute="centerY" secondItem="CXr-Sq-UMd" secondAttribute="centerY" id="8Od-an-MrF"/>
-                            <constraint firstItem="zwF-2t-IGd" firstAttribute="trailing" secondItem="EZo-Da-odq" secondAttribute="trailing" constant="20" id="BBJ-BZ-SOd"/>
                             <constraint firstItem="CXr-Sq-UMd" firstAttribute="centerX" secondItem="yWF-ac-B0a" secondAttribute="centerX" id="GMr-02-tdi"/>
                             <constraint firstItem="EZo-Da-odq" firstAttribute="centerY" secondItem="CXr-Sq-UMd" secondAttribute="centerY" id="OZt-sK-4Iw"/>
                             <constraint firstAttribute="bottom" secondItem="MDM-wR-DTP" secondAttribute="bottom" constant="70" id="Pkm-jy-etw"/>
                             <constraint firstItem="MDM-wR-DTP" firstAttribute="leading" secondItem="yWF-ac-B0a" secondAttribute="leading" constant="135" id="ZEV-rx-nds"/>
                             <constraint firstAttribute="trailing" secondItem="MDM-wR-DTP" secondAttribute="trailing" constant="135" id="a4n-Zx-gpG"/>
+                            <constraint firstItem="zwF-2t-IGd" firstAttribute="trailing" secondItem="EZo-Da-odq" secondAttribute="trailing" constant="45" id="eU3-Yd-gdf"/>
                             <constraint firstItem="RbW-Y8-xQD" firstAttribute="width" secondItem="CXr-Sq-UMd" secondAttribute="width" multiplier="0.5" id="gJL-SS-eqR"/>
-                            <constraint firstItem="RbW-Y8-xQD" firstAttribute="leading" secondItem="zwF-2t-IGd" secondAttribute="leading" constant="20" id="pRw-gm-Tj0"/>
                             <constraint firstItem="RbW-Y8-xQD" firstAttribute="height" secondItem="CXr-Sq-UMd" secondAttribute="height" multiplier="0.873303" id="s0s-EX-ESH"/>
+                            <constraint firstItem="RbW-Y8-xQD" firstAttribute="leading" secondItem="zwF-2t-IGd" secondAttribute="leading" constant="45" id="viq-4v-Xyf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zwF-2t-IGd"/>
                     </view>
                     <connections>
+                        <outlet property="allPointsInfoView" destination="RbW-Y8-xQD" id="HZs-91-Lkt"/>
+                        <outlet property="backButton" destination="EZo-Da-odq" id="C9P-gJ-NaH"/>
                         <outlet property="skinsCollectionView" destination="MDM-wR-DTP" id="Tm3-pa-nia"/>
                     </connections>
                 </viewController>
