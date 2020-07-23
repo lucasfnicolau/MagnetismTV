@@ -108,6 +108,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.playerKilled, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.didEnterBackground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: NotificationName.didEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPortalReached), name: NotificationName.onPortalReached, object: nil)
     }
 
 
@@ -143,6 +144,12 @@ class GameViewController: UIViewController {
     private func stop() {
         timerScoreView?.stop()
     }
+
+
+    @objc private func onPortalReached() {
+        stop()
+        showResultsViewController()
+    }
 }
 
 extension GameViewController: InteractableDelegate {
@@ -150,9 +157,6 @@ extension GameViewController: InteractableDelegate {
     func itemHasBeenInteracted(_ item: Interactable) {
         if let addTimeItem = item as? AddTimeItem {
             timerScoreView?.addTime(addTimeItem.extraTime)
-        } else if item.spriteType == Sprite.portal {
-            stop()
-            showResultsViewController()
         }
     }
 

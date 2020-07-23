@@ -13,6 +13,8 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var levelView: InfoView!
     @IBOutlet weak var scoreView: InfoView!
     @IBOutlet weak var highscoreView: InfoView!
+    @IBOutlet weak var portalImageView: UIImageView!
+    @IBOutlet weak var nextLevelButton: CustomButton!
 
     var score: Int = -1
     var level: Int = -1
@@ -20,14 +22,35 @@ class ResultsViewController: UIViewController {
     private let defaults = UserDefaults()
 
 
+    override var preferredFocusedView: UIView? {
+        return nextLevelButton
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPortalAnimation()
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configure()
+    }
+
+
+    private func setupPortalAnimation() {
+        var images = [UIImage]()
+        for i in 0 ..< 5 {
+            guard let image = UIImage(named: "\(Sprite.portal)\(i)-PNG") else {
+                continue
+            }
+            images.append(image)
+        }
+        portalImageView.animationRepeatCount = 0
+        portalImageView.animationDuration = 1
+        portalImageView.animationImages = images
+        portalImageView.startAnimating()
     }
 
 

@@ -13,4 +13,5 @@ enum NotificationName {
     static let playerKilled = NSNotification.Name("playerKilled")
     static let didEnterBackground = NSNotification.Name("didEnterBackground")
     static let didEnterForeground = NSNotification.Name("didEnterForeground")
+    static let onPortalReached = NSNotification.Name("onPortalReached")
 }
