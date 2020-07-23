@@ -26,8 +26,8 @@ class TimerScoreView: UIView {
 
 
     init(timeLimit: Int, maxScore: Int) {
-        self.playerImageView = UIImageView(image: UIImage(named: "\(Sprite.birdie)0"))
-        self.tombstoneImageView = UIImageView(image: UIImage(named: "\(Sprite.foxie)0"))
+        self.playerImageView = UIImageView(image: UIImage(named: SkinManager.shared.currentSkin.image))
+        self.tombstoneImageView = UIImageView(image: UIImage(named: Image.tombstone))
         self.maxScore = maxScore
         self.timeLimit = timeLimit
 
@@ -60,12 +60,12 @@ class TimerScoreView: UIView {
         NSLayoutConstraint.activate([
             playerImageView.widthAnchor.constraint(equalToConstant: 40),
             playerImageView.heightAnchor.constraint(equalToConstant: 40),
-            playerImageView.leadingAnchor.constraint(equalTo: self.trailingAnchor),
+            playerImageView.leadingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             playerImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
             tombstoneImageView.widthAnchor.constraint(equalToConstant: 40),
             tombstoneImageView.heightAnchor.constraint(equalToConstant: 40),
-            tombstoneImageView.trailingAnchor.constraint(equalTo: self.leadingAnchor),
+            tombstoneImageView.trailingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             tombstoneImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
@@ -74,7 +74,6 @@ class TimerScoreView: UIView {
     private func setTimer(forCurrentTime currentTime: Int = 0) {
         self.currentTime = currentTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        timer?.fire()
     }
 
 
@@ -93,6 +92,8 @@ class TimerScoreView: UIView {
         if currentTime >= timeLimit {
             subviews.forEach { $0.removeFromSuperview() }
             timer?.invalidate()
+            timer = nil
+            shouldUpdateTime = false
             NotificationCenter.default.post(name: NotificationName.timeIsUp, object: nil)
         }
     }
@@ -115,6 +116,13 @@ class TimerScoreView: UIView {
             UIView.animate(withDuration: 1) {
                 self.backgroundColor = self.colors[colorIndex]
             }
+        }
+    }
+
+
+    func startTimer() {
+        TimerManager.wait(0.5) {
+            self.timer?.fire()
         }
     }
 
@@ -169,6 +177,7 @@ class TimerScoreView: UIView {
 
 
     func stop() {
+        shouldUpdateTime = false
         timer?.invalidate()
         timer = nil
     }

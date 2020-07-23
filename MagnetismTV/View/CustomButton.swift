@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class CustomButton: UIButton {
 
     override func awakeFromNib() {

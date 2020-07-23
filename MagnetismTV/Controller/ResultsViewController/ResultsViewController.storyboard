@@ -10,7 +10,7 @@
         <!--Results View Controller-->
         <scene sceneID="QYU-gh-wuM">
             <objects>
-                <viewController id="Vgw-Pq-MdW" customClass="ResultsViewController" customModule="MagnetismTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsViewController" id="Vgw-Pq-MdW" customClass="ResultsViewController" customModule="MagnetismTV" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2UV-hi-J9u"/>
                         <viewControllerLayoutGuide type="bottom" id="5zt-iq-8dg"/>
@@ -19,22 +19,127 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3q0-0x-c7p" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
-                                <rect key="frame" x="131" y="344" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="wxM-rd-n2L">
+                                <rect key="frame" x="744" y="157" width="432" height="586"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3q0-0x-c7p" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="432" height="104"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3q0-0x-c7p" secondAttribute="height" multiplier="1024:247" id="0dT-Qw-DOu"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="60"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portal" translatesAutoresizingMaskIntoConstraints="NO" id="Yx4-nf-91a">
+                                        <rect key="frame" x="0.0" y="154" width="432" height="432"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Yx4-nf-91a" secondAttribute="height" multiplier="1:1" id="HOf-m3-v4a"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3q0-0x-c7p" firstAttribute="width" secondItem="Yx4-nf-91a" secondAttribute="width" id="UUj-tt-api"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="zId-Ic-m9I">
+                                <rect key="frame" x="745" y="793" width="430" height="108"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63g-V3-i1d" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="63g-V3-i1d" secondAttribute="height" multiplier="1:1" id="RVC-cO-QP9"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" image="Home"/>
+                                        <connections>
+                                            <action selector="homeButtonTouched:" destination="Vgw-Pq-MdW" eventType="primaryActionTriggered" id="Ats-jc-saa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aju-AF-esK" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="161" y="0.0" width="108" height="108"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="aju-AF-esK" secondAttribute="height" multiplier="1:1" id="fLY-Wt-qVm"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        <state key="normal" image="Restart"/>
+                                        <connections>
+                                            <action selector="restartButtonTouched:" destination="Vgw-Pq-MdW" eventType="primaryActionTriggered" id="U0f-1w-onk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2B-N6-T3w" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                        <rect key="frame" x="322" y="0.0" width="108" height="108"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="W2B-N6-T3w" secondAttribute="height" multiplier="1:1" id="kJK-eS-bfX"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" image="Play"/>
+                                        <connections>
+                                            <action selector="nextLevelButtonTouched:" destination="Vgw-Pq-MdW" eventType="primaryActionTriggered" id="Omt-Uz-lm6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QzZ-4w-hpq" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
+                                <rect key="frame" x="170" y="439.5" width="454" height="201"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QzZ-4w-hpq" secondAttribute="height" multiplier="454:201" id="6ue-Ks-kgE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7b-mu-bFY" customClass="InfoView" customModule="MagnetismTV" customModuleProvider="target">
+                                <rect key="frame" x="1296" y="439.5" width="454" height="201"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="SCORE:"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.79607843137254897" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Yx4-nf-91a" firstAttribute="height" secondItem="M5E-cK-ahe" secondAttribute="height" multiplier="0.4" id="CDW-ot-baB"/>
+                            <constraint firstItem="wxM-rd-n2L" firstAttribute="centerX" secondItem="M5E-cK-ahe" secondAttribute="centerX" id="K7Z-wS-Agt"/>
+                            <constraint firstItem="wxM-rd-n2L" firstAttribute="centerY" secondItem="M5E-cK-ahe" secondAttribute="centerY" constant="-90" id="L98-Mg-S4T"/>
+                            <constraint firstItem="U7b-mu-bFY" firstAttribute="leading" secondItem="wxM-rd-n2L" secondAttribute="trailing" constant="120" id="VmI-x3-l7c"/>
+                            <constraint firstItem="QzZ-4w-hpq" firstAttribute="centerY" secondItem="M5E-cK-ahe" secondAttribute="centerY" id="X0r-De-idS"/>
+                            <constraint firstItem="zId-Ic-m9I" firstAttribute="top" secondItem="wxM-rd-n2L" secondAttribute="bottom" constant="50" id="iT6-4T-HBH"/>
+                            <constraint firstItem="U7b-mu-bFY" firstAttribute="width" secondItem="U7b-mu-bFY" secondAttribute="height" multiplier="454:201" id="jBm-OQ-JXV"/>
+                            <constraint firstItem="zId-Ic-m9I" firstAttribute="centerX" secondItem="M5E-cK-ahe" secondAttribute="centerX" id="jV5-Ur-zEG"/>
+                            <constraint firstItem="QzZ-4w-hpq" firstAttribute="width" secondItem="Yx4-nf-91a" secondAttribute="width" multiplier="1.05093" id="oO7-hD-4Wl"/>
+                            <constraint firstItem="wxM-rd-n2L" firstAttribute="leading" secondItem="QzZ-4w-hpq" secondAttribute="trailing" constant="120" id="qDx-TW-sA0"/>
+                            <constraint firstItem="63g-V3-i1d" firstAttribute="width" secondItem="Yx4-nf-91a" secondAttribute="width" multiplier="0.25" id="qcn-AB-2VC"/>
+                            <constraint firstItem="U7b-mu-bFY" firstAttribute="centerY" secondItem="M5E-cK-ahe" secondAttribute="centerY" id="qh7-bm-VR3"/>
+                            <constraint firstItem="U7b-mu-bFY" firstAttribute="width" secondItem="Yx4-nf-91a" secondAttribute="width" multiplier="1.05093" id="tUB-2p-CsO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Nlg-1C-IYw"/>
                     </view>
+                    <size key="freeformSize" width="1920" height="1080"/>
+                    <connections>
+                        <outlet property="highscoreView" destination="U7b-mu-bFY" id="gSW-4H-7cS"/>
+                        <outlet property="levelView" destination="3q0-0x-c7p" id="QXU-NX-xyb"/>
+                        <outlet property="scoreView" destination="QzZ-4w-hpq" id="2Je-MU-j81"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="an1-Py-xlk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-65" y="-149"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home" width="295" height="295"/>
+        <image name="Play" width="295" height="295"/>
+        <image name="Portal" width="384" height="439"/>
+        <image name="Restart" width="295" height="295"/>
+    </resources>
 </document>
