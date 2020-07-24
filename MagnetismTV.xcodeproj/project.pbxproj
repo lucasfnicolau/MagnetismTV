@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217324B9035B00D0FFC2 /* Enablable.swift */; };
 		B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */; };
+		B622A9D224CB6DD3000D4B9D /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B622A9D024CB6DD3000D4B9D /* MagicParticle.sks */; };
+		B622A9D324CB6DD3000D4B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B622A9D124CB6DD3000D4B9D /* Assets.xcassets */; };
+		B622A9D524CB738F000D4B9D /* Level005.sks in Resources */ = {isa = PBXBuildFile; fileRef = B622A9D424CB738F000D4B9D /* Level005.sks */; };
 		B6315AEF24CB544A00869E79 /* Level000.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6315AEE24CB544A00869E79 /* Level000.sks */; };
 		B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770024BCD75E0092C9E5 /* Sprite.swift */; };
 		B65D770324BCE4870092C9E5 /* InteractableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */; };
@@ -63,6 +66,9 @@
 /* Begin PBXFileReference section */
 		B61C217324B9035B00D0FFC2 /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeItem.swift; sourceTree = "<group>"; };
+		B622A9D024CB6DD3000D4B9D /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
+		B622A9D124CB6DD3000D4B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B622A9D424CB738F000D4B9D /* Level005.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level005.sks; sourceTree = "<group>"; };
 		B6315AEE24CB544A00869E79 /* Level000.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level000.sks; sourceTree = "<group>"; };
 		B65D770024BCD75E0092C9E5 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B622A9CF24CB6DBB000D4B9D /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				B622A9D024CB6DD3000D4B9D /* MagicParticle.sks */,
+				B622A9D124CB6DD3000D4B9D /* Assets.xcassets */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
 		B663187D24C0CADA003B0152 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				B663187E24C0CCDA003B0152 /* FrenteH1-Regular.otf */,
+				B622A9CF24CB6DBB000D4B9D /* Particles */,
 				B663187D24C0CADA003B0152 /* Storyboard */,
 				B68A55DD24BE1CD6009DE384 /* Music */,
 				B6CFCC8624B6686700AF8640 /* Extensions */,
@@ -321,6 +337,7 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				B622A9D424CB738F000D4B9D /* Level005.sks */,
 				B6FE7CA324C22E7600D6AE7F /* Level004.sks */,
 				B6FE7CA124C21B0500D6AE7F /* Level003.sks */,
 				B68A55DB24BCF853009DE384 /* Level002.sks */,
@@ -395,12 +412,15 @@
 				B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */,
 				B6FE7CA224C21B0500D6AE7F /* Level003.sks in Resources */,
 				B68A55DC24BCF853009DE384 /* Level002.sks in Resources */,
+				B622A9D224CB6DD3000D4B9D /* MagicParticle.sks in Resources */,
 				B6315AEF24CB544A00869E79 /* Level000.sks in Resources */,
 				B6FE7CA424C22E7600D6AE7F /* Level004.sks in Resources */,
 				B6D43FE824B501E8008B0F15 /* Level001.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
+				B622A9D524CB738F000D4B9D /* Level005.sks in Resources */,
 				B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */,
+				B622A9D324CB6DD3000D4B9D /* Assets.xcassets in Resources */,
 				B6FE7CA624C2454600D6AE7F /* GameTheme_1.1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
