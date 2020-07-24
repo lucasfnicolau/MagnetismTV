@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217324B9035B00D0FFC2 /* Enablable.swift */; };
 		B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */; };
+		B6315AEF24CB544A00869E79 /* Level000.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6315AEE24CB544A00869E79 /* Level000.sks */; };
 		B65D770124BCD75E0092C9E5 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770024BCD75E0092C9E5 /* Sprite.swift */; };
 		B65D770324BCE4870092C9E5 /* InteractableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */; };
 		B65D770524BCE4DC0092C9E5 /* Interactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D770424BCE4DC0092C9E5 /* Interactable.swift */; };
@@ -18,7 +19,7 @@
 		B66BCF1824C249A000B70D2B /* UIImageView+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */; };
 		B677F0D524CA031800F36AB1 /* UIViewController+FocusGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B677F0D424CA031800F36AB1 /* UIViewController+FocusGuide.swift */; };
 		B68A55DA24BCE8F1009DE384 /* InteractableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A55D924BCE8F1009DE384 /* InteractableItem.swift */; };
-		B68A55DC24BCF853009DE384 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DB24BCF853009DE384 /* Level001.sks */; };
+		B68A55DC24BCF853009DE384 /* Level002.sks in Resources */ = {isa = PBXBuildFile; fileRef = B68A55DB24BCF853009DE384 /* Level002.sks */; };
 		B68C34EA24C8B26600182D54 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C34E924C8B26600182D54 /* Skin.swift */; };
 		B68C34EC24C8B34100182D54 /* SkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C34EB24C8B34100182D54 /* SkinManager.swift */; };
 		B6AD163F24C62C1100860341 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD163E24C62C1100860341 /* ResultsViewController.swift */; };
@@ -46,13 +47,13 @@
 		B6D43FDE24B3BB9E008B0F15 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FDD24B3BB9E008B0F15 /* Player.swift */; };
 		B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE324B4F14C008B0F15 /* TileSet.sks */; };
 		B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE424B4F14D008B0F15 /* Assets.xcassets */; };
-		B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE724B501E8008B0F15 /* Level000.sks */; };
+		B6D43FE824B501E8008B0F15 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6D43FE724B501E8008B0F15 /* Level001.sks */; };
 		B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D43FE924B504F0008B0F15 /* Level.swift */; };
 		B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */; };
 		B6DF835524BE27B90080670E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835424BE27B90080670E /* AudioManager.swift */; };
 		B6DF835724BE3CC10080670E /* Double+CGFloatProportional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */; };
-		B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA124C21B0500D6AE7F /* Level002.sks */; };
-		B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA324C22E7600D6AE7F /* Level003.sks */; };
+		B6FE7CA224C21B0500D6AE7F /* Level003.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA124C21B0500D6AE7F /* Level003.sks */; };
+		B6FE7CA424C22E7600D6AE7F /* Level004.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA324C22E7600D6AE7F /* Level004.sks */; };
 		B6FE7CA624C2454600D6AE7F /* GameTheme_1.1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6FE7CA524C2454600D6AE7F /* GameTheme_1.1.mp3 */; };
 		B6FE7CA824C2455C00D6AE7F /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA724C2455C00D6AE7F /* Sound.swift */; };
 		B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		B61C217324B9035B00D0FFC2 /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeItem.swift; sourceTree = "<group>"; };
+		B6315AEE24CB544A00869E79 /* Level000.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level000.sks; sourceTree = "<group>"; };
 		B65D770024BCD75E0092C9E5 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		B65D770224BCE4870092C9E5 /* InteractableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableDelegate.swift; sourceTree = "<group>"; };
 		B65D770424BCE4DC0092C9E5 /* Interactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactable.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		B66BCF1724C249A000B70D2B /* UIImageView+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Copy.swift"; sourceTree = "<group>"; };
 		B677F0D424CA031800F36AB1 /* UIViewController+FocusGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+FocusGuide.swift"; sourceTree = "<group>"; };
 		B68A55D924BCE8F1009DE384 /* InteractableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableItem.swift; sourceTree = "<group>"; };
-		B68A55DB24BCF853009DE384 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		B68A55DB24BCF853009DE384 /* Level002.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level002.sks; sourceTree = "<group>"; };
 		B68C34E924C8B26600182D54 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		B68C34EB24C8B34100182D54 /* SkinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinManager.swift; sourceTree = "<group>"; };
 		B6AD163E24C62C1100860341 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 		B6CFCC8924B7980600AF8640 /* NodeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeName.swift; sourceTree = "<group>"; };
 		B6CFCC8F24B7A12C00AF8640 /* TimerScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScoreView.swift; sourceTree = "<group>"; };
 		B6CFCC9124B7B54800AF8640 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
-		B6D43FBA24B3BB6E008B0F15 /* Dõpu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dõpu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6D43FBA24B3BB6E008B0F15 /* Dopu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dopu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D43FBD24B3BB6E008B0F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B6D43FC824B3BB6E008B0F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,13 +103,13 @@
 		B6D43FDD24B3BB9E008B0F15 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B6D43FE324B4F14C008B0F15 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		B6D43FE424B4F14D008B0F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B6D43FE724B501E8008B0F15 /* Level000.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level000.sks; sourceTree = "<group>"; };
+		B6D43FE724B501E8008B0F15 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
 		B6D43FE924B504F0008B0F15 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		B6DF835224BE257A0080670E /* CGFloat+Proportional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGFloat+Proportional.swift"; path = "MagnetismTV/CGFloat+Proportional.swift"; sourceTree = SOURCE_ROOT; };
 		B6DF835424BE27B90080670E /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		B6DF835624BE3CC10080670E /* Double+CGFloatProportional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CGFloatProportional.swift"; sourceTree = "<group>"; };
-		B6FE7CA124C21B0500D6AE7F /* Level002.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level002.sks; sourceTree = "<group>"; };
-		B6FE7CA324C22E7600D6AE7F /* Level003.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level003.sks; sourceTree = "<group>"; };
+		B6FE7CA124C21B0500D6AE7F /* Level003.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level003.sks; sourceTree = "<group>"; };
+		B6FE7CA324C22E7600D6AE7F /* Level004.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level004.sks; sourceTree = "<group>"; };
 		B6FE7CA524C2454600D6AE7F /* GameTheme_1.1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameTheme_1.1.mp3; sourceTree = "<group>"; };
 		B6FE7CA724C2455C00D6AE7F /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedSnakeBackgroundView.swift; path = MagnetismTV/AnimatedSnakeBackgroundView.swift; sourceTree = SOURCE_ROOT; };
@@ -228,7 +230,7 @@
 		B6D43FBB24B3BB6E008B0F15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6D43FBA24B3BB6E008B0F15 /* Dõpu.app */,
+				B6D43FBA24B3BB6E008B0F15 /* Dopu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,10 +321,11 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				B6FE7CA324C22E7600D6AE7F /* Level003.sks */,
-				B6FE7CA124C21B0500D6AE7F /* Level002.sks */,
-				B68A55DB24BCF853009DE384 /* Level001.sks */,
-				B6D43FE724B501E8008B0F15 /* Level000.sks */,
+				B6FE7CA324C22E7600D6AE7F /* Level004.sks */,
+				B6FE7CA124C21B0500D6AE7F /* Level003.sks */,
+				B68A55DB24BCF853009DE384 /* Level002.sks */,
+				B6D43FE724B501E8008B0F15 /* Level001.sks */,
+				B6315AEE24CB544A00869E79 /* Level000.sks */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -344,7 +347,7 @@
 			);
 			name = MagnetismTV;
 			productName = MagnetismTV;
-			productReference = B6D43FBA24B3BB6E008B0F15 /* Dõpu.app */;
+			productReference = B6D43FBA24B3BB6E008B0F15 /* Dopu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -390,10 +393,11 @@
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
 				B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */,
-				B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */,
-				B68A55DC24BCF853009DE384 /* Level001.sks in Resources */,
-				B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */,
-				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
+				B6FE7CA224C21B0500D6AE7F /* Level003.sks in Resources */,
+				B68A55DC24BCF853009DE384 /* Level002.sks in Resources */,
+				B6315AEF24CB544A00869E79 /* Level000.sks in Resources */,
+				B6FE7CA424C22E7600D6AE7F /* Level004.sks in Resources */,
+				B6D43FE824B501E8008B0F15 /* Level001.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
 				B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */,
@@ -589,7 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 87G2Y58K9U;
 				INFOPLIST_FILE = MagnetismTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -597,7 +601,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasfnicolau.MagnetismTV;
-				PRODUCT_NAME = "Dõpu";
+				PRODUCT_NAME = Dopu;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -609,7 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 87G2Y58K9U;
 				INFOPLIST_FILE = MagnetismTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -617,7 +621,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasfnicolau.MagnetismTV;
-				PRODUCT_NAME = "Dõpu";
+				PRODUCT_NAME = Dopu;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 13.0;

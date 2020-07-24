@@ -71,6 +71,8 @@ class ResultsViewController: UIViewController {
         levelView.text = "LEVEL \(levelNumber(level))"
         scoreView.text = "SCORE: \(score)"
         highscoreView.text = "HIGHSCORE: \(highscore)"
+
+        defaults.set(level, forKey: UDKey.currentLevel)
     }
 
 

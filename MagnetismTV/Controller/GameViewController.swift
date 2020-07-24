@@ -29,7 +29,7 @@ class GameViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        AudioManager.shared.audioPlayer?.stop()
+        stop()
     }
 
 
