@@ -13,8 +13,8 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     private var timerScoreView: TimerScoreView?
-    private var currentLevel = 0
     private var currentScene: Level?
+    var currentLevel = 0
 
     private(set) static var isPaused = false
 
@@ -29,27 +29,27 @@ class GameViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        AudioManager.shared.audioPlayer?.stop()
+        stop()
     }
 
 
     func start(sceneWithIndex index: Int) {
         currentLevel = index
         stop()
-        let name = formattedLevelName(forIndex: index)
+        let name = GameViewController.formattedLevelName(forIndex: index)
         self.currentScene = createScene(named: name)
         guard let currentScene = currentScene else { return }
         setupView(for: currentScene)
     }
 
 
-    private func checkExistenceOf(sceneAtIndex index: Int) -> Bool {
+    static func doesSceneExists(atIndex index: Int) -> Bool {
         let name = formattedLevelName(forIndex: index)
         return SKScene(fileNamed: name) != nil
     }
 
 
-    private func formattedLevelName(forIndex index: Int) -> String {
+    static func formattedLevelName(forIndex index: Int) -> String {
         let name: String
         if index >= 100 {
             name = "Level\(index)"

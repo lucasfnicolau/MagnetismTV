@@ -100,20 +100,22 @@ class Level: SKScene {
                 let tileNode = SKNode()
                 tileNode.position = center
 
-                tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width,
-                                                                         height: height))
+                if tileType == .wall {
+                    tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width,
+                                                                             height: height))
+                    tileNode.physicsBody?.categoryBitMask = Level.bitmask
+                } else {
+                    tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width * 0.85,
+                                                                             height: height * 0.85))
+                    tileNode.physicsBody?.categoryBitMask = InteractableItem.bitmask
+                    portalPhysicsBody = tileNode.physicsBody
+                }
+
                 tileNode.physicsBody?.restitution = 0
                 tileNode.physicsBody?.isDynamic = false
                 tileNode.physicsBody?.pinned = true
                 tileNode.physicsBody?.allowsRotation = false
                 tileNode.physicsBody?.usesPreciseCollisionDetection = true
-
-                if tileType == .wall {
-                    tileNode.physicsBody?.categoryBitMask = Level.bitmask
-                } else {
-                    tileNode.physicsBody?.categoryBitMask = InteractableItem.bitmask
-                    portalPhysicsBody = tileNode.physicsBody
-                }
 
                 addChild(tileNode)
             }

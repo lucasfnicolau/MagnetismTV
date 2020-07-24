@@ -26,7 +26,7 @@ class TimerScoreView: UIView {
 
 
     init(timeLimit: Int, maxScore: Int) {
-        self.playerImageView = UIImageView(image: UIImage(named: SkinManager.shared.currentSkin.image))
+        self.playerImageView = UIImageView(image: UIImage(named: "\(SkinManager.shared.currentSkin.image)-BR"))
         self.tombstoneImageView = UIImageView(image: UIImage(named: Image.tombstone))
         self.maxScore = maxScore
         self.timeLimit = timeLimit

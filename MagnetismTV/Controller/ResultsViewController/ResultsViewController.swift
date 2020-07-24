@@ -57,7 +57,9 @@ class ResultsViewController: UIViewController {
     private func configure() {
         if score == -1 || level == -1 { return }
 
-        let key = "\(UDKey.level)\(levelNumber(level))-\(UDKey.highscore)"
+        let levelNumber = GameViewController.formattedLevelName(forIndex: level)
+
+        let key = "\(UDKey.level)\(levelNumber)-\(UDKey.highscore)"
 
         var highscore = defaults.integer(forKey: key)
         if score > highscore {
@@ -68,19 +70,15 @@ class ResultsViewController: UIViewController {
         allPoints += score
         defaults.set(allPoints, forKey: UDKey.allPoints)
 
-        levelView.text = "LEVEL \(levelNumber(level))"
+        levelView.text = "LEVEL \(levelNumber)"
         scoreView.text = "SCORE: \(score)"
         highscoreView.text = "HIGHSCORE: \(highscore)"
-    }
 
-
-    private func levelNumber(_ number: Int) -> String {
-        if number >= 100 {
-            return "\(number)"
-        } else if number >= 10 {
-            return "0\(number)"
+        if GameViewController.doesSceneExists(atIndex: level + 1) {
+            defaults.set(level + 1, forKey: UDKey.currentLevel)
+        } else {
+            defaults.set(level, forKey: UDKey.currentLevel)
         }
-        return "00\(number)"
     }
 
 

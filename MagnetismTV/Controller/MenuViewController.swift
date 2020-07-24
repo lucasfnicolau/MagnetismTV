@@ -36,25 +36,27 @@ class MenuViewController: AnimatedBackgroundViewController {
 
 
     @IBAction func continueButtonTouched(_ sender: CustomButton) {
-        let gameVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(identifier: Identifier.game)
+        guard let gameVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(identifier: Identifier.game) as? GameViewController else { return }
+
+        gameVC.currentLevel = defaults.integer(forKey: UDKey.currentLevel)
 
         navigationController?.pushViewController(gameVC, animated: true)
     }
 
 
-    @IBAction func selectLevelButtonTouched(_ sendeR: CustomButton) {
+    @IBAction func selectLevelButtonTouched(_ sender: CustomButton) {
 
     }
 
 
-    @IBAction func selectSkinButtonTouched(_ sendeR: CustomButton) {
+    @IBAction func selectSkinButtonTouched(_ sender: CustomButton) {
         let selectSkinVC = UIStoryboard(name: Storyboard.skins, bundle: nil).instantiateViewController(identifier: Identifier.skins)
 
         navigationController?.pushViewController(selectSkinVC, animated: true)
     }
 
 
-    @IBAction func toggleMusicButtonTouched(_ sendeR: CustomButton) {
+    @IBAction func toggleMusicButtonTouched(_ sender: CustomButton) {
         let musicDisabled = !defaults.bool(forKey: UDKey.musicDisabled)
         defaults.set(musicDisabled, forKey: UDKey.musicDisabled)
 
