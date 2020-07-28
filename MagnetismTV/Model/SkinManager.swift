@@ -25,10 +25,10 @@ class SkinManager {
         var pointsRequired = [
             0,
             300,
-            600,
             900,
-            1200,
-            1500
+            1600,
+            2000,
+            2500
         ]
 
         while pointsRequired.count % 3 != 0 {
