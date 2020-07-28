@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
     func start(sceneWithIndex index: Int) {
         currentLevel = index
         stop()
-        let name = GameViewController.formattedLevelName(forIndex: index)
+        let name = "Level\(GameViewController.formattedLevelName(forIndex: index))"
         self.currentScene = createScene(named: name)
         guard let currentScene = currentScene else { return }
         setupView(for: currentScene)
@@ -52,11 +52,11 @@ class GameViewController: UIViewController {
     static func formattedLevelName(forIndex index: Int) -> String {
         let name: String
         if index >= 100 {
-            name = "Level\(index)"
+            name = "\(index)"
         } else if index >= 10 {
-            name = "Level0\(index)"
+            name = "0\(index)"
         } else {
-            name = "Level00\(index)"
+            name = "00\(index)"
         }
 
         return name

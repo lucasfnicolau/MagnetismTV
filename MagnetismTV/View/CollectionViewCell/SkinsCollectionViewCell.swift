@@ -71,7 +71,7 @@ class SkinsCollectionViewCell: UICollectionViewCell {
     func setImages(skin: Skin, bg backgroundImageName: String, index: Int) {
         backgroundImageView.image = UIImage(named: backgroundImageName)
 
-        guard let skinImage = UIImage(named: skin.image) else {
+        guard let skinImage = UIImage(named: "\(skin.image)-BR") else {
             skinImageView.image = nil
             isUserInteractionEnabled = false
             return

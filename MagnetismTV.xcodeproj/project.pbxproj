@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60EEF8724D0BE45008E94F6 /* Level006.sks in Resources */ = {isa = PBXBuildFile; fileRef = B60EEF8624D0BE45008E94F6 /* Level006.sks */; };
 		B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217324B9035B00D0FFC2 /* Enablable.swift */; };
 		B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */; };
 		B622A9D524CB738F000D4B9D /* Level005.sks in Resources */ = {isa = PBXBuildFile; fileRef = B622A9D424CB738F000D4B9D /* Level005.sks */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B60EEF8624D0BE45008E94F6 /* Level006.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level006.sks; sourceTree = "<group>"; };
 		B61C217324B9035B00D0FFC2 /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeItem.swift; sourceTree = "<group>"; };
 		B622A9D424CB738F000D4B9D /* Level005.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level005.sks; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				B60EEF8624D0BE45008E94F6 /* Level006.sks */,
 				B622A9D424CB738F000D4B9D /* Level005.sks */,
 				B6FE7CA324C22E7600D6AE7F /* Level004.sks */,
 				B6FE7CA124C21B0500D6AE7F /* Level003.sks */,
@@ -403,6 +406,7 @@
 				B6D43FE824B501E8008B0F15 /* Level001.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
+				B60EEF8724D0BE45008E94F6 /* Level006.sks in Resources */,
 				B622A9D524CB738F000D4B9D /* Level005.sks in Resources */,
 				B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */,
 				B6FE7CA624C2454600D6AE7F /* GameTheme_1.1.mp3 in Resources */,
