@@ -60,6 +60,8 @@
 		B6FE7CA824C2455C00D6AE7F /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA724C2455C00D6AE7F /* Sound.swift */; };
 		B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */; };
 		B6FE7CAC24C2468500D6AE7F /* AnimatedBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */; };
+		F2490D9124D1F660007A0128 /* Level008.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2490D9024D1F660007A0128 /* Level008.sks */; };
+		F2C0B41524D1E91D008A1E8C /* Level007.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2C0B41424D1E91D008A1E8C /* Level007.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,8 @@
 		B6FE7CA724C2455C00D6AE7F /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedSnakeBackgroundView.swift; path = MagnetismTV/AnimatedSnakeBackgroundView.swift; sourceTree = SOURCE_ROOT; };
 		B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackgroundViewController.swift; sourceTree = "<group>"; };
+		F2490D9024D1F660007A0128 /* Level008.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level008.sks; sourceTree = "<group>"; };
+		F2C0B41424D1E91D008A1E8C /* Level007.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level007.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +329,8 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				F2490D9024D1F660007A0128 /* Level008.sks */,
+				F2C0B41424D1E91D008A1E8C /* Level007.sks */,
 				B60EEF8624D0BE45008E94F6 /* Level006.sks */,
 				B622A9D424CB738F000D4B9D /* Level005.sks */,
 				B6FE7CA324C22E7600D6AE7F /* Level004.sks */,
@@ -395,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6AD164124C62C1C00860341 /* ResultsViewController.storyboard in Resources */,
+				F2490D9124D1F660007A0128 /* Level008.sks in Resources */,
 				B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */,
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
@@ -407,6 +414,7 @@
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
 				B60EEF8724D0BE45008E94F6 /* Level006.sks in Resources */,
+				F2C0B41524D1E91D008A1E8C /* Level007.sks in Resources */,
 				B622A9D524CB738F000D4B9D /* Level005.sks in Resources */,
 				B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */,
 				B6FE7CA624C2454600D6AE7F /* GameTheme_1.1.mp3 in Resources */,
