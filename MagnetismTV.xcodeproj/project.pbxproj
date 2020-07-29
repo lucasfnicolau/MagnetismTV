@@ -57,6 +57,10 @@
 		B6FE7CA824C2455C00D6AE7F /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA724C2455C00D6AE7F /* Sound.swift */; };
 		B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */; };
 		B6FE7CAC24C2468500D6AE7F /* AnimatedBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */; };
+		F2DD548E24D20CD5007092B6 /* StageRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD548A24D20CD5007092B6 /* StageRowCell.swift */; };
+		F2DD548F24D20CD5007092B6 /* StageSelectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */; };
+		F2DD549024D20CD5007092B6 /* StageSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD548C24D20CD5007092B6 /* StageSelectionModel.swift */; };
+		F2DD549124D20CD5007092B6 /* StageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD548D24D20CD5007092B6 /* StageSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +116,10 @@
 		B6FE7CA724C2455C00D6AE7F /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedSnakeBackgroundView.swift; path = MagnetismTV/AnimatedSnakeBackgroundView.swift; sourceTree = SOURCE_ROOT; };
 		B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackgroundViewController.swift; sourceTree = "<group>"; };
+		F2DD548A24D20CD5007092B6 /* StageRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageRowCell.swift; sourceTree = "<group>"; };
+		F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StageSelectionView.storyboard; sourceTree = "<group>"; };
+		F2DD548C24D20CD5007092B6 /* StageSelectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectionModel.swift; sourceTree = "<group>"; };
+		F2DD548D24D20CD5007092B6 /* StageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +265,7 @@
 		B6D43FD524B3BB7A008B0F15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2DD548924D20CD5007092B6 /* StageSelection */,
 				B6AD164C24C7833400860341 /* SkinsViewController */,
 				B6AD163D24C62BF800860341 /* ResultsViewController */,
 				B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */,
@@ -327,6 +336,17 @@
 			path = Levels;
 			sourceTree = "<group>";
 		};
+		F2DD548924D20CD5007092B6 /* StageSelection */ = {
+			isa = PBXGroup;
+			children = (
+				F2DD548A24D20CD5007092B6 /* StageRowCell.swift */,
+				F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */,
+				F2DD548C24D20CD5007092B6 /* StageSelectionModel.swift */,
+				F2DD548D24D20CD5007092B6 /* StageSelectionViewController.swift */,
+			);
+			path = StageSelection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,6 +412,7 @@
 				B663187F24C0CCDA003B0152 /* FrenteH1-Regular.otf in Resources */,
 				B6FE7CA224C21B0500D6AE7F /* Level002.sks in Resources */,
 				B68A55DC24BCF853009DE384 /* Level001.sks in Resources */,
+				F2DD548F24D20CD5007092B6 /* StageSelectionView.storyboard in Resources */,
 				B6FE7CA424C22E7600D6AE7F /* Level003.sks in Resources */,
 				B6D43FE824B501E8008B0F15 /* Level000.sks in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
@@ -414,6 +435,7 @@
 				B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */,
 				B6FE7CAC24C2468500D6AE7F /* AnimatedBackgroundViewController.swift in Sources */,
 				B6AD164924C638FC00860341 /* UDKey.swift in Sources */,
+				F2DD549124D20CD5007092B6 /* StageSelectionViewController.swift in Sources */,
 				B6D43FC624B3BB6E008B0F15 /* GameViewController.swift in Sources */,
 				B677F0D524CA031800F36AB1 /* UIViewController+FocusGuide.swift in Sources */,
 				B6AD165324C789D500860341 /* SkinsCollectionViewCell.swift in Sources */,
@@ -432,7 +454,9 @@
 				B6CFCC8024B65D1E00AF8640 /* MovingEnemy.swift in Sources */,
 				B663188124C0CD16003B0152 /* MenuViewController.swift in Sources */,
 				B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */,
+				F2DD549024D20CD5007092B6 /* StageSelectionModel.swift in Sources */,
 				B6CFCC9024B7A12C00AF8640 /* TimerScoreView.swift in Sources */,
+				F2DD548E24D20CD5007092B6 /* StageRowCell.swift in Sources */,
 				B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */,
 				B6AD164B24C77C4000860341 /* TimerManager.swift in Sources */,
 				B6AD164324C62D0800860341 /* InfoView.swift in Sources */,

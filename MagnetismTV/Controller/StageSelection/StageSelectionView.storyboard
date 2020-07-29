@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,48 +99,106 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mlx-ra-nh4" userLabel="Stages">
                                         <rect key="frame" x="0.0" y="152" width="1740" height="656"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Knb-Qw-z8a">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="Gju-Vv-Q9W" userLabel="RowsVStack">
                                                 <rect key="frame" x="0.0" y="0.0" width="1740" height="656"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9FE-bn-VlT">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StageCell" id="yhg-4F-QEt" customClass="StageRowCell" customModule="MagnetismTV" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="139" height="86"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iq5-JC-zEQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="86"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzA-Jd-WDz" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="86"/>
-                                                                    <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                    <state key="normal" title="Bonus"/>
-                                                                </button>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="vzA-Jd-WDz" secondAttribute="trailing" id="77n-Gg-hde"/>
-                                                                <constraint firstAttribute="bottom" secondItem="vzA-Jd-WDz" secondAttribute="bottom" id="G1p-9e-tcN"/>
-                                                                <constraint firstItem="vzA-Jd-WDz" firstAttribute="leading" secondItem="iq5-JC-zEQ" secondAttribute="leading" id="PKc-q1-poz"/>
-                                                                <constraint firstItem="vzA-Jd-WDz" firstAttribute="top" secondItem="iq5-JC-zEQ" secondAttribute="top" id="XJp-AT-Tf8"/>
-                                                            </constraints>
-                                                        </collectionViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="SelectionButton" destination="vzA-Jd-WDz" id="XdB-vA-Yvq"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bUk-Ff-aJE" userLabel="StagesHStack">
+                                                        <rect key="frame" x="0.0" y="0.0" width="1740" height="296"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-ev-gup" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="61" width="174" height="174"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="QXQ-ev-gup" secondAttribute="height" multiplier="1:1" id="eRF-rR-Kh3"/>
+                                                                </constraints>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-iF-D1P" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="391.5" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-5Y-jrx" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="783" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jl-o8-HlY" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="1174.5" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-XZ-Ihs" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="1566" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="Byi-iF-D1P" firstAttribute="width" secondItem="QXQ-ev-gup" secondAttribute="width" id="4dn-OC-NMR"/>
+                                                            <constraint firstItem="1jl-o8-HlY" firstAttribute="height" secondItem="QXQ-ev-gup" secondAttribute="height" id="739-p2-1rO"/>
+                                                            <constraint firstItem="1jl-o8-HlY" firstAttribute="width" secondItem="QXQ-ev-gup" secondAttribute="width" id="Gq3-J3-qOG"/>
+                                                            <constraint firstItem="U5I-5Y-jrx" firstAttribute="height" secondItem="QXQ-ev-gup" secondAttribute="height" id="Hli-9i-pwe"/>
+                                                            <constraint firstItem="rdh-XZ-Ihs" firstAttribute="width" secondItem="QXQ-ev-gup" secondAttribute="width" id="KVz-Go-s96"/>
+                                                            <constraint firstItem="rdh-XZ-Ihs" firstAttribute="height" secondItem="QXQ-ev-gup" secondAttribute="height" id="SXM-rg-Agu"/>
+                                                            <constraint firstItem="U5I-5Y-jrx" firstAttribute="width" secondItem="QXQ-ev-gup" secondAttribute="width" id="d3G-so-6DC"/>
+                                                            <constraint firstItem="Byi-iF-D1P" firstAttribute="height" secondItem="QXQ-ev-gup" secondAttribute="height" id="n6p-xU-cfd"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhM-Rs-zbU" userLabel="StagesHStack">
+                                                        <rect key="frame" x="0.0" y="360" width="1740" height="296"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Ze-zbB" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="61" width="174" height="174"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="height" multiplier="1:1" id="hGb-8U-Iu1"/>
+                                                                </constraints>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pr-6P-2mI" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="391.5" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0Y-sL-CJD" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="783" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-lE-Wzl" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="1174.5" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REI-rX-mp9" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                                <rect key="frame" x="1566" y="61" width="174" height="174"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <state key="normal" title="Button"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="J0Y-sL-CJD" firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="width" id="A5y-xv-uE7"/>
+                                                            <constraint firstItem="J0Y-sL-CJD" firstAttribute="height" secondItem="3kc-Ze-zbB" secondAttribute="height" id="Hic-dl-mVX"/>
+                                                            <constraint firstItem="1pr-6P-2mI" firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="width" id="Q12-mK-RVa"/>
+                                                            <constraint firstItem="REI-rX-mp9" firstAttribute="height" secondItem="3kc-Ze-zbB" secondAttribute="height" id="Zzm-SC-OZ7"/>
+                                                            <constraint firstItem="xLY-lE-Wzl" firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="width" id="i2e-YC-g2n"/>
+                                                            <constraint firstItem="xLY-lE-Wzl" firstAttribute="height" secondItem="3kc-Ze-zbB" secondAttribute="height" id="jz3-lC-OOM"/>
+                                                            <constraint firstItem="1pr-6P-2mI" firstAttribute="height" secondItem="3kc-Ze-zbB" secondAttribute="height" id="nRp-xq-jeH"/>
+                                                            <constraint firstItem="REI-rX-mp9" firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="width" id="nUQ-Ue-Jvg"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Knb-Qw-z8a" secondAttribute="trailing" id="3wI-37-hJJ"/>
-                                            <constraint firstItem="Knb-Qw-z8a" firstAttribute="top" secondItem="Mlx-ra-nh4" secondAttribute="top" id="TUH-GX-MBA"/>
-                                            <constraint firstAttribute="bottom" secondItem="Knb-Qw-z8a" secondAttribute="bottom" id="gdU-Ka-nD4"/>
-                                            <constraint firstItem="Knb-Qw-z8a" firstAttribute="leading" secondItem="Mlx-ra-nh4" secondAttribute="leading" id="y7j-Nm-grK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gju-Vv-Q9W" secondAttribute="bottom" id="B4s-41-j6E"/>
+                                            <constraint firstItem="QXQ-ev-gup" firstAttribute="width" secondItem="Mlx-ra-nh4" secondAttribute="width" multiplier="0.1" id="RLM-Wx-eLG"/>
+                                            <constraint firstItem="Gju-Vv-Q9W" firstAttribute="top" secondItem="Mlx-ra-nh4" secondAttribute="top" id="aTg-zX-P78"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gju-Vv-Q9W" secondAttribute="trailing" id="qXy-H1-FtD"/>
+                                            <constraint firstItem="3kc-Ze-zbB" firstAttribute="width" secondItem="Mlx-ra-nh4" secondAttribute="width" multiplier="0.1" id="vkB-tI-0lS"/>
+                                            <constraint firstItem="Gju-Vv-Q9W" firstAttribute="leading" secondItem="Mlx-ra-nh4" secondAttribute="leading" id="voK-yb-Ww9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9F-Np-Rrz" userLabel="Spacer">
@@ -210,7 +267,6 @@
                     <connections>
                         <outlet property="nextButton" destination="3A6-Di-mCP" id="SPt-Ty-0Iz"/>
                         <outlet property="previousButton" destination="iaA-pQ-UHP" id="X7T-xu-lg3"/>
-                        <outlet property="stagesCollectionView" destination="Knb-Qw-z8a" id="Maa-Wx-EkV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izo-35-Cy4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
