@@ -113,22 +113,22 @@
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-iF-D1P" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-iF-D1P" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="391.5" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-5Y-jrx" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-5Y-jrx" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="783" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jl-o8-HlY" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jl-o8-HlY" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="1174.5" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-XZ-Ihs" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-XZ-Ihs" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="1566" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
@@ -148,7 +148,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhM-Rs-zbU" userLabel="StagesHStack">
                                                         <rect key="frame" x="0.0" y="360" width="1740" height="296"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Ze-zbB" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Ze-zbB" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="61" width="174" height="174"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="height" multiplier="1:1" id="hGb-8U-Iu1"/>
@@ -156,22 +156,22 @@
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pr-6P-2mI" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pr-6P-2mI" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="391.5" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0Y-sL-CJD" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0Y-sL-CJD" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="783" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-lE-Wzl" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-lE-Wzl" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="1174.5" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REI-rX-mp9" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REI-rX-mp9" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
                                                                 <rect key="frame" x="1566" y="61" width="174" height="174"/>
                                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                 <state key="normal" title="Button"/>
