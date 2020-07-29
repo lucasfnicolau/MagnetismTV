@@ -139,7 +139,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Home" width="295" height="295"/>
+        <image name="Home" width="256" height="256"/>
         <image name="Play" width="295" height="295"/>
         <image name="Restart" width="295" height="295"/>
     </resources>
