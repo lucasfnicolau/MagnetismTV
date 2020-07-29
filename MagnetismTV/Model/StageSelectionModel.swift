@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct StageSelectionModel {
+    let avaiableLevels: [Int]
+
+    init() {
+        avaiableLevels = [0, 1, 2, 3]
+    }
+}

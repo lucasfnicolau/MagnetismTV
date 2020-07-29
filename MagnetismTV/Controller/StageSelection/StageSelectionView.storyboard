@@ -67,7 +67,6 @@
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaA-pQ-UHP">
                                                 <rect key="frame" x="750" y="0.0" width="240" height="120"/>
                                                 <color key="tintColor" red="0.77917772529999996" green="0.47797489170000002" blue="0.52156817909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                 <state key="normal" image="chevron.up.circle" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="64" scale="default"/>
                                                 </state>
@@ -215,7 +214,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="120"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.77917772529999996" green="0.47797489170000002" blue="0.52156817909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                 <state key="normal" image="chevron.down.circle" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="64" scale="large"/>
                                                 </state>
