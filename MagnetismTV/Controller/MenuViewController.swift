@@ -38,7 +38,7 @@ class MenuViewController: AnimatedBackgroundViewController {
     @IBAction func continueButtonTouched(_ sender: CustomButton) {
         guard let gameVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(identifier: Identifier.game) as? GameViewController else { return }
 
-        gameVC.currentLevel = 0// defaults.integer(forKey: UDKey.currentLevel)
+        gameVC.currentLevel = 09// defaults.integer(forKey: UDKey.currentLevel)
 
         navigationController?.pushViewController(gameVC, animated: true)
     }
