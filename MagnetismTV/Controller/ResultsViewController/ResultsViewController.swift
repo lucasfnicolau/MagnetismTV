@@ -20,6 +20,7 @@ class ResultsViewController: UIViewController {
     var level: Int = -1
     var gameVC: GameViewController?
     private let defaults = UserDefaults()
+    private let menuPressRecognizer = UITapGestureRecognizer()
 
 
     override var preferredFocusedView: UIView? {
@@ -30,6 +31,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPortalAnimation()
+        setupMenuButtonBehavior()
     }
 
 
@@ -52,6 +54,16 @@ class ResultsViewController: UIViewController {
         portalImageView.animationImages = images
         portalImageView.startAnimating()
     }
+
+
+    private func setupMenuButtonBehavior() {
+        menuPressRecognizer.addTarget(self, action: #selector(menuButtonTouched))
+        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuPressRecognizer)
+    }
+
+
+    @objc private func menuButtonTouched() {}
 
 
     private func configure() {

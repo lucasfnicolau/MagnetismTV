@@ -54,7 +54,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="63g-V3-i1d" secondAttribute="height" multiplier="1:1" id="RVC-cO-QP9"/>
                                         </constraints>
-                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                         <state key="normal" image="Home"/>
                                         <connections>
                                             <action selector="homeButtonTouched:" destination="Vgw-Pq-MdW" eventType="primaryActionTriggered" id="Ats-jc-saa"/>

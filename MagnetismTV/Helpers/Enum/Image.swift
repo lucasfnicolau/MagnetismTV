@@ -15,6 +15,8 @@ enum Image {
     static let music = "MusicNote"
     static let noMusic = "NoMusicNote"
 
+    static let locker = "Locker"
+
     static let topLeftOpen = "TopLeft-Open"
     static let topLeftClosed = "TopLeft-Closed"
 

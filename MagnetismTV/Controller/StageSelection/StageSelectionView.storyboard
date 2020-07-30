@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FrenteH1-Regular.otf">
+            <string>FrenteH1-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--SkinsViewController-->
         <scene sceneID="ifT-m5-XdJ">
@@ -36,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1740" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ItR-IE-Fh0" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                <rect key="frame" x="45" y="0.0" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ItR-IE-Fh0" secondAttribute="height" multiplier="1:1" id="EHD-PR-bqa"/>
                                                 </constraints>
@@ -47,8 +52,8 @@
                                                     <action selector="BackButtonTap:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="nAu-bG-LlJ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM0-eI-VUc" customClass="CustomButton" customModule="MagnetismTV">
-                                                <rect key="frame" x="1620" y="0.0" width="120" height="120"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM0-eI-VUc" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                                <rect key="frame" x="1575" y="0.0" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pM0-eI-VUc" secondAttribute="height" multiplier="1:1" id="LLn-Wd-gM8"/>
                                                 </constraints>
@@ -58,10 +63,17 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-3O-Bws" userLabel="InfoView" customClass="InfoView" customModule="Dopu" customModuleProvider="target">
-                                                <rect key="frame" x="739.5" y="0.0" width="261" height="120"/>
+                                                <rect key="frame" x="630" y="10" width="480" height="110"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9tJ-3O-Bws" secondAttribute="height" multiplier="48:11" id="DSC-vT-FTc"/>
+                                                    <constraint firstAttribute="width" constant="480" id="zsq-gM-YHN"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Fases"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Select level"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="80"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaA-pQ-UHP">
@@ -75,15 +87,13 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="pM0-eI-VUc" secondAttribute="bottom" id="4Pp-5f-bjQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="pM0-eI-VUc" secondAttribute="trailing" id="6cL-T2-b2B"/>
+                                            <constraint firstAttribute="trailing" secondItem="pM0-eI-VUc" secondAttribute="trailing" constant="45" id="6cL-T2-b2B"/>
                                             <constraint firstAttribute="bottom" secondItem="9tJ-3O-Bws" secondAttribute="bottom" id="BM2-gB-eLl"/>
                                             <constraint firstAttribute="bottom" secondItem="ItR-IE-Fh0" secondAttribute="bottom" id="IHT-Jp-tSn"/>
-                                            <constraint firstItem="9tJ-3O-Bws" firstAttribute="width" secondItem="jkz-7X-ckZ" secondAttribute="width" multiplier="0.15" id="Ihl-4k-kK5"/>
                                             <constraint firstItem="iaA-pQ-UHP" firstAttribute="centerX" secondItem="jkz-7X-ckZ" secondAttribute="centerX" id="P39-Ru-5f3"/>
-                                            <constraint firstItem="9tJ-3O-Bws" firstAttribute="top" secondItem="jkz-7X-ckZ" secondAttribute="top" id="SY4-Z7-0Vx"/>
                                             <constraint firstItem="iaA-pQ-UHP" firstAttribute="centerY" secondItem="jkz-7X-ckZ" secondAttribute="centerY" id="cOK-sE-mo5"/>
                                             <constraint firstItem="9tJ-3O-Bws" firstAttribute="centerX" secondItem="jkz-7X-ckZ" secondAttribute="centerX" id="lcD-IG-cGe"/>
-                                            <constraint firstItem="ItR-IE-Fh0" firstAttribute="leading" secondItem="jkz-7X-ckZ" secondAttribute="leading" id="oee-8Q-Zla"/>
+                                            <constraint firstItem="ItR-IE-Fh0" firstAttribute="leading" secondItem="jkz-7X-ckZ" secondAttribute="leading" constant="45" id="oee-8Q-Zla"/>
                                             <constraint firstItem="ItR-IE-Fh0" firstAttribute="top" secondItem="jkz-7X-ckZ" secondAttribute="top" id="qun-xP-cyF"/>
                                             <constraint firstItem="pM0-eI-VUc" firstAttribute="top" secondItem="jkz-7X-ckZ" secondAttribute="top" id="sjk-4m-G6u"/>
                                         </constraints>
@@ -209,48 +219,63 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bUk-Ff-aJE" userLabel="StagesHStack">
                                                         <rect key="frame" x="0.0" y="0.0" width="1612" height="296"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-ev-gup" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-ev-gup" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="61" width="174" height="174"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="QXQ-ev-gup" secondAttribute="height" multiplier="1:1" id="eRF-rR-Kh3"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="001">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="oIA-eP-hwZ"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-iF-D1P" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-iF-D1P" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="359.5" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="002">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="Uf3-gE-DiK"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-5Y-jrx" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-5Y-jrx" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="719" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="003">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="cYq-iJ-ePx"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jl-o8-HlY" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jl-o8-HlY" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="1078.5" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="004">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="9gO-OX-uG1"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-XZ-Ihs" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-XZ-Ihs" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="1438" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="005">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="x9r-5J-qr3"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -267,48 +292,63 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhM-Rs-zbU" userLabel="StagesHStack">
                                                         <rect key="frame" x="0.0" y="360" width="1612" height="296"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Ze-zbB" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Ze-zbB" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="61" width="174" height="174"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="3kc-Ze-zbB" secondAttribute="height" multiplier="1:1" id="hGb-8U-Iu1"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="006">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="4sa-Ff-u14"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pr-6P-2mI" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pr-6P-2mI" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="359.5" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="007">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="5am-I0-3bI"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0Y-sL-CJD" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0Y-sL-CJD" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="719" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="008">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="05f-sO-O40"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-lE-Wzl" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-lE-Wzl" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="1078.5" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="009">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="2qM-PS-e1I"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REI-rX-mp9" userLabel="Stage" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
+                                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REI-rX-mp9" userLabel="Stage" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
                                                                 <rect key="frame" x="1438" y="61" width="174" height="174"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                <state key="normal" title="00">
+                                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                <state key="normal" title="010">
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="stageButtonTapped:" destination="8hF-70-tss" eventType="primaryActionTriggered" id="uHN-k5-3GU"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -345,7 +385,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGq-gl-6G2" userLabel="Footer">
                                         <rect key="frame" x="750" y="840" width="240" height="120"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3A6-Di-mCP">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3A6-Di-mCP">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="120"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.77917772529999996" green="0.47797489170000002" blue="0.52156817909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -404,6 +444,16 @@
                     <connections>
                         <outlet property="nextButton" destination="3A6-Di-mCP" id="SPt-Ty-0Iz"/>
                         <outlet property="previousButton" destination="iaA-pQ-UHP" id="X7T-xu-lg3"/>
+                        <outletCollection property="levelButtons" destination="QXQ-ev-gup" collectionClass="NSMutableArray" id="fqz-gg-Q53"/>
+                        <outletCollection property="levelButtons" destination="Byi-iF-D1P" collectionClass="NSMutableArray" id="hVN-dX-mTD"/>
+                        <outletCollection property="levelButtons" destination="U5I-5Y-jrx" collectionClass="NSMutableArray" id="l1K-lf-43l"/>
+                        <outletCollection property="levelButtons" destination="1jl-o8-HlY" collectionClass="NSMutableArray" id="h62-7g-3tC"/>
+                        <outletCollection property="levelButtons" destination="rdh-XZ-Ihs" collectionClass="NSMutableArray" id="rI2-ch-JEs"/>
+                        <outletCollection property="levelButtons" destination="3kc-Ze-zbB" collectionClass="NSMutableArray" id="pka-HB-N20"/>
+                        <outletCollection property="levelButtons" destination="1pr-6P-2mI" collectionClass="NSMutableArray" id="fyl-rm-agg"/>
+                        <outletCollection property="levelButtons" destination="J0Y-sL-CJD" collectionClass="NSMutableArray" id="jqw-pJ-zJf"/>
+                        <outletCollection property="levelButtons" destination="xLY-lE-Wzl" collectionClass="NSMutableArray" id="Xbo-XW-QQn"/>
+                        <outletCollection property="levelButtons" destination="REI-rX-mp9" collectionClass="NSMutableArray" id="aZg-XT-cru"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izo-35-Cy4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

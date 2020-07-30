@@ -29,6 +29,7 @@ class GameViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        view.subviews.forEach { $0.removeFromSuperview() }
         stop()
     }
 
@@ -44,7 +45,7 @@ class GameViewController: UIViewController {
 
 
     static func doesSceneExists(atIndex index: Int) -> Bool {
-        let name = formattedLevelName(forIndex: index)
+        let name = "Level\(formattedLevelName(forIndex: index))"
         return SKScene(fileNamed: name) != nil
     }
 
