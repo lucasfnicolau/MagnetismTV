@@ -9,13 +9,26 @@
 import SpriteKit
 import UIKit
 
-class Player: SKSpriteNode {
+class Player: SKSpriteNode, Enablable {
 
-    static var mask: UInt32 = 0x0001
-    
+    enum VDirection: String {
+        case top = "T"
+        case bottom = "B"
+    }
 
-    private var impulse: CGFloat = 4000
+    enum HDirection: String {
+        case left = "L"
+        case right = "R"
+    }
+
+    static let bitmask: UInt32 = 0x0001
+
+    var isEnabled: Bool = false
     private var isMoving = false
+    private var impulse: CGFloat = 2700.proportional(to: Level.scale)
+    private var velocity = CGVector.zero
+    private var vDirection: VDirection = .bottom
+    private var hDirection: HDirection = .right
 
 
     init(withImage image: String? = nil,
@@ -23,11 +36,13 @@ class Player: SKSpriteNode {
          size: CGSize? = nil,
          andScale scale: CGFloat = 1) {
 
-        let texture = image != nil ? SKTexture(imageNamed: image!) : nil
-        let size = (size == nil && texture != nil) ? texture!.size() : CGSize(width: 50, height: 50)
+        let texture = image != nil ? SKTexture(imageNamed: "\(image!)-BR") : nil
+        let size = (size == nil && texture != nil)
+            ? texture!.size().applying(CGAffineTransform(scaleX: scale.proportional(to: Level.scale),
+                                                         y: scale.proportional(to: Level.scale)))
+            : CGSize(width: 50, height: 50)
+
         super.init(texture: texture, color: color, size: size)
-        xScale = scale
-        yScale = scale
         configure()
     }
 
@@ -38,37 +53,67 @@ class Player: SKSpriteNode {
 
 
     private func configure() {
-        if let texture = texture {
-            physicsBody = SKPhysicsBody(texture: texture, size: size)
-        } else {
-            physicsBody = SKPhysicsBody(rectangleOf: size)
-        }
+        alpha = 0
+
+        physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         physicsBody?.restitution = 0
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
-        physicsBody?.categoryBitMask = Player.mask
+        physicsBody?.usesPreciseCollisionDetection = true
+        physicsBody?.categoryBitMask = Player.bitmask
+        physicsBody?.collisionBitMask = Level.bitmask | InteractableItem.bitmask
+        physicsBody?.contactTestBitMask = MovingEnemy.bitmask | InteractableItem.bitmask
     }
 
 
-    func move(to direction: UISwipeGestureRecognizer.Direction) {
-        let action: SKAction
+    func setVelocity(basedOn direction: UISwipeGestureRecognizer.Direction) {
+        guard isEnabled else { return }
+
+        setNewDirection(basedOn: direction)
+
+        let moveAction: SKAction
+        let changeTextureAction: SKAction
+        let image = "\(SkinManager.shared.currentSkin.image)-\(vDirection.rawValue)\(hDirection.rawValue)"
 
         switch direction {
         case .up:
-            action = SKAction.applyImpulse(CGVector(dx: 0, dy: impulse), duration: 0.02)
+            moveAction = SKAction.applyImpulse(CGVector(dx: 0, dy: impulse), duration: 0.1)
+            changeTextureAction = SKAction.setTexture(SKTexture(imageNamed: image))
         case .right:
-            action = SKAction.applyImpulse(CGVector(dx: impulse, dy: 0), duration: 0.02)
+            moveAction = SKAction.applyImpulse(CGVector(dx: impulse, dy: 0), duration: 0.1)
+            changeTextureAction = SKAction.setTexture(SKTexture(imageNamed: image))
         case .left:
-            action = SKAction.applyImpulse(CGVector(dx: -impulse, dy: 0), duration: 0.02)
+            moveAction = SKAction.applyImpulse(CGVector(dx: -impulse, dy: 0), duration: 0.1)
+            changeTextureAction = SKAction.setTexture(SKTexture(imageNamed: image))
         case .down:
-            action = SKAction.applyImpulse(CGVector(dx: 0, dy: -impulse), duration: 0.02)
+            moveAction = SKAction.applyImpulse(CGVector(dx: 0, dy: -impulse), duration: 0.1)
+            changeTextureAction = SKAction.setTexture(SKTexture(imageNamed: image))
         default:
-            action = SKAction.init()
+            return
         }
 
         guard !isMoving else { return }
 
         isMoving = true
-        self.run(action) { self.isMoving = false }
+        run(changeTextureAction)
+        run(moveAction) {
+            self.isMoving = false
+        }
+    }
+
+
+    private func setNewDirection(basedOn gestureDirection: UISwipeGestureRecognizer.Direction) {
+        switch gestureDirection {
+        case .up:
+            vDirection = .top
+        case .right:
+            hDirection = .right
+        case .left:
+            hDirection = .left
+        case .down:
+            vDirection = .bottom
+        default:
+            return
+        }
     }
 }
