@@ -23,6 +23,22 @@ class MenuViewController: AnimatedBackgroundViewController {
     }
 
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureContinueButton()
+    }
+
+
+    private func configureContinueButton() {
+        let currentLevel = defaults.integer(forKey: UDKey.currentLevel)
+        if currentLevel == 0 {
+            continueButton.setTitle("START", for: .normal)
+        } else {
+            continueButton.setTitle("CONTINUE", for: .normal)
+        }
+    }
+
+
     private func setupMusic() {
         AudioManager.shared.setAudio(named: Sound.gameTheme)
 
@@ -38,14 +54,16 @@ class MenuViewController: AnimatedBackgroundViewController {
     @IBAction func continueButtonTouched(_ sender: CustomButton) {
         guard let gameVC = UIStoryboard(name: Storyboard.main, bundle: nil).instantiateViewController(identifier: Identifier.game) as? GameViewController else { return }
 
-        gameVC.currentLevel = 0// defaults.integer(forKey: UDKey.currentLevel)
+        gameVC.currentLevel = defaults.integer(forKey: UDKey.currentLevel)
 
         navigationController?.pushViewController(gameVC, animated: true)
     }
 
 
     @IBAction func selectLevelButtonTouched(_ sender: CustomButton) {
+        let stageSelectionVC = UIStoryboard(name: Storyboard.stage, bundle: nil).instantiateViewController(identifier: Identifier.stage)
 
+        navigationController?.pushViewController(stageSelectionVC, animated: true)
     }
 
 

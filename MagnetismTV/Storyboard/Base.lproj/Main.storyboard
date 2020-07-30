@@ -15,7 +15,7 @@
         <!--Game View Controller-->
         <scene sceneID="dEh-eV-dlg">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" id="499-42-d0g" customClass="GameViewController" customModule="MagnetismTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="499-42-d0g" customClass="GameViewController" customModule="Dopu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TiC-Vw-u93"/>
                         <viewControllerLayoutGuide type="bottom" id="3TX-uQ-fmp"/>
@@ -34,7 +34,7 @@
         <!--Menu View Controller-->
         <scene sceneID="45j-3h-yFa">
             <objects>
-                <viewController id="h3G-9R-gcD" customClass="MenuViewController" customModule="MagnetismTV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="h3G-9R-gcD" customClass="MenuViewController" customModule="Dopu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f7h-c5-hls"/>
                         <viewControllerLayoutGuide type="bottom" id="lJm-bC-hjh"/>
@@ -43,74 +43,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="rgi-MU-5fU">
-                                <rect key="frame" x="624" y="136" width="672" height="568"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-pu-TiU">
+                                <rect key="frame" x="624" y="120" width="672" height="840"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="672" height="136"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="rgi-MU-5fU">
+                                        <rect key="frame" x="0.0" y="0.0" width="672" height="568"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nod-tB-6F1" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="672" height="136"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="nod-tB-6F1" secondAttribute="height" multiplier="84:17" id="Eb8-gt-LaT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="CONTINUE">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="continueButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="u5l-Su-T2X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="216" width="672" height="136"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="xoC-Li-0Tt" secondAttribute="height" multiplier="84:17" id="qM7-O6-ATL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="SELECT  LEVEL">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectLevelButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="O9R-ac-z5o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-FY-YCK" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="432" width="672" height="136"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9Ec-FY-YCK" secondAttribute="height" multiplier="84:17" id="Eqg-5z-fZf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="select skin">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectSkinButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="t2s-PG-zpL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-Wu-FGZ" customClass="CustomButton" customModule="Dopu" customModuleProvider="target">
+                                        <rect key="frame" x="240" y="648" width="192" height="192"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="nod-tB-6F1" secondAttribute="height" multiplier="84:17" id="Eb8-gt-LaT"/>
+                                            <constraint firstAttribute="width" secondItem="aeG-Wu-FGZ" secondAttribute="height" multiplier="1:1" id="OWX-AF-Gb4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="CONTINUE">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="-15" maxY="0.0"/>
+                                        <state key="normal" image="MusicNote"/>
                                         <connections>
-                                            <action selector="continueButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="u5l-Su-T2X"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Li-0Tt" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="216" width="672" height="136"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="xoC-Li-0Tt" secondAttribute="height" multiplier="84:17" id="qM7-O6-ATL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="SELECT  LEVEL">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectLevelButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="O9R-ac-z5o"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-FY-YCK" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="432" width="672" height="136"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="9Ec-FY-YCK" secondAttribute="height" multiplier="84:17" id="Eqg-5z-fZf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FrenteH1-Regular" family="Frente H1" pointSize="74"/>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="Skins">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectSkinButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="t2s-PG-zpL"/>
+                                            <action selector="toggleMusicButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="L8q-Sg-55D"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-Wu-FGZ" customClass="CustomButton" customModule="MagnetismTV" customModuleProvider="target">
-                                <rect key="frame" x="873.5" y="784" width="173" height="173"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="aeG-Wu-FGZ" secondAttribute="height" multiplier="1:1" id="OWX-AF-Gb4"/>
-                                </constraints>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="-15" maxY="0.0"/>
-                                <state key="normal" image="MusicNote"/>
-                                <connections>
-                                    <action selector="toggleMusicButtonTouched:" destination="h3G-9R-gcD" eventType="primaryActionTriggered" id="L8q-Sg-55D"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94509804249999996" green="0.9098039269" blue="0.93725490570000003" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="rgi-MU-5fU" firstAttribute="centerY" secondItem="20D-mx-gO9" secondAttribute="centerY" constant="-120" id="0KI-Pb-BbV"/>
-                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="9d3-sh-OZY"/>
-                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="width" secondItem="20D-mx-gO9" secondAttribute="width" multiplier="0.09" id="AAe-Mx-7k5"/>
-                            <constraint firstItem="rgi-MU-5fU" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="LYy-HP-cQ2"/>
-                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="top" secondItem="rgi-MU-5fU" secondAttribute="bottom" constant="80" id="Pfg-nE-YDK"/>
-                            <constraint firstItem="rgi-MU-5fU" firstAttribute="width" secondItem="20D-mx-gO9" secondAttribute="width" multiplier="0.35" id="f8G-AP-tPW"/>
+                            <constraint firstItem="Gpz-pu-TiU" firstAttribute="centerX" secondItem="20D-mx-gO9" secondAttribute="centerX" id="SjT-jd-Dj7"/>
+                            <constraint firstAttribute="bottom" secondItem="Gpz-pu-TiU" secondAttribute="bottom" constant="120" id="T1F-sk-kps"/>
+                            <constraint firstItem="aeG-Wu-FGZ" firstAttribute="width" secondItem="20D-mx-gO9" secondAttribute="width" multiplier="0.1" id="aOI-En-TfY"/>
+                            <constraint firstItem="Gpz-pu-TiU" firstAttribute="top" secondItem="20D-mx-gO9" secondAttribute="top" constant="120" id="tUX-3m-AVp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P1d-ju-Lbz"/>
                     </view>

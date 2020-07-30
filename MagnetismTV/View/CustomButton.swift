@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class CustomButton: UIButton {
 
+    var canBeTouched =  true
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +50,9 @@ class CustomButton: UIButton {
 
 
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
+        guard !presses.isEmpty
+            && presses.first!.type == .select
+            && canBeTouched else { return }
 
         super.pressesBegan(presses, with: event)
 
@@ -59,7 +63,9 @@ class CustomButton: UIButton {
 
 
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
+        guard !presses.isEmpty
+            && presses.first!.type == .select
+            && canBeTouched else { return }
 
         super.pressesEnded(presses, with: event)
 
@@ -70,7 +76,9 @@ class CustomButton: UIButton {
 
 
     override func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
+        guard !presses.isEmpty
+            && presses.first!.type == .select
+            && canBeTouched else { return }
 
         super.pressesCancelled(presses, with: event)
 
@@ -81,7 +89,9 @@ class CustomButton: UIButton {
 
 
     override func pressesChanged(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        guard !presses.isEmpty && presses.first!.type == .select else { return }
+        guard !presses.isEmpty
+            && presses.first!.type == .select
+            && canBeTouched else { return }
 
         super.pressesChanged(presses, with: event)
 
@@ -97,17 +107,26 @@ class CustomButton: UIButton {
         if context.nextFocusedView == self {
             coordinator.addCoordinatedAnimations({
                 UIView.animate(withDuration: UIView.inheritedAnimationDuration) {
-                    self.backgroundColor = self.backgroundColor?.withAlphaComponent(0.7)
+                    if self.canBeTouched {
+                        self.backgroundColor = #colorLiteral(red: 0.8823529412, green: 0.7176470588, blue: 0.5215686275, alpha: 1)
+                    }
                     self.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
                 }
             }, completion: nil)
         } else if context.previouslyFocusedView == self {
             coordinator.addCoordinatedAnimations({
                 UIView.animate(withDuration: UIView.inheritedAnimationDuration * 2.0) {
-                    self.backgroundColor = self.backgroundColor?.withAlphaComponent(1.0)
+                    self.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.6352941176, blue: 0.3411764706, alpha: 1)
                     self.transform = CGAffineTransform(scaleX: 1, y: 1)
                 }
             }, completion: nil)
         }
+    }
+
+
+    func disable() {
+        canBeTouched = false
+        setTitle("", for: .normal)
+        setImage(UIImage(named: Image.locker), for: .normal)
     }
 }

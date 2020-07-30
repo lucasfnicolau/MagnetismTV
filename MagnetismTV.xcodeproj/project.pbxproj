@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B60EEF8724D0BE45008E94F6 /* Level006.sks in Resources */ = {isa = PBXBuildFile; fileRef = B60EEF8624D0BE45008E94F6 /* Level006.sks */; };
+		B60EEF9D24D2149A008E94F6 /* StageSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EEF9C24D2149A008E94F6 /* StageSelectionModel.swift */; };
+		B60EEF9F24D214CE008E94F6 /* StageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EEF9E24D214CE008E94F6 /* StageSelectionViewController.swift */; };
 		B61C217424B9035B00D0FFC2 /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217324B9035B00D0FFC2 /* Enablable.swift */; };
 		B61C217624BA866E00D0FFC2 /* AddTimeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */; };
 		B622A9D524CB738F000D4B9D /* Level005.sks in Resources */ = {isa = PBXBuildFile; fileRef = B622A9D424CB738F000D4B9D /* Level005.sks */; };
@@ -60,10 +62,17 @@
 		B6FE7CA824C2455C00D6AE7F /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA724C2455C00D6AE7F /* Sound.swift */; };
 		B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */; };
 		B6FE7CAC24C2468500D6AE7F /* AnimatedBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */; };
+		F2490D9124D1F660007A0128 /* Level008.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2490D9024D1F660007A0128 /* Level008.sks */; };
+		F2668DCA24D35D6300E0A257 /* Level010.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2668DC924D35D6300E0A257 /* Level010.sks */; };
+		F270C6A524D337DE00F23637 /* Level009.sks in Resources */ = {isa = PBXBuildFile; fileRef = F270C6A324D337DE00F23637 /* Level009.sks */; };
+		F2C0B41524D1E91D008A1E8C /* Level007.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2C0B41424D1E91D008A1E8C /* Level007.sks */; };
+		F2DD548F24D20CD5007092B6 /* StageSelectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B60EEF8624D0BE45008E94F6 /* Level006.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level006.sks; sourceTree = "<group>"; };
+		B60EEF9C24D2149A008E94F6 /* StageSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageSelectionModel.swift; sourceTree = "<group>"; };
+		B60EEF9E24D214CE008E94F6 /* StageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectionViewController.swift; sourceTree = "<group>"; };
 		B61C217324B9035B00D0FFC2 /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		B61C217524BA866E00D0FFC2 /* AddTimeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeItem.swift; sourceTree = "<group>"; };
 		B622A9D424CB738F000D4B9D /* Level005.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level005.sks; sourceTree = "<group>"; };
@@ -118,6 +127,11 @@
 		B6FE7CA724C2455C00D6AE7F /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		B6FE7CA924C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedSnakeBackgroundView.swift; path = MagnetismTV/AnimatedSnakeBackgroundView.swift; sourceTree = SOURCE_ROOT; };
 		B6FE7CAB24C2468500D6AE7F /* AnimatedBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackgroundViewController.swift; sourceTree = "<group>"; };
+		F2490D9024D1F660007A0128 /* Level008.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level008.sks; sourceTree = "<group>"; };
+		F2668DC924D35D6300E0A257 /* Level010.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level010.sks; sourceTree = "<group>"; };
+		F270C6A324D337DE00F23637 /* Level009.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level009.sks; sourceTree = "<group>"; };
+		F2C0B41424D1E91D008A1E8C /* Level007.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level007.sks; sourceTree = "<group>"; };
+		F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StageSelectionView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,7 @@
 			children = (
 				B68C34E924C8B26600182D54 /* Skin.swift */,
 				B68C34EB24C8B34100182D54 /* SkinManager.swift */,
+				B60EEF9C24D2149A008E94F6 /* StageSelectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +278,7 @@
 		B6D43FD524B3BB7A008B0F15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2DD548924D20CD5007092B6 /* StageSelection */,
 				B6AD164C24C7833400860341 /* SkinsViewController */,
 				B6AD163D24C62BF800860341 /* ResultsViewController */,
 				B6D43FC524B3BB6E008B0F15 /* GameViewController.swift */,
@@ -325,6 +341,10 @@
 		B6D43FEB24B50531008B0F15 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				F2668DC924D35D6300E0A257 /* Level010.sks */,
+				F270C6A324D337DE00F23637 /* Level009.sks */,
+				F2490D9024D1F660007A0128 /* Level008.sks */,
+				F2C0B41424D1E91D008A1E8C /* Level007.sks */,
 				B60EEF8624D0BE45008E94F6 /* Level006.sks */,
 				B622A9D424CB738F000D4B9D /* Level005.sks */,
 				B6FE7CA324C22E7600D6AE7F /* Level004.sks */,
@@ -334,6 +354,15 @@
 				B6315AEE24CB544A00869E79 /* Level000.sks */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		F2DD548924D20CD5007092B6 /* StageSelection */ = {
+			isa = PBXGroup;
+			children = (
+				F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */,
+				B60EEF9E24D214CE008E94F6 /* StageSelectionViewController.swift */,
+			);
+			path = StageSelection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +392,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Lucas Fernandez Nicolau";
 				TargetAttributes = {
 					B6D43FB924B3BB6E008B0F15 = {
@@ -394,7 +423,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2668DCA24D35D6300E0A257 /* Level010.sks in Resources */,
+				F270C6A524D337DE00F23637 /* Level009.sks in Resources */,
 				B6AD164124C62C1C00860341 /* ResultsViewController.storyboard in Resources */,
+				F2490D9124D1F660007A0128 /* Level008.sks in Resources */,
 				B6D43FE524B4F14D008B0F15 /* TileSet.sks in Resources */,
 				B6D43FC924B3BB6E008B0F15 /* Main.storyboard in Resources */,
 				B6D43FCB24B3BB71008B0F15 /* Assets.xcassets in Resources */,
@@ -404,9 +436,11 @@
 				B6315AEF24CB544A00869E79 /* Level000.sks in Resources */,
 				B6FE7CA424C22E7600D6AE7F /* Level004.sks in Resources */,
 				B6D43FE824B501E8008B0F15 /* Level001.sks in Resources */,
+				F2DD548F24D20CD5007092B6 /* StageSelectionView.storyboard in Resources */,
 				B6D43FCE24B3BB71008B0F15 /* LaunchScreen.storyboard in Resources */,
 				B6D43FE624B4F14D008B0F15 /* Assets.xcassets in Resources */,
 				B60EEF8724D0BE45008E94F6 /* Level006.sks in Resources */,
+				F2C0B41524D1E91D008A1E8C /* Level007.sks in Resources */,
 				B622A9D524CB738F000D4B9D /* Level005.sks in Resources */,
 				B6AD164E24C783A300860341 /* SkinsViewController.storyboard in Resources */,
 				B6FE7CA624C2454600D6AE7F /* GameTheme_1.1.mp3 in Resources */,
@@ -422,6 +456,7 @@
 			files = (
 				B66BCF1824C249A000B70D2B /* UIImageView+Copy.swift in Sources */,
 				B6CFCC8324B6630800AF8640 /* Movable.swift in Sources */,
+				B60EEF9F24D214CE008E94F6 /* StageSelectionViewController.swift in Sources */,
 				B663187C24C0CAD5003B0152 /* CustomButton.swift in Sources */,
 				B6D43FEA24B504F0008B0F15 /* Level.swift in Sources */,
 				B6FE7CAC24C2468500D6AE7F /* AnimatedBackgroundViewController.swift in Sources */,
@@ -451,6 +486,7 @@
 				B6AD165024C783AD00860341 /* SkinsViewController.swift in Sources */,
 				B6AD163F24C62C1100860341 /* ResultsViewController.swift in Sources */,
 				B6FE7CAA24C2465F00D6AE7F /* AnimatedSnakeBackgroundView.swift in Sources */,
+				B60EEF9D24D2149A008E94F6 /* StageSelectionModel.swift in Sources */,
 				B68C34EA24C8B26600182D54 /* Skin.swift in Sources */,
 				B6CFCC9224B7B54800AF8640 /* NotificationName.swift in Sources */,
 				B6DF835324BE257A0080670E /* CGFloat+Proportional.swift in Sources */,
@@ -601,7 +637,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 87G2Y58K9U;
 				INFOPLIST_FILE = MagnetismTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -621,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 87G2Y58K9U;
 				INFOPLIST_FILE = MagnetismTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

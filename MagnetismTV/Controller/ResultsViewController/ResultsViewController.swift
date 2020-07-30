@@ -20,6 +20,7 @@ class ResultsViewController: UIViewController {
     var level: Int = -1
     var gameVC: GameViewController?
     private let defaults = UserDefaults()
+    private let menuPressRecognizer = UITapGestureRecognizer()
 
 
     override var preferredFocusedView: UIView? {
@@ -30,6 +31,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPortalAnimation()
+        setupMenuButtonBehavior()
     }
 
 
@@ -54,6 +56,16 @@ class ResultsViewController: UIViewController {
     }
 
 
+    private func setupMenuButtonBehavior() {
+        menuPressRecognizer.addTarget(self, action: #selector(menuButtonTouched))
+        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuPressRecognizer)
+    }
+
+
+    @objc private func menuButtonTouched() {}
+
+
     private func configure() {
         if score == -1 || level == -1 { return }
 
@@ -74,10 +86,12 @@ class ResultsViewController: UIViewController {
         scoreView.text = "SCORE: \(score)"
         highscoreView.text = "HIGHSCORE: \(highscore)"
 
-        if GameViewController.doesSceneExists(atIndex: level + 1) {
-            defaults.set(level + 1, forKey: UDKey.currentLevel)
-        } else {
-            defaults.set(level, forKey: UDKey.currentLevel)
+        if level > defaults.integer(forKey: UDKey.currentLevel) {
+            if GameViewController.doesSceneExists(atIndex: level + 1) {
+                defaults.set(level + 1, forKey: UDKey.currentLevel)
+            } else {
+                defaults.set(level, forKey: UDKey.currentLevel)
+            }
         }
     }
 
