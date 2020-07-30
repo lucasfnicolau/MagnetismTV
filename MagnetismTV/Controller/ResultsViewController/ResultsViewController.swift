@@ -86,10 +86,12 @@ class ResultsViewController: UIViewController {
         scoreView.text = "SCORE: \(score)"
         highscoreView.text = "HIGHSCORE: \(highscore)"
 
-        if GameViewController.doesSceneExists(atIndex: level + 1) {
-            defaults.set(level + 1, forKey: UDKey.currentLevel)
-        } else {
-            defaults.set(level, forKey: UDKey.currentLevel)
+        if level > defaults.integer(forKey: UDKey.currentLevel) {
+            if GameViewController.doesSceneExists(atIndex: level + 1) {
+                defaults.set(level + 1, forKey: UDKey.currentLevel)
+            } else {
+                defaults.set(level, forKey: UDKey.currentLevel)
+            }
         }
     }
 
