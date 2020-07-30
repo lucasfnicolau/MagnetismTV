@@ -353,8 +353,8 @@
 		F2DD548924D20CD5007092B6 /* StageSelection */ = {
 			isa = PBXGroup;
 			children = (
-				B60EEF9E24D214CE008E94F6 /* StageSelectionViewController.swift */,
 				F2DD548B24D20CD5007092B6 /* StageSelectionView.storyboard */,
+				B60EEF9E24D214CE008E94F6 /* StageSelectionViewController.swift */,
 			);
 			path = StageSelection;
 			sourceTree = "<group>";
