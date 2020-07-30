@@ -12,4 +12,5 @@ enum Storyboard {
     static let main = "Main"
     static let results = "ResultsViewController"
     static let skins = "SkinsViewController"
+    static let stage = "StageSelectionView"
 }

@@ -45,7 +45,9 @@ class MenuViewController: AnimatedBackgroundViewController {
 
 
     @IBAction func selectLevelButtonTouched(_ sender: CustomButton) {
+        let stageSelectionVC = UIStoryboard(name: Storyboard.stage, bundle: nil).instantiateViewController(identifier: Identifier.stage)
 
+        navigationController?.pushViewController(stageSelectionVC, animated: true)
     }
 
 
